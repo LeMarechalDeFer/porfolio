@@ -13,7 +13,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { useState } from "react"
+
 
 type SkillLevel = "skills.level.beginner" | "skills.level.intermediate" | "skills.level.advanced" | "skills.level.expert"
 type SkillCategory = "skills.category.frontend" | "skills.category.backend" | "skills.category.database" | "skills.category.devops" | "skills.category.ai"
@@ -28,7 +28,6 @@ type Skill = {
 
 export default function Skills() {
   const t = useI18n()
-  const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null)
 
   const skillsData: Skill[] = [
     {
@@ -200,7 +199,6 @@ export default function Skills() {
                         <DialogTrigger asChild>
                           <Badge
                             className={`${levelColors[skill.level]} cursor-pointer transition-colors`}
-                            onClick={() => setSelectedSkill(skill)}
                           >
                             {skill.name}
                           </Badge>

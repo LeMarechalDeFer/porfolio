@@ -112,4 +112,32 @@ export default {
     "skills.ml.description": "Intégration de modèles d'apprentissage automatique dans les applications",
     "skills.nlp.description": "Traitement du langage naturel pour l'analyse de texte",
 
+    // Footer translations
+    "footer.name": "Romain",
+    "footer.description": "Développeur web freelance expert Next.js, spécialisé en solutions end-to-end et intégration d'IA.",
+    "footer.services.title": "Services",
+    "footer.services.development": "Développement Web Full-Stack",
+    "footer.services.solutions": "Solutions End-to-End",
+    "footer.services.ai": "Intégration d'IA",
+    "footer.services.performance": "Optimisation des Performances",
+    "footer.resources.title": "Ressources",
+    "footer.resources.blog": "Blog",
+    "footer.resources.projects": "Projets",
+    "footer.resources.testimonials": "Témoignages",
+    "footer.resources.faq": "FAQ",
+    "footer.copyright": "Tous droits réservés.",
+    "footer.legal.terms": "Mentions légales",
+    "footer.legal.privacy": "Politique de confidentialité",
+    "footer.legal.conditions": "Conditions d'utilisation",
+
+    // Newsletter translations
+    "newsletter.title": "Restez informé",
+    "newsletter.description": "Abonnez-vous à notre newsletter pour recevoir les dernières actualités et conseils en développement web et IA.",
+    "newsletter.placeholder": "Votre adresse email",
+    "newsletter.button": "S'abonner",
+    "newsletter.disclaimer": "En vous abonnant, vous acceptez notre",
+    "newsletter.privacy": "politique de confidentialité",
+    "newsletter.success.title": "Inscription réussie !",
+    "newsletter.success.description": "Merci de vous être abonné à notre newsletter."
+
   } as const
