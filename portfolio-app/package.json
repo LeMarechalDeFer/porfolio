@@ -36,7 +36,11 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
+      "@vercel/speed-insights",
       "core-js"
+    ],
+    "ignoredBuiltDependencies": [
+      "sharp"
     ]
   }
 }
