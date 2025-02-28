@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { toast } from "sonner"
 import { useI18n } from "@/locales/client"
+import Link from "next/link"
 
 export function Newsletter() {
   const [email, setEmail] = useState("")
@@ -43,13 +44,12 @@ export function Newsletter() {
         </div>
         <p className="text-xs text-muted-foreground">
           {t("newsletter.disclaimer")}{" "}
-          <a href="/politique-de-confidentialite" className="underline hover:text-primary">
+          <Link href="/politique-de-confidentialite" className="underline hover:text-primary">
             {t("newsletter.privacy")}
-          </a>
+          </Link>
           .
         </p>
       </form>
     </div>
   )
 }
-
