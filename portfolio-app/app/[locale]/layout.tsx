@@ -8,6 +8,7 @@ export default async function SubLayout({ params, children }: { params: Promise<
   const { locale } = await params
  
   return (
+    
     <I18nProviderClient locale={locale}>
       {children}
     </I18nProviderClient>

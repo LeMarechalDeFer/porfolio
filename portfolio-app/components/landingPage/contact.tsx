@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Github, Linkedin, Instagram, Mail, MapPin, Phone } from "lucide-react"
+import { Github, Linkedin, Instagram, Mail, MapPin } from "lucide-react"
 import Link from "next/link"
 
 export default function Contact() {
@@ -17,15 +17,15 @@ export default function Contact() {
     {
       icon: <Mail className="h-5 w-5" />,
       title: t("contact.info.email"),
-      value: "contact@example.com",
-      href: "mailto:contact@example.com",
+      value: "blanchot@et.esiea.fr",
+      href: "mailto:blanchot@et.esiea.fr",
     },
-    {
-      icon: <Phone className="h-5 w-5" />,
-      title: t("contact.info.phone"),
-      value: "+33 6 12 34 56 78",
-      href: "tel:+33612345678",
-    },
+    // {
+    //   icon: <Phone className="h-5 w-5" />,
+    //   title: t("contact.info.phone"),
+    //   value: "+33 7 88 28 47 15",
+    //   href: "tel:+33788284715",
+    // },
     {
       icon: <MapPin className="h-5 w-5" />,
       title: t("contact.info.location"),
@@ -79,17 +79,17 @@ export default function Contact() {
             </div>
 
             <div className="flex gap-4 pt-4">
-              <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <Link href="https://github.com/LeMarechalDeFer" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="icon" aria-label="GitHub">
                   <Github className="h-5 w-5" />
                 </Button>
               </Link>
-              <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+              <Link href="https://www.linkedin.com/in/romain-blanchot-449941284/" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="icon" aria-label="LinkedIn">
                   <Linkedin className="h-5 w-5" />
                 </Button>
               </Link>
-              <Link href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+              <Link href="https://www.instagram.com/_romain_blanchot_/" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="icon" aria-label="Instagram">
                   <Instagram className="h-5 w-5" />
                 </Button>
@@ -130,7 +130,7 @@ export default function Contact() {
                     <label htmlFor="email" className="text-sm font-medium">
                       {t("contact.form.email")}
                     </label>
-                    <Input id="email" type="email" placeholder="john.doe@example.com" />
+                    <Input id="email" type="email" placeholder="blanchot@et.esiea.fr" />
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="subject" className="text-sm font-medium">

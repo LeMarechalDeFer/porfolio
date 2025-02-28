@@ -17,9 +17,32 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Romain Blanchot",
-  description: "Développeur web passionné par la création de sites web performants et évolutifs.",
+  title: {
+    default: "Romain - Développeur Web Freelance Expert Next.js",
+    template: "%s | Romain - Développeur Web Freelance",
+  },
+  description:
+    "Développeur web freelance spécialisé en solutions end-to-end et intégration d'IA. Créez des applications web performantes et évolutives avec un expert Next.js.",
+  keywords: ["développeur web", "freelance", "Next.js", "React", "full-stack", "IA", "applications web"],
+  authors: [{ name: "Romain" }],
+  creator: "Romain",
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    url: "https://www.romainblanchot.com",
+    siteName: "Romain - Développeur Web Freelance",
+    images: [
+      {
+        url: "https://www.romainblanchot.com/photoProfilRomain.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Romain - Développeur Web Freelance Expert Next.js",
+      },
+    ],
+  },
 };
+
+
 
 export default function RootLayout({
   children,
@@ -29,7 +52,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <PostHogProvider>

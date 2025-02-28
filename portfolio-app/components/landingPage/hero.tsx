@@ -84,17 +84,17 @@ export default function Hero() {
           transition={{ delay: 0.6, duration: 0.6 }}
           className="mt-8 sm:mt-10 lg:mt-12 flex justify-center lg:justify-start gap-4"
         >
-          <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+          <Link href="https://github.com/LeMarechalDeFer" target="_blank" rel="noopener noreferrer">
             <Button variant="ghost" size="icon" aria-label="GitHub" className="rounded-full">
               <Github className="h-5 w-5" />
             </Button>
           </Link>
-          <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+          <Link href="https://www.linkedin.com/in/romain-blanchot-449941284/" target="_blank" rel="noopener noreferrer">
             <Button variant="ghost" size="icon" aria-label="LinkedIn" className="rounded-full">
               <Linkedin className="h-5 w-5" />
             </Button>
           </Link>
-          <Link href="mailto:contact@example.com">
+          <Link href="mailto:blanchot@et.esiea.fr">
             <Button variant="ghost" size="icon" aria-label="Email" className="rounded-full">
               <Mail className="h-5 w-5" />
             </Button>

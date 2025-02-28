@@ -2,7 +2,7 @@
 
 import { useI18n } from "@/locales/client"
 import { motion } from "framer-motion"
-import { Code, Rocket, Zap, Bot, Cloud } from "lucide-react"
+import { Code, Rocket, Bot, Cloud } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 export default function Services() {

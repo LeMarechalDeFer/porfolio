@@ -209,8 +209,9 @@ export default function Skills() {
                           <DialogHeader>
                             <DialogTitle>{skill.name}</DialogTitle>
                             <DialogDescription>
-                              {t("skills.level")} : <Badge className={levelColors[skill.level]}>{t(skill.level)}</Badge>
+                              {t("skills.level")} :
                             </DialogDescription>
+                            <Badge className={levelColors[skill.level]}>{t(skill.level)}</Badge>
                           </DialogHeader>
                           <div className="mt-4">
                             <p className="text-sm text-muted-foreground mb-4">{skill.description}</p>

@@ -76,7 +76,7 @@ export default function Header() {
               {languages.map((lang) => (
                 <DropdownMenuItem
                   key={lang.code}
-                  onClick={() => changeLocale(lang.code as any)}
+                  onClick={() => changeLocale(lang.code as keyof typeof t)}
                   className={locale === lang.code ? "bg-accent" : ""}
                 >
                   {lang.name}
@@ -123,7 +123,7 @@ export default function Header() {
                       key={lang.code}
                       variant={locale === lang.code ? "default" : "outline"}
                       size="sm"
-                      onClick={() => changeLocale(lang.code as any)}
+                      onClick={() => changeLocale(lang.code as keyof typeof t)}
                     >
                       {lang.code.toUpperCase()}
                     </Button>
