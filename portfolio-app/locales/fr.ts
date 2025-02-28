@@ -1,4 +1,4 @@
-// locales/en.ts
+// locales/fr.ts
 export default {
     "about.title": "À propos",
     "about.description": "Je suis un développeur web passionné par la création de sites web performants et évolutifs.",

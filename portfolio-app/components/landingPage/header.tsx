@@ -36,8 +36,8 @@ export default function Header() {
   const languages = [
     { code: "fr", name: "Français" },
     { code: "en", name: "English" },
-    { code: "de", name: "Deutsch" },
-    { code: "es", name: "Español" },
+    // { code: "de", name: "Deutsch" },
+    // { code: "es", name: "Español" },
   ]
 
   if (!mounted) return null

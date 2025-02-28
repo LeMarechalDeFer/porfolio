@@ -65,8 +65,11 @@ export default function Hero() {
                   src="/photoProfilRomain.jpg"
                   alt="Romain"
                   fill
+                  sizes="(max-width: 640px) 224px, (max-width: 768px) 256px, (max-width: 1024px) 320px, 384px"
                   className="object-cover"
                   priority
+                  quality={70}
+                  loading="eager"
                 />
               </div>
               <div className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 bg-background rounded-lg shadow-lg p-2 sm:p-4 border">
