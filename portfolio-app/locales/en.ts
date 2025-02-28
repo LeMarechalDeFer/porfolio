@@ -1,6 +1,9 @@
 // locales/en.ts
 export default {
-    'hello': 'Hello',
-    'hello.world': 'Hello world!',
-    'welcome': 'Hello {name}!'
+    "nav.home": "Home",
+    "nav.skills": "Skills",
+    "nav.projects": "Projects",
+    "nav.about": "About",
+    "nav.contact": "Contact",
+    
   } as const

@@ -56,8 +56,10 @@ section skill :
 
 - nextjs, ts, html/css, 
 
+
 Développement Web : HTML/CSS, Tailwind CSS, JavaScript, React.js , Nextjs
 Langages de Programmation : C/C++ avec Boost, Java 
+Ai : integration et maitrise de l'ia et des agent ia !
 Administration Système & DevOps : Linux, Docker, Nginx, Git & Github
 Base de Données : SQL, SQLPlus, PostgreSQL, Oracle , Redis 
 
