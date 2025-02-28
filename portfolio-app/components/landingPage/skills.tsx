@@ -170,7 +170,7 @@ export default function Skills() {
   const categories = Array.from(new Set(skillsData.map((skill) => skill.category)))
 
   return (
-    <section id="skills" className="py-16 bg-muted/50">
+    <section id="skills" className="py-16 bg-muted/50 px-4 sm:px-8 lg:px-12">
       <div className="container">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

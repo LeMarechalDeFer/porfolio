@@ -24,11 +24,11 @@ export default function Services() {
       title: t("services.ai.title"),
       description: t("services.ai.description"),
     },
-    {
-      icon: <Zap className="h-8 w-8 text-primary" />,
-      title: t("services.perf.title"),
-      description: t("services.perf.description"),
-    },
+    // {
+    //   icon: <Zap className="h-8 w-8 text-primary" />,
+    //   title: t("services.perf.title"),
+    //   description: t("services.perf.description"),
+    // },
     {
       icon: <Cloud className="h-8 w-8 text-primary" />,
       title: t("services.deploy.title"),
@@ -37,7 +37,7 @@ export default function Services() {
   ]
 
   return (
-    <section id="services" className="py-16 bg-muted/30">
+    <section id="services" className="py-16 bg-muted/30 px-4 sm:px-8 lg:px-12">
       <div className="container">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

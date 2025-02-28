@@ -8,14 +8,14 @@ import Contact from "@/components/landingPage/contact"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background">
-      <Header />
-      <Hero />
-      <Services />
-      <Skills />
-      <Projects />
-      <About />
-      <Contact />
+    <main className="min-h-screen bg-background overflow-x-hidden">
+        <Header/>
+        <Hero />
+        <Services />
+        <Skills />
+        <Projects />
+        <About />
+        <Contact />
     </main>
   )
 }

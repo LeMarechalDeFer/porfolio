@@ -13,7 +13,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-background py-20"
+      className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-background py-20 px-4 sm:px-8 lg:px-12"
     >
       <div className="container relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
