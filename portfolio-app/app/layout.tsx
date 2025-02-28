@@ -5,6 +5,7 @@ import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { PostHogProvider } from './providers'
 import { ThemeProvider } from "next-themes"
+import { Analytics } from "@vercel/analytics/react"
 
 
 const geistSans = Geist({
@@ -61,6 +62,7 @@ export default function RootLayout({
           </PostHogProvider>
         </ThemeProvider>
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
