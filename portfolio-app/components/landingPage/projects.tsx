@@ -1,13 +1,16 @@
 "use client"
 
 import { useI18n } from "@/locales/client"
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
-import { Building2, Database, Server } from "lucide-react"
+import { Building2, Database, Server, Lightbulb, Code, Zap, Cog, Shield, Users, ChevronUp, ChevronDown } from "lucide-react"
 import Link from "next/link"
+import { useState } from "react"
+
+
 
 export default function Projects() {
   const t = useI18n()
@@ -21,13 +24,52 @@ export default function Projects() {
       featured: true,
       link: "https://hotel-lalouisiane.com",
       image: "/premierePage.jpg",
+      challenged: true,
+      challenges: [
+        {
+          challenge: t("projects.hotel.challenges.1.challenge"),
+          solution: t("projects.hotel.challenges.1.solution"),
+          icon: <Code className="h-6 w-6" />,
+        },
+        {
+          challenge: t("projects.hotel.challenges.2.challenge"),
+          solution: t("projects.hotel.challenges.2.solution"),
+          icon: <Zap className="h-6 w-6" />,
+        },
+        {
+          challenge: t("projects.hotel.challenges.3.challenge"),
+          solution: t("projects.hotel.challenges.3.solution"),
+          icon: <Cog className="h-6 w-6" />,
+        },
+      ],
     },
+
+
+
     {
       title: t("projects.extraction.title"),
       description: t("projects.extraction.description"),
       icon: <Database className="h-10 w-10" />,
       tags: ["Python", "Selenium", "PostgreSQL", "Docker", "ETL"],
       featured: false,
+      challenged: true,
+      challenges: [
+        {
+          challenge: t("projects.extraction.challenges.1.challenge"),
+          solution: t("projects.extraction.challenges.1.solution"),
+          icon: <Shield className="h-6 w-6" />,
+        },
+        {
+          challenge: t("projects.extraction.challenges.2.challenge"),
+          solution: t("projects.extraction.challenges.2.solution"),
+          icon: <Zap className="h-6 w-6" />,
+        },
+        {
+          challenge: t("projects.extraction.challenges.3.challenge"),
+          solution: t("projects.extraction.challenges.3.solution"),
+          icon: <Users className="h-6 w-6" />,
+        },
+      ],
     },
     {
       title: t("projects.infrastructure.title"),
@@ -35,7 +77,26 @@ export default function Projects() {
       icon: <Server className="h-10 w-10" />,
       tags: ["Infrastructure", "PXE", "iDRAC", "VLAN", "Monitoring"],
       featured: false,
+      challenged: true,
+      challenges: [
+        {
+          challenge: t("projects.infrastructure.challenges.1.challenge"),
+          solution: t("projects.infrastructure.challenges.1.solution"),
+          icon: <Cog className="h-6 w-6" />,
+        },
+        {
+          challenge: t("projects.infrastructure.challenges.2.challenge"),
+          solution: t("projects.infrastructure.challenges.2.solution"),
+          icon: <Shield className="h-6 w-6" />,
+        },
+        {
+          challenge: t("projects.infrastructure.challenges.3.challenge"),
+          solution: t("projects.infrastructure.challenges.3.solution"),
+          icon: <Zap className="h-6 w-6" />,
+        },
+      ],
     },
+    
   ]
 
   const container = {
@@ -51,6 +112,22 @@ export default function Projects() {
   const item = {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0 },
+  }
+
+  const [expandedProjects, setExpandedProjects] = useState<Set<string>>(new Set())
+
+  const isProjectExpanded = (projectId: string) => expandedProjects.has(projectId)
+
+  const toggleProject = (projectId: string) => {
+    setExpandedProjects(prev => {
+      const newSet = new Set(prev)
+      if (newSet.has(projectId)) {
+        newSet.delete(projectId)
+      } else {
+        newSet.add(projectId)
+      }
+      return newSet
+    })
   }
 
   return (
@@ -76,7 +153,9 @@ export default function Projects() {
           {/* Featured Project */}
           {projects
             .filter((project) => project.featured)
-            .map((project, index) => (
+            .map((project, index) => {
+              const projectId = `featured-${index}`
+              return (
               <motion.div key={index} variants={item}>
                 <Card className="overflow-hidden">
                   <div className="grid md:grid-cols-2 gap-6">
@@ -107,27 +186,71 @@ export default function Projects() {
                           ))}
                         </div>
                       </div>
-                      <div className="flex gap-4">
+                      <div className="flex justify-between gap-4">
                         <Button variant="default" size="sm">
                           <Link href={project.link ?? ""} target="_blank">
                             {t("projects.viewProject")}
                           </Link>
                         </Button>
+                        {project.challenged && (
+                          <Button variant="outline" size="sm" className="gap-2" 
+                          aria-controls={`challenge-${projectId}`}
+                          aria-expanded={isProjectExpanded(projectId)}
+                          onClick={() => toggleProject(projectId)}>
+                            {isProjectExpanded(projectId) ? (
+                              <>
+                                <ChevronUp className="w-4 h-4" />
+                                {t("projects.masquer")}
+                              </>
+                            ) : (
+                              <>
+                                <ChevronDown className="w-4 h-4" />
+                                {t("projects.defiSolution")}
+                                <Lightbulb className="w-4 h-4 text-yellow-400" />
+                              </>
+                            )}
+                            
+                          </Button>
+                        )}
                         {/* <Button variant="outline" size="sm">
                           {t("projects.sourceCode")}
                         </Button> */}
                       </div>
+                      <AnimatePresence>
+                      {isProjectExpanded(projectId) && (
+                        <motion.div
+                          id={`challenges-${projectId}`}
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="mt-4 space-y-4"
+                        >
+                          {project.challenges.map((challenge, challengeIndex) => (
+                            <div key={challengeIndex} className="bg-background p-4 rounded-lg shadow-sm">
+                              <div className="flex items-center gap-2 mb-2">
+                                <div className="p-1 bg-primary/10 rounded-full text-primary">{challenge.icon}</div>
+                                <h5 className="font-semibold">{challenge.challenge}</h5>
+                              </div>
+                              <p className="text-sm text-muted-foreground ml-8">{challenge.solution}</p>
+                            </div>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                     </div>
                   </div>
                 </Card>
               </motion.div>
-            ))}
+            )})}
 
           {/* Other Projects */}
           <div className="grid md:grid-cols-2 gap-6">
             {projects
               .filter((project) => !project.featured)
-              .map((project, index) => (
+              .map((project, index) => {
+                const projectId = `regular-${index}`
+                return (
                 <motion.div key={index} variants={item}>
                   <Card>
                     <CardHeader>
@@ -154,9 +277,52 @@ export default function Projects() {
                         {t("projects.sourceCode")}
                       </Button>
                     </CardFooter> */}
+                    <CardFooter className="justify-end">
+                        {project.challenged && (
+                          <Button variant="outline" size="sm" className="gap-2" 
+                          aria-controls={`challenge-${projectId}`}
+                          aria-expanded={isProjectExpanded(projectId)}
+                          onClick={() => toggleProject(projectId)}>
+                            {isProjectExpanded(projectId) ? (
+                              <>
+                                <ChevronUp className="w-4 h-4" />
+                                {t("projects.masquer")}
+                              </>
+                            ) : (
+                              <>
+                                <ChevronDown className="w-4 h-4" />
+                                {t("projects.defiSolution")} 
+                                <Lightbulb className="w-4 h-4 text-yellow-400" />
+                              </>
+                            )}
+                          </Button>
+                        )}
+                    </CardFooter>
+                    <AnimatePresence>
+                      {isProjectExpanded(projectId) && (
+                        <motion.div
+                          id={`challenges-${projectId}`}
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="mt-4 space-y-4"
+                        >
+                          {project.challenges.map((challenge, challengeIndex) => (
+                            <div key={challengeIndex} className="bg-background p-4 rounded-lg shadow-sm">
+                              <div className="flex items-center gap-2 mb-2">
+                                <div className="p-1 bg-primary/10 rounded-full text-primary">{challenge.icon}</div>
+                                <h5 className="font-semibold">{challenge.challenge}</h5>
+                              </div>
+                              <p className="text-sm text-muted-foreground ml-8">{challenge.solution}</p>
+                            </div>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </Card>
                 </motion.div>
-              ))}
+              )})}
           </div>
         </motion.div>
       </div>

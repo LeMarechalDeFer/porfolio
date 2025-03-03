@@ -52,6 +52,8 @@ export default {
     "projects.featured": "Projet Vedette",
     "projects.viewProject": "Voir le projet",
     "projects.sourceCode": "Code source",
+    "projects.defiSolution": "Défis Relevés & Solutions Apportées",
+    "projects.masquer": "Masquer",
     
     "projects.hotel.title": "Hotel La Louisiane",
     "projects.hotel.description": "Développement d'un booking engine avec Next.js & Tailwind CSS, interface d'administration complète pour la gestion des réservations et tarifs, intégration d'animations Framer Motion et système de génération automatique de devis PDF.",
@@ -138,6 +140,28 @@ export default {
     "newsletter.disclaimer": "En vous abonnant, vous acceptez notre",
     "newsletter.privacy": "politique de confidentialité",
     "newsletter.success.title": "Inscription réussie !",
-    "newsletter.success.description": "Merci de vous être abonné à notre newsletter."
+    "newsletter.success.description": "Merci de vous être abonné à notre newsletter.",
+
+    // Ajout des traductions pour les défis et solutions
+    "projects.hotel.challenges.1.challenge": "Intégration complexe avec le système de réservation existant",
+    "projects.hotel.challenges.1.solution": "Développement d'une API personnalisée pour synchroniser les données en temps réel",
+    "projects.hotel.challenges.2.challenge": "Performance du moteur de recherche de disponibilités",
+    "projects.hotel.challenges.2.solution": "Mise en place d'un système de cache avancé et optimisation des requêtes",
+    "projects.hotel.challenges.3.challenge": "Gestion des tarifs dynamiques",
+    "projects.hotel.challenges.3.solution": "Création d'un algorithme de pricing flexible basé sur la demande et la saisonnalité",
+
+    "projects.extraction.challenges.1.challenge": "Gestion des changements fréquents dans les structures des sites web cibles",
+    "projects.extraction.challenges.1.solution": "Implémentation d'un système de configuration flexible et d'une détection automatique des changements",
+    "projects.extraction.challenges.2.challenge": "Traitement de grands volumes de données sans impact sur les performances",
+    "projects.extraction.challenges.2.solution": "Utilisation de techniques de streaming et de traitement par lots pour une scalabilité optimale",
+    "projects.extraction.challenges.3.challenge": "Simplification de l'interface pour des utilisateurs non-techniques",
+    "projects.extraction.challenges.3.solution": "Conception d'une interface drag-and-drop et d'assistants guidés pour les tâches complexes",
+
+    "projects.infrastructure.challenges.1.challenge": "Mise en place d'un déploiement automatisé sur hardware hétérogène",
+    "projects.infrastructure.challenges.1.solution": "Développement de scripts PXE personnalisés et utilisation avancée de l'iDRAC pour une configuration sans intervention",
+    "projects.infrastructure.challenges.2.challenge": "Sécurisation de l'infrastructure contre les menaces internes et externes",
+    "projects.infrastructure.challenges.2.solution": "Implémentation d'une segmentation réseau fine avec VLANs et d'un système de détection d'intrusion distribué",
+    "projects.infrastructure.challenges.3.challenge": "Monitoring efficace d'une infrastructure complexe",
+    "projects.infrastructure.challenges.3.solution": "Mise en place d'une stack de monitoring centralisée avec alerting intelligent et tableaux de bord personnalisés"
 
   } as const

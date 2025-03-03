@@ -28,8 +28,10 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <div className="relative h-80 rounded-lg overflow-hidden">
-              <Image src="/placeholder.svg?height=400&width=600" alt="About Romain" fill className="object-cover" />
+            <div className="relative h-[550px] rounded-lg overflow-hidden">
+              <Image src="/alpinismeRomain.jpg" alt="About Romain" fill className="object-cover" 
+              />
+              {/* <Image src="/placeholder.svg?height=400&width=600" alt="About Romain" fill className="object-cover" /> */}
             </div>
           </motion.div>
 

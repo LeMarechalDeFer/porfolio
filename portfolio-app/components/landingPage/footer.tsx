@@ -1,6 +1,6 @@
 "use client"
 
-import { Linkedin, Twitter, Github, Mail } from "lucide-react"
+import { Linkedin, Github, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Newsletter } from "@/components/landingPage/newsletter"
@@ -27,11 +27,6 @@ export default function Footer() {
               <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
                 <Button variant="ghost" size="icon" aria-label="LinkedIn">
                   <Linkedin className="h-5 w-5" />
-                </Button>
-              </Link>
-              <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                <Button variant="ghost" size="icon" aria-label="Twitter">
-                  <Twitter className="h-5 w-5" />
                 </Button>
               </Link>
               <Link href="mailto:contact@example.com">

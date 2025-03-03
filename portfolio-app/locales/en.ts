@@ -52,7 +52,8 @@ export default {
   "projects.featured": "Featured Project",
   "projects.viewProject": "View project",
   "projects.sourceCode": "Source code",
-  
+  "projects.defiSolution": "Challenges & Solutions Provided",
+  "projects.masquer": "Hide",
   "projects.hotel.title": "Hotel La Louisiane",
   "projects.hotel.description": "Development of a booking engine with Next.js & Tailwind CSS, complete administration interface for reservation and rate management, integration of Framer Motion animations and automatic PDF quote generation system.",
   
@@ -138,6 +139,27 @@ export default {
   "newsletter.disclaimer": "By subscribing, you accept our",
   "newsletter.privacy": "privacy policy",
   "newsletter.success.title": "Subscription successful!",
-  "newsletter.success.description": "Thank you for subscribing to our newsletter."
+  "newsletter.success.description": "Thank you for subscribing to our newsletter.",
 
+  // Adding translations for challenges and solutions
+  "projects.hotel.challenges.1.challenge": "Complex integration with existing reservation system",
+  "projects.hotel.challenges.1.solution": "Development of a custom API to synchronize data in real-time",
+  "projects.hotel.challenges.2.challenge": "Performance of the availability search engine",
+  "projects.hotel.challenges.2.solution": "Implementation of an advanced caching system and query optimization",
+  "projects.hotel.challenges.3.challenge": "Dynamic pricing management",
+  "projects.hotel.challenges.3.solution": "Creation of a flexible pricing algorithm based on demand and seasonality",
+
+  "projects.extraction.challenges.1.challenge": "Managing frequent changes in target website structures",
+  "projects.extraction.challenges.1.solution": "Implementation of a flexible configuration system and automatic change detection",
+  "projects.extraction.challenges.2.challenge": "Processing large volumes of data without performance impact",
+  "projects.extraction.challenges.2.solution": "Use of streaming techniques and batch processing for optimal scalability",
+  "projects.extraction.challenges.3.challenge": "Simplifying the interface for non-technical users",
+  "projects.extraction.challenges.3.solution": "Design of a drag-and-drop interface and guided wizards for complex tasks",
+
+  "projects.infrastructure.challenges.1.challenge": "Setting up automated deployment on heterogeneous hardware",
+  "projects.infrastructure.challenges.1.solution": "Development of custom PXE scripts and advanced use of iDRAC for hands-off configuration",
+  "projects.infrastructure.challenges.2.challenge": "Securing infrastructure against internal and external threats",
+  "projects.infrastructure.challenges.2.solution": "Implementation of fine-grained network segmentation with VLANs and a distributed intrusion detection system",
+  "projects.infrastructure.challenges.3.challenge": "Effective monitoring of a complex infrastructure",
+  "projects.infrastructure.challenges.3.solution": "Implementation of a centralized monitoring stack with intelligent alerting and custom dashboards"
 } as const
