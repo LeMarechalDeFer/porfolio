@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
 import { Building2, Database, Server } from "lucide-react"
+import Link from "next/link"
 
 export default function Projects() {
   const t = useI18n()
@@ -18,6 +19,8 @@ export default function Projects() {
       icon: <Building2 className="h-10 w-10" />,
       tags: ["Next.js", "Tailwind CSS", "Framer Motion", "PDF Generation"],
       featured: true,
+      link: "https://hotel-lalouisiane.com",
+      image: "/premierePage.jpg",
     },
     {
       title: t("projects.extraction.title"),
@@ -51,7 +54,7 @@ export default function Projects() {
   }
 
   return (
-    <section id="projects" className="py-16 px-4 sm:px-8 lg:px-12">
+    <section id="projects" className="py-16 px-4 sm:px-8 lg:px-12 scroll-mt-8">
       <div className="container">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -79,10 +82,11 @@ export default function Projects() {
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="relative h-64 md:h-auto">
                       <Image
-                        src="/placeholder.svg?height=400&width=600"
+                        src={project.image ?? ""}
                         alt={project.title}
                         fill
                         className="object-cover"
+                        objectPosition="top"
                       />
                     </div>
                     <div className="p-6 flex flex-col justify-between">
@@ -105,11 +109,13 @@ export default function Projects() {
                       </div>
                       <div className="flex gap-4">
                         <Button variant="default" size="sm">
-                          {t("projects.viewProject")}
+                          <Link href={project.link ?? ""} target="_blank">
+                            {t("projects.viewProject")}
+                          </Link>
                         </Button>
-                        <Button variant="outline" size="sm">
+                        {/* <Button variant="outline" size="sm">
                           {t("projects.sourceCode")}
-                        </Button>
+                        </Button> */}
                       </div>
                     </div>
                   </div>
@@ -140,14 +146,14 @@ export default function Projects() {
                         ))}
                       </div>
                     </CardContent>
-                    <CardFooter className="flex justify-between">
+                    {/* <CardFooter className="flex justify-between">
                       <Button variant="default" size="sm">
                         {t("projects.viewProject")}
                       </Button>
                       <Button variant="outline" size="sm">
                         {t("projects.sourceCode")}
                       </Button>
-                    </CardFooter>
+                    </CardFooter> */}
                   </Card>
                 </motion.div>
               ))}

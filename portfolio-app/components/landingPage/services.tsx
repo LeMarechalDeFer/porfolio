@@ -37,7 +37,7 @@ export default function Services() {
   ]
 
   return (
-    <section id="services" className="py-16 bg-muted/30 px-4 sm:px-8 lg:px-12">
+    <section id="services" className="py-16 bg-muted/30 px-4 sm:px-8 lg:px-12 scroll-mt-8">
       <div className="container">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

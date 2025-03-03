@@ -13,7 +13,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-background py-10 sm:py-16 lg:py-20 px-4 sm:px-8 lg:px-12"
+      className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-background py-10 sm:py-16 lg:py-20 px-4 sm:px-8 lg:px-12 mt-10"
     >
       <div className="container relative z-10">
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -31,11 +31,16 @@ export default function Hero() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
               <Button size="lg" className="group w-full sm:w-auto">
-                {t("hero.cta.primary")}
+                <Link href="/demarer-un-projet">
+                  {t("hero.cta.primary")}
+                  
+                </Link>
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
               <Button size="lg" variant="outline" className="w-full sm:w-auto">
-                {t("hero.cta.secondary")}
+                <Link href="/#projects">
+                  {t("hero.cta.secondary")}
+                </Link>
               </Button>
             </div>
             <div className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center lg:justify-start gap-3 sm:gap-6 pt-4">
