@@ -3,15 +3,16 @@ import type { MetadataRoute } from 'next'
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-        url: 'https://romainblanchot.com',
+        url: 'https://www.romainblanchot.com',
         lastModified: new Date(),
-        changeFrequency: 'weekly',
+        changeFrequency: 'daily',
         priority: 1,
         alternates: {
-        languages: {
-            en: 'https://romainblanchot.com/en',
+            languages: {
+                en: 'https://www.romainblanchot.com/en',
+            },
         },
-        },
+        images: ['https://www.romainblanchot.com/photoProfilRomain.jpg'],
     },
   ]
 }
