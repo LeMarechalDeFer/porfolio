@@ -8,84 +8,145 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { ArrowRight, Code, Server, Database, Brain, Cloud, Zap, Shield, Cog, Users } from "lucide-react"
 import Link from "next/link"
+import { useI18n } from "@/locales/client"
 
+// Définir le type pour les catégories de services
+type ServiceCategory = typeof serviceKeys.categories.dev | typeof serviceKeys.categories.sys | typeof serviceKeys.categories.ai;
+
+// Définir toutes les traductions possibles pour satisfaire TypeScript
+const serviceKeys = {
+  categories: {
+    dev: "mes-services.category.dev",
+    sys: "mes-services.category.sys",
+    ai: "mes-services.category.ai"
+  },
+  items: {
+    web: {
+      title: "mes-services.item.web.title",
+      description: "mes-services.item.web.description"
+    },
+    api: {
+      title: "mes-services.item.api.title",
+      description: "mes-services.item.api.description"
+    },
+    integration: {
+      title: "mes-services.item.integration.title",
+      description: "mes-services.item.integration.description"
+    },
+    cloud: {
+      title: "mes-services.item.cloud.title",
+      description: "mes-services.item.cloud.description"
+    },
+    devops: {
+      title: "mes-services.item.devops.title",
+      description: "mes-services.item.devops.description"
+    },
+    security: {
+      title: "mes-services.item.security.title",
+      description: "mes-services.item.security.description"
+    },
+    aiIntegration: {
+      title: "mes-services.item.ai-integration.title",
+      description: "mes-services.item.ai-integration.description"
+    },
+    mlPipelines: {
+      title: "mes-services.item.ml-pipelines.title",
+      description: "mes-services.item.ml-pipelines.description"
+    },
+    dataAnalysis: {
+      title: "mes-services.item.data-analysis.title",
+      description: "mes-services.item.data-analysis.description"
+    }
+  },
+  cta: {
+    learnMore: "mes-services.learn-more",
+    title: "mes-services.call-to-action.title",
+    description: "mes-services.call-to-action.description",
+    start: "mes-services.call-to-action.start",
+    meeting: "mes-services.call-to-action.meeting"
+  },
+  page: {
+    title: "mes-services.title",
+    subtitle: "mes-services.subtitle"
+  }
+} as const;
+
+// Utiliser ces clés constantes dans la structure de données
 const services = [
   {
-    category: "Développement Full Stack",
+    category: serviceKeys.categories.dev,
     items: [
       {
-        title: "Applications Web Modernes",
-        description:
-          "Création d'applications web performantes et évolutives avec les dernières technologies (React, Next.js, Node.js).",
+        title: serviceKeys.items.web.title,
+        description: serviceKeys.items.web.description,
         icon: <Code className="h-8 w-8" />,
         skills: ["React", "Next.js", "Node.js", "TypeScript"],
       },
       {
-        title: "APIs RESTful & GraphQL",
-        description: "Conception et développement d'APIs robustes pour connecter vos systèmes et applications.",
+        title: serviceKeys.items.api.title,
+        description: serviceKeys.items.api.description,
         icon: <Zap className="h-8 w-8" />,
         skills: ["REST", "GraphQL", "Express", "Apollo"],
       },
       {
-        title: "Intégration de Systèmes",
-        description: "Connexion et optimisation de vos systèmes existants pour une efficacité maximale.",
+        title: serviceKeys.items.integration.title,
+        description: serviceKeys.items.integration.description,
         icon: <Cog className="h-8 w-8" />,
         skills: ["Microservices", "ESB", "Middleware"],
       },
     ],
   },
   {
-    category: "Administration Système",
+    category: serviceKeys.categories.sys,
     items: [
       {
-        title: "Infrastructure Cloud",
-        description: "Mise en place et gestion d'infrastructures cloud scalables et sécurisées.",
+        title: serviceKeys.items.cloud.title,
+        description: serviceKeys.items.cloud.description,
         icon: <Cloud className="h-8 w-8" />,
         skills: ["AWS", "Azure", "GCP", "Kubernetes"],
       },
       {
-        title: "DevOps & CI/CD",
-        description: "Automatisation des processus de développement et de déploiement pour une livraison continue.",
+        title: serviceKeys.items.devops.title,
+        description: serviceKeys.items.devops.description,
         icon: <Server className="h-8 w-8" />,
         skills: ["Docker", "Jenkins", "GitLab CI", "Ansible"],
       },
       {
-        title: "Sécurité & Conformité",
-        description: "Implémentation de meilleures pratiques de sécurité et conformité aux normes de l'industrie.",
+        title: serviceKeys.items.security.title,
+        description: serviceKeys.items.security.description,
         icon: <Shield className="h-8 w-8" />,
         skills: ["OWASP", "GDPR", "ISO 27001"],
       },
     ],
   },
   {
-    category: "AI & MLOps",
+    category: serviceKeys.categories.ai,
     items: [
       {
-        title: "Intégration d'IA",
-        description:
-          "Incorporation de solutions d'IA pour automatiser les processus et améliorer la prise de décision.",
+        title: serviceKeys.items.aiIntegration.title,
+        description: serviceKeys.items.aiIntegration.description,
         icon: <Brain className="h-8 w-8" />,
         skills: ["TensorFlow", "PyTorch", "Scikit-learn"],
       },
       {
-        title: "Pipelines ML",
-        description:
-          "Création et optimisation de pipelines de machine learning pour un déploiement et une mise à jour efficaces des modèles.",
+        title: serviceKeys.items.mlPipelines.title,
+        description: serviceKeys.items.mlPipelines.description,
         icon: <Database className="h-8 w-8" />,
         skills: ["MLflow", "Kubeflow", "Apache Airflow"],
       },
       {
-        title: "Analyse de Données",
-        description: "Exploitation de vos données pour des insights précieux et une prise de décision éclairée.",
+        title: serviceKeys.items.dataAnalysis.title,
+        description: serviceKeys.items.dataAnalysis.description,
         icon: <Users className="h-8 w-8" />,
         skills: ["Pandas", "Spark", "Tableau", "Power BI"],
       },
     ],
   },
-]
+];
 
 export default function MesServicesClient() {
-  const [activeCategory, setActiveCategory] = useState(services[0].category)
+  const [activeCategory, setActiveCategory] = useState<ServiceCategory>(services[0].category)
+  const t = useI18n()
 
   return (
     <div className="container mx-auto px-4 py-12 md:py-16 lg:py-20 mt-16">
@@ -95,17 +156,17 @@ export default function MesServicesClient() {
         transition={{ duration: 0.5 }}
         className="text-center mb-8 md:mb-12"
       >
-        <h1 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4">Mes Services</h1>
+        <h1 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4">{t(serviceKeys.page.title)}</h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-          De la conception à la mise en production, je vous accompagne dans toutes les étapes de votre projet digital.
+          {t(serviceKeys.page.subtitle)}
         </p>
       </motion.div>
 
-      <Tabs defaultValue={services[0].category} className="w-full" onValueChange={setActiveCategory}>
+      <Tabs defaultValue={services[0].category} className="w-full" onValueChange={(value) => setActiveCategory(value as ServiceCategory)}>
         <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 mb-4 md:mb-8 pb-24 lg:pb-10">
           {services.map((service) => (
             <TabsTrigger key={service.category} value={service.category} className="text-base md:text-lg">
-              {service.category}
+              {t(service.category)}
             </TabsTrigger>
           ))}
         </TabsList>
@@ -124,8 +185,8 @@ export default function MesServicesClient() {
                       <div className="w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-full flex items-center justify-center mb-3 md:mb-4">
                         {item.icon}
                       </div>
-                      <CardTitle className="text-lg md:text-xl">{item.title}</CardTitle>
-                      <CardDescription className="text-sm md:text-base">{item.description}</CardDescription>
+                      <CardTitle className="text-lg md:text-xl">{t(item.title)}</CardTitle>
+                      <CardDescription className="text-sm md:text-base">{t(item.description)}</CardDescription>
                     </CardHeader>
                     <CardContent className="flex-grow">
                       <div className="flex flex-wrap gap-2">
@@ -138,7 +199,7 @@ export default function MesServicesClient() {
                     </CardContent>
                     <CardFooter>
                       <Button variant="ghost" className="w-full text-sm md:text-base">
-                        En savoir plus
+                        {t(serviceKeys.cta.learnMore)}
                         <ArrowRight className="ml-2 h-3 w-3 md:h-4 md:w-4" />
                       </Button>
                     </CardFooter>
@@ -156,20 +217,19 @@ export default function MesServicesClient() {
         transition={{ duration: 0.5, delay: 0.5 }}
         className="mt-10 md:mt-16 text-center"
       >
-        <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Prêt à propulser votre projet ?</h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">{t(serviceKeys.cta.title)}</h2>
         <p className="text-base md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto">
-          Que vous ayez besoin d'une application web performante, d'une infrastructure robuste ou d'intégrer l'IA dans
-          vos processus, je suis là pour vous aider à concrétiser votre vision.
+          {t(serviceKeys.cta.description)}
         </p>
         <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
           <Button size="default" className="md:size-lg" asChild>
             <Link href="/demarrer-votre-projet">
-              Démarrer votre projet
+              {t(serviceKeys.cta.start)}
               <ArrowRight className="ml-2 h-3 w-3 md:h-4 md:w-4" />
             </Link>
           </Button>
           <Button size="default" className="md:size-lg" variant="outline" asChild>
-            <Link href="/contact">Prendre rendez-vous</Link>
+            <Link href="/contact">{t(serviceKeys.cta.meeting)}</Link>
           </Button>
         </div>
       </motion.div>

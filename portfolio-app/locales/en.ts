@@ -162,5 +162,46 @@ export default {
   "projects.infrastructure.challenges.2.challenge": "Securing infrastructure against internal and external threats",
   "projects.infrastructure.challenges.2.solution": "Implementation of fine-grained network segmentation with VLANs and a distributed intrusion detection system",
   "projects.infrastructure.challenges.3.challenge": "Effective monitoring of a complex infrastructure",
-  "projects.infrastructure.challenges.3.solution": "Implementation of a centralized monitoring stack with intelligent alerting and custom dashboards"
+  "projects.infrastructure.challenges.3.solution": "Implementation of a centralized monitoring stack with intelligent alerting and custom dashboards",
+
+  // Translations for mes-services.tsx
+  "mes-services.title": "My Services",
+  "mes-services.subtitle": "From design to production, I accompany you through all stages of your digital project.",
+  
+  "mes-services.category.dev": "Full Stack Development",
+  "mes-services.category.sys": "System Administration",
+  "mes-services.category.ai": "AI & MLOps",
+  
+  "mes-services.item.web.title": "Modern Web Applications",
+  "mes-services.item.web.description": "Creation of performant and scalable web applications with the latest technologies (React, Next.js, Node.js).",
+  
+  "mes-services.item.api.title": "RESTful & GraphQL APIs",
+  "mes-services.item.api.description": "Design and development of robust APIs to connect your systems and applications.",
+  
+  "mes-services.item.integration.title": "System Integration",
+  "mes-services.item.integration.description": "Connection and optimization of your existing systems for maximum efficiency.",
+  
+  "mes-services.item.cloud.title": "Cloud Infrastructure",
+  "mes-services.item.cloud.description": "Implementation and management of scalable and secure cloud infrastructures.",
+  
+  "mes-services.item.devops.title": "DevOps & CI/CD",
+  "mes-services.item.devops.description": "Automation of development and deployment processes for continuous delivery.",
+  
+  "mes-services.item.security.title": "Security & Compliance",
+  "mes-services.item.security.description": "Implementation of security best practices and compliance with industry standards.",
+  
+  "mes-services.item.ai-integration.title": "AI Integration",
+  "mes-services.item.ai-integration.description": "Incorporation of AI solutions to automate processes and improve decision-making.",
+  
+  "mes-services.item.ml-pipelines.title": "ML Pipelines",
+  "mes-services.item.ml-pipelines.description": "Creation and optimization of machine learning pipelines for efficient deployment and updating of models.",
+  
+  "mes-services.item.data-analysis.title": "Data Analysis",
+  "mes-services.item.data-analysis.description": "Exploitation of your data for valuable insights and informed decision-making.",
+  
+  "mes-services.learn-more": "Learn more",
+  "mes-services.call-to-action.title": "Ready to propel your project?",
+  "mes-services.call-to-action.description": "Whether you need a high-performance web application, a robust infrastructure, or AI integration into your processes, I am here to help you bring your vision to life.",
+  "mes-services.call-to-action.start": "Start your project",
+  "mes-services.call-to-action.meeting": "Schedule a meeting"
 } as const

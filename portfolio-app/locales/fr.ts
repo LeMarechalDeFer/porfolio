@@ -165,6 +165,46 @@ export default {
     "projects.infrastructure.challenges.2.challenge": "Sécurisation de l'infrastructure contre les menaces internes et externes",
     "projects.infrastructure.challenges.2.solution": "Implémentation d'une segmentation réseau fine avec VLANs et d'un système de détection d'intrusion distribué",
     "projects.infrastructure.challenges.3.challenge": "Monitoring efficace d'une infrastructure complexe",
-    "projects.infrastructure.challenges.3.solution": "Mise en place d'une stack de monitoring centralisée avec alerting intelligent et tableaux de bord personnalisés"
+    "projects.infrastructure.challenges.3.solution": "Mise en place d'une stack de monitoring centralisée avec alerting intelligent et tableaux de bord personnalisés",
 
+    // Traductions pour mes-services.tsx
+    "mes-services.title": "Mes Services",
+    "mes-services.subtitle": "De la conception à la mise en production, je vous accompagne dans toutes les étapes de votre projet digital.",
+    
+    "mes-services.category.dev": "Développement Full Stack",
+    "mes-services.category.sys": "Administration Système",
+    "mes-services.category.ai": "AI & MLOps",
+    
+    "mes-services.item.web.title": "Applications Web Modernes",
+    "mes-services.item.web.description": "Création d'applications web performantes et évolutives avec les dernières technologies (React, Next.js, Node.js).",
+    
+    "mes-services.item.api.title": "APIs RESTful & GraphQL",
+    "mes-services.item.api.description": "Conception et développement d'APIs robustes pour connecter vos systèmes et applications.",
+    
+    "mes-services.item.integration.title": "Intégration de Systèmes",
+    "mes-services.item.integration.description": "Connexion et optimisation de vos systèmes existants pour une efficacité maximale.",
+    
+    "mes-services.item.cloud.title": "Infrastructure Cloud",
+    "mes-services.item.cloud.description": "Mise en place et gestion d'infrastructures cloud scalables et sécurisées.",
+    
+    "mes-services.item.devops.title": "DevOps & CI/CD",
+    "mes-services.item.devops.description": "Automatisation des processus de développement et de déploiement pour une livraison continue.",
+    
+    "mes-services.item.security.title": "Sécurité & Conformité",
+    "mes-services.item.security.description": "Implémentation de meilleures pratiques de sécurité et conformité aux normes de l'industrie.",
+    
+    "mes-services.item.ai-integration.title": "Intégration d'IA",
+    "mes-services.item.ai-integration.description": "Incorporation de solutions d'IA pour automatiser les processus et améliorer la prise de décision.",
+    
+    "mes-services.item.ml-pipelines.title": "Pipelines ML",
+    "mes-services.item.ml-pipelines.description": "Création et optimisation de pipelines de machine learning pour un déploiement et une mise à jour efficaces des modèles.",
+    
+    "mes-services.item.data-analysis.title": "Analyse de Données",
+    "mes-services.item.data-analysis.description": "Exploitation de vos données pour des insights précieux et une prise de décision éclairée.",
+    
+    "mes-services.learn-more": "En savoir plus",
+    "mes-services.call-to-action.title": "Prêt à propulser votre projet ?",
+    "mes-services.call-to-action.description": "Que vous ayez besoin d'une application web performante, d'une infrastructure robuste ou d'intégrer l'IA dans vos processus, je suis là pour vous aider à concrétiser votre vision.",
+    "mes-services.call-to-action.start": "Démarrer votre projet",
+    "mes-services.call-to-action.meeting": "Prendre rendez-vous"
   } as const
