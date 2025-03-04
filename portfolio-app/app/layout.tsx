@@ -4,7 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { PostHogProvider } from './providers'
-import { ThemeProvider } from "next-themes"
+// import { ThemeProvider } from "next-themes"
 import { Analytics } from "@vercel/analytics/react"
 
 
@@ -52,15 +52,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" suppressHydrationWarning>
+    // <html lang="fr" suppressHydrationWarning>
+    <html lang="fr" >
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        {/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange> */}
           <PostHogProvider>
             {children}
           </PostHogProvider>
-        </ThemeProvider>
+        {/* </ThemeProvider> */}
         <SpeedInsights />
         <Analytics />
       </body>

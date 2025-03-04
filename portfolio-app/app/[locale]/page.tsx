@@ -23,14 +23,14 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
     <main className="min-h-screen bg-background overflow-x-hidden">
-        <Header/>
+        {/* <Header/> */}
         <Hero />
         <Services />
         <Skills />
         <Projects />
         <About />
         <Contact />
-        <Footer />
+        {/* <Footer /> */}
     </main>
     </>
   )
