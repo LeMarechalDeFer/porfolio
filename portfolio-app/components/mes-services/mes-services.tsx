@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -10,8 +9,6 @@ import { ArrowRight, Code, Server, Database, Brain, Cloud, Zap, Shield, Cog, Use
 import Link from "next/link"
 import { useI18n } from "@/locales/client"
 
-// Définir le type pour les catégories de services
-type ServiceCategory = typeof serviceKeys.categories.dev | typeof serviceKeys.categories.sys | typeof serviceKeys.categories.ai;
 
 // Définir toutes les traductions possibles pour satisfaire TypeScript
 const serviceKeys = {
@@ -145,7 +142,7 @@ const services = [
 ];
 
 export default function MesServicesClient() {
-  const [activeCategory, setActiveCategory] = useState<ServiceCategory>(services[0].category)
+  
   const t = useI18n()
 
   return (
@@ -162,7 +159,7 @@ export default function MesServicesClient() {
         </p>
       </motion.div>
 
-      <Tabs defaultValue={services[0].category} className="w-full" onValueChange={(value) => setActiveCategory(value as ServiceCategory)}>
+      <Tabs defaultValue={services[0].category} className="w-full">
         <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 mb-4 md:mb-8 pb-24 lg:pb-10">
           {services.map((service) => (
             <TabsTrigger key={service.category} value={service.category} className="text-base md:text-lg">
