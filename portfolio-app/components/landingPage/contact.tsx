@@ -4,11 +4,12 @@
 import { useI18n } from "@/locales/client"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+// import { Input } from "@/components/ui/input"
+// import { Textarea } from "@/components/ui/textarea"
 import { Github, Linkedin, Instagram, Mail, MapPin } from "lucide-react"
 import Link from "next/link"
+import ProjectForm from "../reservation/project-form"
 
 export default function Contact() {
   const t = useI18n()
@@ -103,7 +104,22 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <Card>
+            {/* <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-2 mx-4">
+        <div className="space-y-6 md:space-y-8"> */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Parlons de votre projet</CardTitle>
+              <CardDescription>
+                {t("contact.form.description")}
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ProjectForm />
+            </CardContent>
+          </Card>
+        {/* </div>
+        </div> */}
+            {/* <Card>
               <CardHeader>
                 <CardTitle>{t("contact.form.title")}</CardTitle>
                 <CardDescription>
@@ -149,7 +165,7 @@ export default function Contact() {
               <CardFooter>
                 <Button className="w-full">{t("contact.form.send")}</Button>
               </CardFooter>
-            </Card>
+            </Card> */}
           </motion.div>
         </div>
       </div>

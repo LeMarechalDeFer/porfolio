@@ -186,14 +186,14 @@ export default function Projects() {
                           ))}
                         </div>
                       </div>
-                      <div className="flex justify-between gap-4">
+                      <div className="flex flex-col gap-2 lg:flex-row lg:justify-between lg:gap-4">
                         <Button variant="default" size="sm">
                           <Link href={project.link ?? ""} target="_blank">
                             {t("projects.viewProject")}
                           </Link>
                         </Button>
                         {project.challenged && (
-                          <Button variant="outline" size="sm" className="gap-2" 
+                          <Button variant="outline" size="sm" className="gap-2 w-full lg:w-auto" 
                           aria-controls={`challenge-${projectId}`}
                           aria-expanded={isProjectExpanded(projectId)}
                           onClick={() => toggleProject(projectId)}>
@@ -209,7 +209,6 @@ export default function Projects() {
                                 <Lightbulb className="w-4 h-4 text-yellow-400" />
                               </>
                             )}
-                            
                           </Button>
                         )}
                         {/* <Button variant="outline" size="sm">
@@ -269,17 +268,9 @@ export default function Projects() {
                         ))}
                       </div>
                     </CardContent>
-                    {/* <CardFooter className="flex justify-between">
-                      <Button variant="default" size="sm">
-                        {t("projects.viewProject")}
-                      </Button>
-                      <Button variant="outline" size="sm">
-                        {t("projects.sourceCode")}
-                      </Button>
-                    </CardFooter> */}
-                    <CardFooter className="justify-end">
+                    <CardFooter className="flex justify-center md:justify-end">
                         {project.challenged && (
-                          <Button variant="outline" size="sm" className="gap-2" 
+                          <Button variant="outline" size="sm" className="gap-2 w-full md:w-auto" 
                           aria-controls={`challenge-${projectId}`}
                           aria-expanded={isProjectExpanded(projectId)}
                           onClick={() => toggleProject(projectId)}>

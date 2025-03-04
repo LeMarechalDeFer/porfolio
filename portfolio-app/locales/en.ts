@@ -37,7 +37,8 @@ export default {
   "nav.projects": "Projects",
   "nav.about": "About",
   "nav.contact": "Contact",
-
+  "nav.services": "My Services",
+  "nav.demarer-votre-projet": "Start your project",
   "hero.title": "Freelance Web Developer Expert in Next.js",
   "hero.description": "I create performant and scalable web applications to propel your business toward digital success. By using AI agents, my productivity is optimized for fast and quality results.",
   "hero.cta.primary": "Start your project",

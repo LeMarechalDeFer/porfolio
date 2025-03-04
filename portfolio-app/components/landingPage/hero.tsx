@@ -31,7 +31,7 @@ export default function Hero() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
               <Button size="lg" className="group w-full sm:w-auto">
-                <Link href="/demarer-votre-projet">
+                <Link href="/demarrer-votre-projet">
                   {t("hero.cta.primary")}
                   
                 </Link>

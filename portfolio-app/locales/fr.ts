@@ -37,7 +37,10 @@ export default {
     "nav.projects": "Projets",
     "nav.about": "À propos",
     "nav.contact": "Contact",
+    "nav.services": "Mes Services", 
+    "nav.demarer-votre-projet": "Démarrer votre projet",
 
+    
     "hero.title": "Développeur Web Freelance Expert Next.js",
     "hero.description": "Je crée des applications web performantes et évolutives pour propulser votre entreprise vers le succès digital. Grâce à l'utilisation d'agents IA, ma productivité est optimisée pour des résultats rapides et de qualité.",
     "hero.cta.primary": "Démarrer votre projet",
@@ -52,7 +55,7 @@ export default {
     "projects.featured": "Projet Vedette",
     "projects.viewProject": "Voir le projet",
     "projects.sourceCode": "Code source",
-    "projects.defiSolution": "Défis Relevés & Solutions Apportées",
+    "projects.defiSolution": "Défis & Solutions Apportées",
     "projects.masquer": "Masquer",
     
     "projects.hotel.title": "Hotel La Louisiane",

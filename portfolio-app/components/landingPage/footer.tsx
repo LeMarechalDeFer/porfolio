@@ -39,7 +39,7 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">{t("footer.services.title")}</h3>
             <ul className="space-y-2">
-              <li>
+              {/* <li>
                 <Link
                   href="/services/developpement-web"
                   className="text-sm text-muted-foreground hover:text-foreground"
@@ -67,13 +67,13 @@ export default function Footer() {
                 >
                   {t("footer.services.performance")}
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">{t("footer.resources.title")}</h3>
             <ul className="space-y-2">
-              <li>
+              {/* <li>
                 <Link href="/blog" className="text-sm text-muted-foreground hover:text-foreground">
                   {t("footer.resources.blog")}
                 </Link>
@@ -92,7 +92,7 @@ export default function Footer() {
                 <Link href="/faq" className="text-sm text-muted-foreground hover:text-foreground">
                   {t("footer.resources.faq")}
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
           <div>
@@ -102,7 +102,7 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t text-center text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} Romain. {t("footer.copyright")}</p>
           <div className="mt-2 space-x-4">
-            <Link href="/mentions-legales" className="hover:text-foreground">
+            {/* <Link href="/mentions-legales" className="hover:text-foreground">
               {t("footer.legal.terms")}
             </Link>
             <Link href="/politique-de-confidentialite" className="hover:text-foreground">
@@ -110,7 +110,7 @@ export default function Footer() {
             </Link>
             <Link href="/conditions-utilisation" className="hover:text-foreground">
               {t("footer.legal.conditions")}
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

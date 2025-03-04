@@ -26,11 +26,13 @@ export default function Header() {
   }, [])
 
   const navItems = [
-    { name: t("nav.home"), href: "#home" },
-    { name: t("nav.skills"), href: "#skills" },
-    { name: t("nav.projects"), href: "#projects" },
-    { name: t("nav.about"), href: "#about" },
-    { name: t("nav.contact"), href: "#contact" },
+    { name: t("nav.home"), href: "/#home" },
+    { name: t("nav.skills"), href: "/#skills" },
+    { name: t("nav.projects"), href: "/#projects" },
+    { name: t("nav.about"), href: "/#about" },
+    { name: t("nav.contact"), href: "/#contact" },
+    { name: t("nav.services"), href: "/mes-services" },
+    { name: t("nav.demarer-votre-projet"), href: "/demarrer-votre-projet" },
   ]
 
   const languages = [
