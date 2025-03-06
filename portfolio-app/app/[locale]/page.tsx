@@ -20,7 +20,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
-    <main className="min-h-screen bg-background overflow-x-hidden mb-10">
+    
 
         <Hero />
         <Services />
@@ -29,7 +29,7 @@ export default function Home() {
         <About />
         <Contact />
       
-    </main>
+
     </>
   )
 }

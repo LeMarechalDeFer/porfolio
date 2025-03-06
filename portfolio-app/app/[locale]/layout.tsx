@@ -14,7 +14,9 @@ export default async function SubLayout({ params, children }: { params: Promise<
   return (
     <I18nProviderClient locale={locale}>
         <Header />
-        {children}
+        <main  className="min-h-screen bg-background overflow-x-hidden mb-10">
+          {children}
+        </main>
         <Footer />
     </I18nProviderClient>
   )

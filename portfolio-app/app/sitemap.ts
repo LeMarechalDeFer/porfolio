@@ -36,6 +36,67 @@ export default function sitemap(): MetadataRoute.Sitemap {
             },
         },
     },
+    {
+        url: 'https://www.romainblanchot.com/mes-projets',
+        lastModified: new Date(),
+        changeFrequency: 'daily',
+        priority: 0.8,
+        alternates: {
+            languages: {
+                en: 'https://www.romainblanchot.com/en/mes-projets',
+            },
+        },  
+    },
+    {
+        url: 'https://www.romainblanchot.com/skills',
+        lastModified: new Date(),
+        changeFrequency: 'daily',
+        priority: 0.8,
+        alternates: {
+            languages: {
+                en: 'https://www.romainblanchot.com/en/skills',
+            },
+        },
+    },
+    {
+        url: 'https://www.romainblanchot.com/a-propos',
+        lastModified: new Date(),
+        changeFrequency: 'daily',
+        priority: 0.8,
+        alternates: {
+            languages: {
+                en: 'https://www.romainblanchot.com/en/a-propos',
+            },
+        },
+    },
+
+
+    {
+        url: 'https://www.romainblanchot.com/me-contacter',
+        lastModified: new Date(),
+        changeFrequency: 'daily',
+        priority: 0.8,
+        alternates: {
+            languages: {
+                en: 'https://www.romainblanchot.com/en/me-contacter',
+            },
+        },
+    },
+    {
+        url: 'https://www.romainblanchot.com/mes-services',
+        lastModified: new Date(),
+        changeFrequency: 'daily',
+        priority: 0.8,
+        alternates: {
+            languages: {
+                en: 'https://www.romainblanchot.com/en/mes-services',
+            },
+        },
+    },
+
+
+
+
 
 
     
