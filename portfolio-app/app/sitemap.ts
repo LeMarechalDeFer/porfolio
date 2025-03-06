@@ -14,5 +14,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
         images: ['https://www.romainblanchot.com/photoProfilRomain.jpg'],
     },
+    {
+        url: 'https://www.romainblanchot.com/mes-services',
+        lastModified: new Date(),
+        changeFrequency: 'daily',
+        priority: 0.8,
+        alternates: {
+            languages: {
+                en: 'https://www.romainblanchot.com/en/mes-services',
+            },
+        },
+    },
+    {
+        url: 'https://www.romainblanchot.com/demarrer-votre-projet',
+        lastModified: new Date(),
+        changeFrequency: 'daily',
+        priority: 0.8,
+        alternates: {
+            languages: {
+                en: 'https://www.romainblanchot.com/en/demarrer-votre-projet',
+            },
+        },
+    },
+
+
+    
   ]
 }
