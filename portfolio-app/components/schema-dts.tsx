@@ -1,4 +1,5 @@
 import type { Organization, Person, WithContext } from "schema-dts"
+// WebSite
 
 export const organizationSchema: WithContext<Organization> = {
   "@context": "https://schema.org",
@@ -29,3 +30,13 @@ export const personSchema: WithContext<Person> = {
     // "https://twitter.com/votre-profil",
   ],
 }
+
+// const webSiteSchema: WithContext<WebSite> = {
+//   "@context": "https://schema.org",
+//   "@type": "WebSite",
+//   url: "https://www.romainblanchot.com",
+// }
+
+
+// websiteschema pour chaque page, et fil d'ariane avec breadcrumbschema
+
