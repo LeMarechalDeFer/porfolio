@@ -10,16 +10,7 @@ import Script from "next/script"
 export default function Home() {
   return (
     <>
-     <Script
-        id="schema-org"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
-      <Script
-        id="schema-org-person"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-      />
+
     
 
         <Hero />

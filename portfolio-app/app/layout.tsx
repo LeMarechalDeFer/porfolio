@@ -6,6 +6,10 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import { PostHogProvider } from './providers'
 import { Analytics } from "@vercel/analytics/react"
 import { ThemeProvider } from "@/components/landingPage/theme-provider";
+import { organizationSchema } from "@/components/schema-dts";
+import Script from "next/script";
+import { personSchema } from "@/components/schema-dts";
+import Head from "next/head";
 
 
 const geistSans = Geist({
@@ -53,6 +57,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" suppressHydrationWarning >
+      <Head>
+        <Script
+          id="schema-org"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <Script
+          id="schema-org-person"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
+      </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased `}
       >
