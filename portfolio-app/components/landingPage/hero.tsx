@@ -43,7 +43,7 @@ export default function Hero() {
                 </Button>
               </Link>
             </div>
-            <div className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center lg:justify-start gap-3 sm:gap-6 pt-4">
+            <div className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center lg:justify-start gap-3 sm:gap-6 pt-4 ">
               {[
                 { icon: <CheckCircle className="h-5 w-5 text-primary" />, text: t("hero.feature.1") },
                 { icon: <CheckCircle className="h-5 w-5 text-primary" />, text: t("hero.feature.2") },
@@ -63,21 +63,22 @@ export default function Hero() {
             className="relative mt-6 sm:mt-8 lg:mt-0"
           >
             
-            <div className="relative z-10 mx-auto lg:ml-auto lg:mr-0 w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+            <div className="relative z-10 mx-auto lg:mx-auto lg:mr-8 w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-primary/40 blur-2xl opacity-20 animate-pulse" />
               <div className="relative h-full w-full rounded-full border-2 border-primary/20 overflow-hidden">
                 <Image
                   src="/photoProfilRomain.jpg"
                   alt="Romain"
-                  // fill
-                  sizes="(max-width: 640px) 224px, (max-width: 768px) 256px, (max-width: 1024px) 320px, 384px"
+                  sizes="(max-width: 640px) 224px, (max-width: 768px) 256px, (max-width: 1024px) 320px, (max-width: 1200px) 384px, 384px"
+                  // sizes="(max-width: 640px) 224px, (max-width: 768px) 256px, (max-width: 1024px) 320px, 384px"
                   className="w-full h-full object-cover"
                   priority
                   fetchPriority="high"
                   quality={60}
                   loading="eager"
-                  width={384}
+                  width={384} 
                   height={384}
+                  // placeholder="blur"
                 />
               </div>
               <div className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 bg-background rounded-lg shadow-lg p-2 sm:p-4 border">
