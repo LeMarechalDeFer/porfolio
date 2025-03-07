@@ -1,10 +1,14 @@
 "use client"
 
-import { Linkedin, Github, Mail } from "lucide-react"
+import { Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Newsletter } from "@/components/landingPage/newsletter"
 import { useI18n } from "@/locales/client"
+import { RiTiktokLine } from "react-icons/ri"
+import { FiFacebook, FiLinkedin } from "react-icons/fi"
+import { FaXTwitter } from "react-icons/fa6"
+import { LuGithub } from "react-icons/lu"
 
 
 export default function Footer() {
@@ -19,19 +23,34 @@ export default function Footer() {
               {t("footer.description")}
             </p>
             <div className="flex space-x-2">
-              <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
-                <Button variant="ghost" size="icon" aria-label="GitHub">
-                  <Github className="h-5 w-5" />
+            <Link href="https://github.com/LeMarechalDeFer" target="_blank" rel="noopener noreferrer">
+              <Button variant="ghost" size="icon" aria-label="GitHub" className="rounded-full">
+                <LuGithub className="h-5 w-5" />
+              </Button>
+            </Link>
+              <Link href="https://www.linkedin.com/in/romain-blanchot-449941284/" target="_blank" rel="noopener noreferrer">
+                <Button variant="ghost" size="icon" aria-label="LinkedIn" className="rounded-full">
+                  <FiLinkedin className="h-5 w-5" />
                 </Button>
               </Link>
-              <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                <Button variant="ghost" size="icon" aria-label="LinkedIn">
-                  <Linkedin className="h-5 w-5" />
-                </Button>
-              </Link>
-              <Link href="mailto:contact@example.com">
-                <Button variant="ghost" size="icon" aria-label="Email">
+              <Link href="mailto:blanchot@et.esiea.fr">
+                <Button variant="ghost" size="icon" aria-label="Email" className="rounded-full">
                   <Mail className="h-5 w-5" />
+                </Button>
+              </Link>
+              <Link href="https://x.com/talleyrand1000" target="_blank" rel="noopener noreferrer">
+                <Button variant="ghost" size="icon" aria-label="Twitter" className="rounded-full">
+                  <FaXTwitter className="h-5 w-5" />
+                </Button>
+              </Link>
+              <Link href="https://www.tiktok.com/@romain.blanchot" target="_blank" rel="noopener noreferrer">
+                <Button variant="ghost" size="icon" aria-label="TikTok" className="rounded-full">
+                  <RiTiktokLine className="h-5 w-5" />
+                </Button>
+              </Link>
+              <Link href="https://web.facebook.com/people/Romain-Blanchot/pfbid034Hz3fp8rLVBXKJkS31RF8pCSVCVbN7zGtNZZR53GZmwHgyxizSupZj9J1Qact2Nzl/" target="_blank" rel="noopener noreferrer">
+                <Button variant="ghost" size="icon" aria-label="Facebook" className="rounded-full">
+                  <FiFacebook className="h-5 w-5" />
                 </Button>
               </Link>
             </div>

@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
         source: '/ingest/:path*',
         destination: 'https://app.posthog.com/:path*',
       },
+     
     ]
   },
   skipTrailingSlashRedirect: true, 

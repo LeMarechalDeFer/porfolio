@@ -225,9 +225,9 @@ export default function MesServicesClient() {
               <ArrowRight className="ml-2 h-3 w-3 md:h-4 md:w-4" />
             </Link>
           </Button>
-          <Button size="default" className="md:size-lg" variant="outline" asChild>
+          {/* <Button size="default" className="md:size-lg" variant="outline" asChild>
             <Link href="/contact">{t(serviceKeys.cta.meeting)}</Link>
-          </Button>
+          </Button> */}
         </div>
       </motion.div>
     </div>

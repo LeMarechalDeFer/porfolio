@@ -48,13 +48,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },  
     },
     {
-        url: 'https://www.romainblanchot.com/skills',
+        url: 'https://www.romainblanchot.com/mes-competences',
         lastModified: new Date(),
         changeFrequency: 'daily',
         priority: 0.8,
         alternates: {
             languages: {
-                en: 'https://www.romainblanchot.com/en/skills',
+                en: 'https://www.romainblanchot.com/en/mes-competences',
             },
         },
     },

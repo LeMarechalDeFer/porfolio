@@ -16,9 +16,27 @@ export const config = {
   matcher: ['/((?!api|ingest|static|.*\\..*|_next|favicon.ico|robots.txt).*)']
 }
 
-// const allowedOrigins = [
-//   'https://www.romainblanchot.com',
-//   'https://romainblanchot.com',
-//   'https://www.romainblanchot.com/en',
-//   'https://romainblanchot.com/en',
-// ]
+// {
+//   source: '/en/demarrer-votre-projet',
+//   destination: '/en/start-your-project',
+// },
+// {
+//   source: '/en/mes-services',
+//   destination: '/en/my-services',
+// },
+// {
+//   source: '/en/mes-projets',
+//   destination: '/en/my-projects',
+// },
+// {
+//   source: '/en/mes-competences',
+//   destination: '/en/my-skills',
+// },
+// {
+//   source: '/en/me-contacter',
+//   destination: '/en/contact-me',
+// },
+// {
+//   source: '/en/a-propos',
+//   destination: '/en/about-me',
+// },

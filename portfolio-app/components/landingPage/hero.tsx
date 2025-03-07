@@ -5,7 +5,13 @@ import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
-import { Github, Linkedin, Mail, ArrowRight, CheckCircle } from "lucide-react"
+import { Mail, ArrowRight, CheckCircle  } from "lucide-react"
+import { FaXTwitter } from "react-icons/fa6";
+import { LuGithub } from "react-icons/lu";
+import { FiFacebook, FiLinkedin } from "react-icons/fi";
+import { RiTiktokLine } from "react-icons/ri";
+
+
 
 export default function Hero() {
   const t = useI18n()
@@ -39,10 +45,10 @@ export default function Hero() {
             </div>
             <div className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center lg:justify-start gap-3 sm:gap-6 pt-4">
               {[
-                 { icon: <CheckCircle className="h-5 w-5 text-primary" />, text: t("hero.feature.1") },
-                 { icon: <CheckCircle className="h-5 w-5 text-primary" />, text: t("hero.feature.2") },
-                 { icon: <CheckCircle className="h-5 w-5 text-primary" />, text: t("hero.feature.3") },
-                 { icon: <CheckCircle className="h-5 w-5 text-primary" />, text: t("hero.feature.4") },
+                { icon: <CheckCircle className="h-5 w-5 text-primary" />, text: t("hero.feature.1") },
+                { icon: <CheckCircle className="h-5 w-5 text-primary" />, text: t("hero.feature.2") },
+                { icon: <CheckCircle className="h-5 w-5 text-primary" />, text: t("hero.feature.3") },
+                { icon: <CheckCircle className="h-5 w-5 text-primary" />, text: t("hero.feature.4") },
               ].map((item, index) => (
                 <div key={index} className="flex items-center gap-2">
                   {item.icon}
@@ -86,17 +92,32 @@ export default function Hero() {
         <div className="mt-8 sm:mt-10 lg:mt-12 flex justify-center lg:justify-start gap-4">
           <Link href="https://github.com/LeMarechalDeFer" target="_blank" rel="noopener noreferrer">
             <Button variant="ghost" size="icon" aria-label="GitHub" className="rounded-full">
-              <Github className="h-5 w-5" />
+              <LuGithub className="h-5 w-5" />
             </Button>
           </Link>
           <Link href="https://www.linkedin.com/in/romain-blanchot-449941284/" target="_blank" rel="noopener noreferrer">
             <Button variant="ghost" size="icon" aria-label="LinkedIn" className="rounded-full">
-              <Linkedin className="h-5 w-5" />
+              <FiLinkedin className="h-5 w-5" />
             </Button>
           </Link>
           <Link href="mailto:blanchot@et.esiea.fr">
             <Button variant="ghost" size="icon" aria-label="Email" className="rounded-full">
               <Mail className="h-5 w-5" />
+            </Button>
+          </Link>
+          <Link href="https://x.com/talleyrand1000" target="_blank" rel="noopener noreferrer">
+            <Button variant="ghost" size="icon" aria-label="Twitter" className="rounded-full">
+              <FaXTwitter className="h-5 w-5" />
+            </Button>
+          </Link>
+          <Link href="https://www.tiktok.com/@romain.blanchot" target="_blank" rel="noopener noreferrer">
+            <Button variant="ghost" size="icon" aria-label="TikTok" className="rounded-full">
+              <RiTiktokLine className="h-5 w-5" />
+            </Button>
+          </Link>
+          <Link href="https://web.facebook.com/people/Romain-Blanchot/pfbid034Hz3fp8rLVBXKJkS31RF8pCSVCVbN7zGtNZZR53GZmwHgyxizSupZj9J1Qact2Nzl/" target="_blank" rel="noopener noreferrer">
+            <Button variant="ghost" size="icon" aria-label="Facebook" className="rounded-full">
+              <FiFacebook className="h-5 w-5" />
             </Button>
           </Link>
         </div>

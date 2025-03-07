@@ -25,11 +25,27 @@ export const metadata: Metadata = {
   keywords: ["développeur web", "freelance", "Next.js", "React", "full-stack", "IA", "applications web"],
   authors: [{ name: "Romain" }],
   creator: "Romain",
+  category: 'technology, portfolio, programming, automation, business',
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  
+  alternates: {
+    canonical: "https://www.romainblanchot.com",
+    languages: {
+      "fr": "https://www.romainblanchot.com",
+      "en": "https://www.romainblanchot.com/en",
+    },
+
+  },
   openGraph: {
+    title: "Romain - Développeur Web Freelance",
+    description: "Développeur web freelance spécialisé en solutions end-to-end et intégration d'IA. Créez des applications web performantes et évolutives avec un expert Next.js.",
     type: "website",
     locale: "fr_FR",
     url: "https://www.romainblanchot.com",
-    siteName: "Romain - Développeur Web Freelance",
+    siteName: "Romain Blanchot - Développeur Web Freelance",
     images: [
       {
         url: "https://www.romainblanchot.com/photoProfilRomain.jpg",
@@ -39,6 +55,22 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Romain - Développeur Web Freelance",
+    description: "Développeur web freelance spécialisé en solutions end-to-end et intégration d'IA. Créez des applications web performantes et évolutives avec un expert Next.js.",
+    
+    creator: "@talleyrand1000",
+    siteId: "@talleyrand1000",
+    creatorId: "@talleyrand1000",
+
+    images: {
+      url: "https://www.romainblanchot.com/photoProfilRomain.jpg",
+      alt: "Romain - Développeur Web Freelance Expert Next.js",
+    },
+  },
+  
+
 };
 
 // Définition du fil d'Ariane avec toutes les pages
@@ -46,7 +78,7 @@ const breadcrumbData = [
   { name: "Accueil", path: "/" },
   { name: "Démarrer votre projet", path: "/demarrer-votre-projet" },
   { name: "Mes Services", path: "/mes-services" },
-  { name: "Skills", path: "/skills" },
+  { name: "Mes Compétences", path: "/mes-competences" },
   { name: "Mes Projets", path: "/mes-projets" },
   { name: "À Propos", path: "/a-propos" },
   { name: "Me Contacter", path: "/me-contacter" },
