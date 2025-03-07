@@ -224,11 +224,7 @@ export default async function DemarrerVotreProjet() {
               alt="Collaboration en action"
               width={600}
               height={300}
-              style={{
-                width: '100%',
-                height: 'auto',
-                objectFit: 'cover'
-              }}
+              className="w-full h-auto object-cover"
               priority
               fetchPriority="high"
               loading="eager"

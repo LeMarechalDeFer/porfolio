@@ -33,14 +33,13 @@ export default function About() {
                 src="/alpinismeRomain.jpg" 
                 alt="About Romain" 
                 fill 
-                style={{ objectFit: 'cover' }} 
-                priority
-                fetchPriority="high"
+                className="object-cover"
+                // priority
+                // fetchPriority="high"
                 loading="eager"
-                quality={75}
+                quality={60}
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
-              {/* <Image src="/placeholder.svg?height=400&width=600" alt="About Romain" fill className="object-cover" /> */}
             </div>
           </motion.div>
 

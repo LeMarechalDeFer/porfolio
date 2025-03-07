@@ -71,7 +71,7 @@ export default function Hero() {
                   alt="Romain"
                   // fill
                   sizes="(max-width: 640px) 224px, (max-width: 768px) 256px, (max-width: 1024px) 320px, 384px"
-                  style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                  className="w-full h-full object-cover"
                   priority
                   fetchPriority="high"
                   quality={60}

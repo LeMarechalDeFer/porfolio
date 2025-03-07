@@ -17,11 +17,11 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 
 export const metadata: Metadata = {
   title: {
-    default: "Romain - Développeur Web Freelance Expert Next.js",
-    template: "%s | Romain - Développeur Web Freelance",
+    default: "Romain - Ingénieur Full Stack Freelance Next.js et Automation",
+    template: "%s | Romain - Ingénieur Full Stack Freelance Next.js et Automation",
   },
   description:
-    "Développeur web freelance spécialisé en solutions end-to-end et intégration d'IA. Créez des applications web performantes et évolutives avec un expert Next.js.",
+    "Ingénieur Full Stack Freelance spécialisé en solutions end-to-end et intégration d'IA. Créez des applications web performantes et évolutives avec un expert Next.js.",
   keywords: ["développeur web", "freelance", "Next.js", "React", "full-stack", "IA", "applications web"],
   authors: [{ name: "Romain" }],
   creator: "Romain",
