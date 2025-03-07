@@ -10,7 +10,8 @@ import { FaXTwitter } from "react-icons/fa6";
 import { LuGithub } from "react-icons/lu";
 import { FiFacebook, FiLinkedin } from "react-icons/fi";
 import { RiTiktokLine } from "react-icons/ri";
-
+import photoProfilRomain from "@/public/photoProfilRomain.jpg";
+import { LuYoutube } from "react-icons/lu";
 
 
 export default function Hero() {
@@ -67,18 +68,18 @@ export default function Hero() {
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-primary/40 blur-2xl opacity-20 animate-pulse" />
               <div className="relative h-full w-full rounded-full border-2 border-primary/20 overflow-hidden">
                 <Image
-                  src="/photoProfilRomain.jpg"
+                  src={photoProfilRomain}
                   alt="Romain"
                   sizes="(max-width: 640px) 224px, (max-width: 768px) 256px, (max-width: 1024px) 320px, (max-width: 1200px) 384px, 384px"
                   // sizes="(max-width: 640px) 224px, (max-width: 768px) 256px, (max-width: 1024px) 320px, 384px"
                   className="w-full h-full object-cover"
                   priority
                   fetchPriority="high"
-                  quality={60}
+                  quality={70}
                   loading="eager"
                   width={384} 
                   height={384}
-                  // placeholder="blur"
+                  placeholder="blur"
                 />
               </div>
               <div className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 bg-background rounded-lg shadow-lg p-2 sm:p-4 border">
@@ -90,7 +91,7 @@ export default function Hero() {
             </div>
           </motion.div>
         </div>
-        <div className="mt-8 sm:mt-10 lg:mt-12 flex justify-center lg:justify-start gap-4">
+        <div className="mt-8 sm:mt-10 lg:mt-12 flex flex-wrap justify-center lg:justify-start gap-4 max-w-[280px] sm:max-w-none mx-auto">
           <Link href="https://github.com/LeMarechalDeFer" target="_blank" rel="noopener noreferrer">
             <Button variant="ghost" size="icon" aria-label="GitHub" className="rounded-full">
               <LuGithub className="h-5 w-5" />
@@ -119,6 +120,11 @@ export default function Hero() {
           <Link href="https://web.facebook.com/people/Romain-Blanchot/pfbid034Hz3fp8rLVBXKJkS31RF8pCSVCVbN7zGtNZZR53GZmwHgyxizSupZj9J1Qact2Nzl/" target="_blank" rel="noopener noreferrer">
             <Button variant="ghost" size="icon" aria-label="Facebook" className="rounded-full">
               <FiFacebook className="h-5 w-5" />
+            </Button>
+          </Link>
+          <Link href="https://www.youtube.com/@romainblanchot" target="_blank" rel="noopener noreferrer">
+            <Button variant="ghost" size="icon" aria-label="Youtube" className="rounded-full">
+              <LuYoutube className="h-5 w-5" />
             </Button>
           </Link>
         </div>

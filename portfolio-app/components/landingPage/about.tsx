@@ -3,7 +3,7 @@
 import { useI18n } from "@/locales/client"
 import { motion } from "framer-motion"
 import Image from "next/image"
-
+import photoAlpinismeRomain from "@/public/alpinismeRomain.jpg";
 
 export default function About() {
   const t = useI18n()
@@ -30,7 +30,7 @@ export default function About() {
           >
             <div className="relative h-[550px] rounded-lg overflow-hidden">
               <Image 
-                src="/alpinismeRomain.jpg" 
+                src={photoAlpinismeRomain} 
                 alt="About Romain" 
                 fill 
                 className="object-cover"
@@ -39,6 +39,7 @@ export default function About() {
                 loading="eager"
                 quality={60}
                 sizes="(max-width: 768px) 100vw, 50vw"
+                placeholder="blur"
               />
             </div>
           </motion.div>
