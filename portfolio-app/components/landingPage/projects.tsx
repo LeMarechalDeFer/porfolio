@@ -164,8 +164,7 @@ export default function Projects() {
                         src={project.image ?? ""}
                         alt={project.title}
                         fill
-                        className="object-cover"
-                        objectPosition="top"
+                        className="object-cover object-top"
                       />
                     </div>
                     <div className="p-6 flex flex-col justify-between">

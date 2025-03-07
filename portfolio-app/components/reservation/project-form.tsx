@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -58,6 +57,7 @@ export default function ProjectForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
+      {/* Champs prioritaires */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <Input type="text" name="name" placeholder={t("project-form.name")} value={formData.name} onChange={handleChange} required />
         <Input

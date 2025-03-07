@@ -29,7 +29,16 @@ export default function About() {
             transition={{ duration: 0.5 }}
           >
             <div className="relative h-[550px] rounded-lg overflow-hidden">
-              <Image src="/alpinismeRomain.jpg" alt="About Romain" fill className="object-cover" 
+              <Image 
+                src="/alpinismeRomain.jpg" 
+                alt="About Romain" 
+                fill 
+                style={{ objectFit: 'cover' }} 
+                priority
+                fetchPriority="high"
+                loading="eager"
+                quality={75}
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               {/* <Image src="/placeholder.svg?height=400&width=600" alt="About Romain" fill className="object-cover" /> */}
             </div>

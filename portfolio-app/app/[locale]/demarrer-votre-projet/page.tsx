@@ -224,7 +224,15 @@ export default async function DemarrerVotreProjet() {
               alt="Collaboration en action"
               width={600}
               height={300}
-              className="w-full h-auto object-cover"
+              style={{
+                width: '100%',
+                height: 'auto',
+                objectFit: 'cover'
+              }}
+              priority
+              fetchPriority="high"
+              loading="eager"
+              quality={60}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-4 md:p-6">
               <div className="text-white">

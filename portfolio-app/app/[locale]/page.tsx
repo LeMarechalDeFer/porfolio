@@ -5,21 +5,15 @@ import Projects from "@/components/landingPage/projects"
 import About from "@/components/landingPage/about"
 import Contact from "@/components/landingPage/contact"
 
-
 export default function Home() {
   return (
     <>
-
-    
-
-        <Hero />
-        <Services />
-        <Skills />
-        <Projects />
-        <About />
-        <Contact />
-      
-
+      <Hero />
+      <Services />
+      <Skills />
+      <Projects />
+      <About />
+      <Contact />
     </>
   )
 }
