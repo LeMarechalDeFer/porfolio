@@ -78,61 +78,73 @@ export default function ProjectForm() {
       />
       
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        <Select name="sector" onValueChange={(value) => setFormData((prev) => ({ ...prev, sector: value }))}>
-          <SelectTrigger className="w-full">
-            <SelectValue placeholder={t("project-form.sector")} />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="tech">{t("project-form.sector.tech")}</SelectItem>
-            <SelectItem value="health">{t("project-form.sector.health")}</SelectItem>
-            <SelectItem value="finance">{t("project-form.sector.finance")}</SelectItem>
-            <SelectItem value="education">{t("project-form.sector.education")}</SelectItem>
-            <SelectItem value="ecommerce">{t("project-form.sector.ecommerce")}</SelectItem>
-            <SelectItem value="other">{t("project-form.sector.other")}</SelectItem>
-          </SelectContent>
-        </Select>
+        <div>
+          <label id="sector-label" className="sr-only">{t("project-form.sector")}</label>
+          <Select name="sector" onValueChange={(value) => setFormData((prev) => ({ ...prev, sector: value }))}>
+            <SelectTrigger className="w-full" aria-labelledby="sector-label">
+              <SelectValue placeholder={t("project-form.sector")} />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="tech">{t("project-form.sector.tech")}</SelectItem>
+              <SelectItem value="health">{t("project-form.sector.health")}</SelectItem>
+              <SelectItem value="finance">{t("project-form.sector.finance")}</SelectItem>
+              <SelectItem value="education">{t("project-form.sector.education")}</SelectItem>
+              <SelectItem value="ecommerce">{t("project-form.sector.ecommerce")}</SelectItem>
+              <SelectItem value="other">{t("project-form.sector.other")}</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
         
-        <Select name="budget" onValueChange={(value) => setFormData((prev) => ({ ...prev, budget: value }))}>
-          <SelectTrigger className="w-full">
-            <SelectValue placeholder={t("project-form.budget")} />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="<1000">{t("project-form.budget.less1000")}</SelectItem>
-            <SelectItem value="1000-5000">{t("project-form.budget.1000-5000")}</SelectItem>
-            <SelectItem value="5000-10000">{t("project-form.budget.5000-10000")}</SelectItem>
-            <SelectItem value="10000+">{t("project-form.budget.more10000")}</SelectItem>
-          </SelectContent>
-        </Select>
+        <div>
+          <label id="budget-label" className="sr-only">{t("project-form.budget")}</label>
+          <Select name="budget" onValueChange={(value) => setFormData((prev) => ({ ...prev, budget: value }))}>
+            <SelectTrigger className="w-full" aria-labelledby="budget-label">
+              <SelectValue placeholder={t("project-form.budget")} />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="<1000">{t("project-form.budget.less1000")}</SelectItem>
+              <SelectItem value="1000-5000">{t("project-form.budget.1000-5000")}</SelectItem>
+              <SelectItem value="5000-10000">{t("project-form.budget.5000-10000")}</SelectItem>
+              <SelectItem value="10000+">{t("project-form.budget.more10000")}</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
       </div>
       
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        <Select name="timeline" onValueChange={(value) => setFormData((prev) => ({ ...prev, timeline: value }))}>
-          <SelectTrigger className="w-full">
-            <SelectValue placeholder={t("project-form.timeline")} />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="urgent">{t("project-form.timeline.urgent")}</SelectItem>
-            <SelectItem value="1-3months">{t("project-form.timeline.1-3months")}</SelectItem>
-            <SelectItem value="3+months">{t("project-form.timeline.3+months")}</SelectItem>
-            <SelectItem value="flexible">{t("project-form.timeline.flexible")}</SelectItem>
-          </SelectContent>
-        </Select>
+        <div>
+          <label id="timeline-label" className="sr-only">{t("project-form.timeline")}</label>
+          <Select name="timeline" onValueChange={(value) => setFormData((prev) => ({ ...prev, timeline: value }))}>
+            <SelectTrigger className="w-full" aria-labelledby="timeline-label">
+              <SelectValue placeholder={t("project-form.timeline")} />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="urgent">{t("project-form.timeline.urgent")}</SelectItem>
+              <SelectItem value="1-3months">{t("project-form.timeline.1-3months")}</SelectItem>
+              <SelectItem value="3+months">{t("project-form.timeline.3+months")}</SelectItem>
+              <SelectItem value="flexible">{t("project-form.timeline.flexible")}</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
         
-        <Select
-          name="mainObjective"
-          onValueChange={(value) => setFormData((prev) => ({ ...prev, mainObjective: value }))}
-        >
-          <SelectTrigger className="w-full">
-            <SelectValue placeholder={t("project-form.mainObjective")} />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="present">{t("project-form.mainObjective.present")}</SelectItem>
-            <SelectItem value="sell">{t("project-form.mainObjective.sell")}</SelectItem>
-            <SelectItem value="automate">{t("project-form.mainObjective.automate")}</SelectItem>
-            <SelectItem value="community">{t("project-form.mainObjective.community")}</SelectItem>
-            <SelectItem value="other">{t("project-form.mainObjective.other")}</SelectItem>
-          </SelectContent>
-        </Select>
+        <div>
+          <label id="objective-label" className="sr-only">{t("project-form.mainObjective")}</label>
+          <Select
+            name="mainObjective"
+            onValueChange={(value) => setFormData((prev) => ({ ...prev, mainObjective: value }))}
+          >
+            <SelectTrigger className="w-full" aria-labelledby="objective-label">
+              <SelectValue placeholder={t("project-form.mainObjective")} />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="present">{t("project-form.mainObjective.present")}</SelectItem>
+              <SelectItem value="sell">{t("project-form.mainObjective.sell")}</SelectItem>
+              <SelectItem value="automate">{t("project-form.mainObjective.automate")}</SelectItem>
+              <SelectItem value="community">{t("project-form.mainObjective.community")}</SelectItem>
+              <SelectItem value="other">{t("project-form.mainObjective.other")}</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
       </div>
       
       <Textarea

@@ -52,7 +52,13 @@ export default function Header() {
         </Link>
 
         {/* Mobile menu button */}
-        <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+        <button 
+          className="md:hidden" 
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label={mobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+          aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-menu"
+        >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
@@ -104,7 +110,7 @@ export default function Header() {
 
         {/* Mobile navigation */}
         {mobileMenuOpen && (
-          <div className="absolute top-16 left-0 right-0 bg-background border-b md:hidden px-5">
+          <div id="mobile-menu" className="absolute top-16 left-0 right-0 bg-background border-b md:hidden px-5">
             <div className="container py-4 space-y-4">
               <nav className="flex flex-col space-y-6 text-center ">
                 {navItems.map((item) => (

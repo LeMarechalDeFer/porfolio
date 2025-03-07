@@ -24,13 +24,34 @@ const badgeVariants = cva(
 )
 
 export interface BadgeProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof badgeVariants> {}
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, "onClick">,
+    VariantProps<typeof badgeVariants> {
+  interactive?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLDivElement>;
+}
 
-function Badge({ className, variant, ...props }: BadgeProps) {
+function Badge({ className, variant, interactive, onClick, ...props }: BadgeProps) {
+  if (interactive) {
+    return (
+      <button
+        type="button"
+        className={cn(
+          badgeVariants({ variant }), 
+          className,
+          "cursor-pointer"
+        )}
+        onClick={onClick as React.MouseEventHandler<HTMLButtonElement>}
+        {...(props as React.ButtonHTMLAttributes<HTMLButtonElement>)}
+      />
+    );
+  }
+  
   return (
-    <div className={cn(badgeVariants({ variant }), className)} {...props} />
-  )
+    <div 
+      className={cn(badgeVariants({ variant }), className)} 
+      {...props}
+    />
+  );
 }
 
 export { Badge, badgeVariants }

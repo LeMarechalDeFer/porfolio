@@ -160,7 +160,7 @@ export default function MesServicesClient() {
       </motion.div>
 
       <Tabs defaultValue={services[0].category} className="w-full">
-        <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 mb-4 md:mb-8 pb-24 lg:pb-10">
+        <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 mb-4 md:mb-8 pt-4 md:pt-1 lg:pt-1 pb-28 lg:pb-10">
           {services.map((service) => (
             <TabsTrigger key={service.category} value={service.category} className="text-base md:text-lg">
               {t(service.category)}

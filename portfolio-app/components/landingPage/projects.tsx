@@ -186,11 +186,11 @@ export default function Projects() {
                         </div>
                       </div>
                       <div className="flex flex-col gap-2 lg:flex-row lg:justify-between lg:gap-4">
-                        <Button variant="default" size="sm">
-                          <Link href={project.link ?? ""} target="_blank">
+                        <Link href={project.link ?? ""} target="_blank" className="w-full lg:w-auto">
+                          <Button variant="default" size="sm" className="w-full lg:w-auto">
                             {t("projects.viewProject")}
-                          </Link>
-                        </Button>
+                          </Button>
+                        </Link>
                         {project.challenged && (
                           <Button variant="outline" size="sm" className="gap-2 w-full lg:w-auto" 
                           aria-controls={`challenge-${projectId}`}

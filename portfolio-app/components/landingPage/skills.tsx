@@ -198,6 +198,7 @@ export default function Skills() {
                       <Dialog key={skill.name}>
                         <DialogTrigger asChild>
                           <Badge
+                            interactive
                             className={`${levelColors[skill.level]} cursor-pointer transition-colors`}
                           >
                             {skill.name}

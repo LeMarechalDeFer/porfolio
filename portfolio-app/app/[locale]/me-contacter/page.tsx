@@ -3,6 +3,8 @@ import Contact from "@/components/landingPage/contact"
 export default function MeContacter() {
 
   return (
-    <Contact />
+    <div className="pt-10 ">
+      <Contact />
+    </div>
   )
 }

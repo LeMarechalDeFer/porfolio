@@ -25,17 +25,17 @@ export default function Hero() {
               {t("hero.description")}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-              <Button size="lg" className="group w-full sm:w-auto">
-                <Link href="/demarrer-votre-projet">
+              <Link href="/demarrer-votre-projet" className="sm:w-auto">
+                <Button size="lg" className="group w-full sm:w-auto min-w-[200px] min-h-[44px]">
                   {t("hero.cta.primary")}
-                </Link>
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button size="lg" variant="outline" className="w-full sm:w-auto">
-                <Link href="/#projects">
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
+              <Link href="/#projects" className="sm:w-auto">
+                <Button size="lg" variant="outline" className="w-full sm:w-auto min-w-[200px] min-h-[44px]">
                   {t("hero.cta.secondary")}
-                </Link>
-              </Button>
+                </Button>
+              </Link>
             </div>
             <div className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center lg:justify-start gap-3 sm:gap-6 pt-4">
               {[
