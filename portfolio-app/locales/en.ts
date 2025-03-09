@@ -548,4 +548,48 @@ export default {
   "newsletter-popup.toast.success.title": "Thank you for subscribing!",
   "newsletter-popup.toast.success.description": "You will soon receive our next issue.",
   "newsletter-popup.image.alt": "Newsletter",
+
+  // Cookie consent translations
+  "cookie-consent.manage": "Manage cookies",
+  "cookie-consent.preferences-dialog.title": "Cookie Preferences",
+  "cookie-consent.preferences-dialog.description": "Configure your cookie preferences for our website.",
+  
+  "cookie-consent.tabs.all": "All",
+  "cookie-consent.tabs.necessary": "Necessary",
+  "cookie-consent.tabs.preferences": "Preferences",
+  "cookie-consent.tabs.analytics": "Analytics",
+  
+  "cookie-consent.necessary.title": "Strictly Necessary Cookies",
+  "cookie-consent.necessary.description": "These cookies are essential for the site to function and cannot be disabled.",
+  "cookie-consent.necessary.vercel": "__vercel - Used for routing and session management",
+  "cookie-consent.necessary.nextauth": "next-auth.session-token - Authentication management (if applicable)",
+  
+  "cookie-consent.preferences.title": "Preference Cookies",
+  "cookie-consent.preferences.description": "These cookies allow us to remember your preferences, such as theme or language.",
+  "cookie-consent.preferences.theme": "theme - Stores your theme preferences (light/dark)",
+  "cookie-consent.preferences.language": "language - Stores your language preferences",
+  "cookie-consent.preferences.enable": "Enable preference cookies",
+  
+  "cookie-consent.analytics.title": "Analytics Cookies",
+  "cookie-consent.analytics.description": "These cookies help us understand how visitors interact with our site.",
+  "cookie-consent.analytics.ga4": "Google Analytics 4 - Audience measurement and user behavior analysis",
+  "cookie-consent.analytics.posthog": "PostHog - User behavior analysis and experience improvement",
+  "cookie-consent.analytics.vercel": "Vercel Analytics - Site performance and usage analysis",
+  "cookie-consent.analytics.enable": "Enable analytics cookies",
+  
+  "cookie-consent.marketing.title": "Marketing Cookies",
+  "cookie-consent.marketing.description": "These cookies are used to track visitors across websites and display relevant advertisements.",
+  
+  "cookie-consent.more-info": "For more information about the cookies we use, please consult our",
+  "cookie-consent.cookie-policy": "cookie policy",
+  
+  "cookie-consent.buttons.cancel": "Cancel",
+  "cookie-consent.buttons.reject-all": "Reject All",
+  "cookie-consent.buttons.accept-all": "Accept All",
+  "cookie-consent.buttons.save": "Save Preferences",
+  
+  "cookie-consent.banner.text": "This site uses cookies to improve your experience.",
+  "cookie-consent.banner.more": "Learn More",
+  "cookie-consent.banner.reject": "Reject",
+  "cookie-consent.banner.accept": "Accept",
 } as const

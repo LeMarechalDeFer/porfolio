@@ -70,10 +70,7 @@ export default function NewsletterSection() {
             </Badge>
 
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-              {t("newsletter-section.title").includes("façonnent notre monde") 
-                ? t("newsletter-section.title").replace("façonnent notre monde", `<span class="text-primary">façonnent notre monde</span>`)
-                : t("newsletter-section.title")
-              }
+              {t("newsletter-section.title")}
             </h2>
 
             <p className="text-sm md:text-base text-muted-foreground">

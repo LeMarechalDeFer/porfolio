@@ -551,4 +551,48 @@ export default {
     "newsletter-popup.toast.success.title": "Merci pour votre inscription !",
     "newsletter-popup.toast.success.description": "Vous recevrez bientôt notre prochain numéro.",
     "newsletter-popup.image.alt": "Newsletter",
+
+    // Cookie consent translations
+    "cookie-consent.manage": "Gérer les cookies",
+    "cookie-consent.preferences-dialog.title": "Préférences de cookies",
+    "cookie-consent.preferences-dialog.description": "Configurez vos préférences en matière de cookies pour notre site web.",
+    
+    "cookie-consent.tabs.all": "Tous",
+    "cookie-consent.tabs.necessary": "Nécessaires",
+    "cookie-consent.tabs.preferences": "Préférences",
+    "cookie-consent.tabs.analytics": "Analytiques",
+    
+    "cookie-consent.necessary.title": "Cookies strictement nécessaires",
+    "cookie-consent.necessary.description": "Ces cookies sont essentiels au fonctionnement du site et ne peuvent pas être désactivés.",
+    "cookie-consent.necessary.vercel": "__vercel - Utilisé pour le routage et la gestion des sessions",
+    "cookie-consent.necessary.nextauth": "next-auth.session-token - Gestion de l'authentification (si applicable)",
+    
+    "cookie-consent.preferences.title": "Cookies de préférences",
+    "cookie-consent.preferences.description": "Ces cookies permettent de mémoriser vos préférences, comme le thème ou la langue.",
+    "cookie-consent.preferences.theme": "theme - Stocke vos préférences de thème (clair/sombre)",
+    "cookie-consent.preferences.language": "language - Stocke vos préférences de langue",
+    "cookie-consent.preferences.enable": "Activer les cookies de préférences",
+    
+    "cookie-consent.analytics.title": "Cookies analytiques",
+    "cookie-consent.analytics.description": "Ces cookies nous aident à comprendre comment les visiteurs interagissent avec notre site.",
+    "cookie-consent.analytics.ga4": "Google Analytics 4 - Mesure de l'audience et analyse du comportement des utilisateurs",
+    "cookie-consent.analytics.posthog": "PostHog - Analyse du comportement utilisateur et amélioration de l'expérience",
+    "cookie-consent.analytics.vercel": "Vercel Analytics - Analyse des performances et de l'utilisation du site",
+    "cookie-consent.analytics.enable": "Activer les cookies analytiques",
+    
+    "cookie-consent.marketing.title": "Cookies marketing",
+    "cookie-consent.marketing.description": "Ces cookies sont utilisés pour suivre les visiteurs sur les sites web et afficher des publicités pertinentes.",
+    
+    "cookie-consent.more-info": "Pour plus d'informations sur les cookies que nous utilisons, veuillez consulter notre",
+    "cookie-consent.cookie-policy": "politique de cookies",
+    
+    "cookie-consent.buttons.cancel": "Annuler",
+    "cookie-consent.buttons.reject-all": "Tout refuser",
+    "cookie-consent.buttons.accept-all": "Tout accepter",
+    "cookie-consent.buttons.save": "Enregistrer les préférences",
+    
+    "cookie-consent.banner.text": "Ce site utilise des cookies pour améliorer votre expérience.",
+    "cookie-consent.banner.more": "En savoir plus",
+    "cookie-consent.banner.reject": "Refuser",
+    "cookie-consent.banner.accept": "Accepter",
 } as const
