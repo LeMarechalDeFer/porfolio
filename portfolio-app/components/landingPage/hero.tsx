@@ -75,7 +75,7 @@ export default function Hero() {
                   className="w-full h-full object-cover"
                   priority
                   fetchPriority="high"
-                  quality={70}
+                  quality={75}
                   loading="eager"
                   width={384} 
                   height={384}

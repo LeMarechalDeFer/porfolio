@@ -5,11 +5,17 @@ import { useI18n } from "@/locales/client"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-// import { Input } from "@/components/ui/input"
-// import { Textarea } from "@/components/ui/textarea"
-import { Github, Linkedin, Instagram, Mail, MapPin } from "lucide-react"
+import { Mail, MapPin, Phone } from "lucide-react"
 import Link from "next/link"
 import ProjectForm from "../reservation/project-form"
+import { FiLinkedin } from "react-icons/fi"
+import { LuGithub,  } from "react-icons/lu"
+import { FaXTwitter } from "react-icons/fa6"
+import { RiTiktokLine } from "react-icons/ri"
+import { FiFacebook } from "react-icons/fi"
+import { LuYoutube } from "react-icons/lu"
+import { FaInstagram } from "react-icons/fa";
+
 
 export default function Contact() {
   const t = useI18n()
@@ -21,19 +27,22 @@ export default function Contact() {
       value: "blanchot@et.esiea.fr",
       href: "mailto:blanchot@et.esiea.fr",
     },
-    // {
-    //   icon: <Phone className="h-5 w-5" />,
-    //   title: t("contact.info.phone"),
-    //   value: "+33 7 88 28 47 15",
-    //   href: "tel:+33788284715",
-    // },
+    {
+      icon: <Phone className="h-5 w-5" />,
+      title: t("contact.info.phone"),
+      value: "+33 7 88 28 47 15",
+      href: "tel:+33788284715",
+    },
     {
       icon: <MapPin className="h-5 w-5" />,
       title: t("contact.info.location"),
       value: "Paris, France",
       href: "https://maps.google.com/?q=Paris,France",
     },
+    
+
   ]
+
 
   return (
     <section id="contact" className="py-16 px-4 sm:px-8 lg:px-12 scroll-mt-8">
@@ -82,19 +91,44 @@ export default function Contact() {
             <div className="flex gap-4 pt-4">
               <Link href="https://github.com/LeMarechalDeFer" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="icon" aria-label="GitHub">
-                  <Github className="h-5 w-5" />
+                  <LuGithub className="h-5 w-5" />
                 </Button>
               </Link>
-              <Link href="https://www.linkedin.com/in/romain-blanchot-449941284/" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="icon" aria-label="LinkedIn">
-                  <Linkedin className="h-5 w-5" />
-                </Button>
-              </Link>
-              <Link href="https://www.instagram.com/_romain_blanchot_/" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="icon" aria-label="Instagram">
-                  <Instagram className="h-5 w-5" />
-                </Button>
-              </Link>
+                <Link href="https://www.linkedin.com/in/romain-blanchot-449941284/" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" size="icon" aria-label="LinkedIn">
+                    <FiLinkedin className="h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link href="https://www.instagram.com/_romain_blanchot_/" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" size="icon" aria-label="Instagram">
+                    <FaInstagram className="h-5 w-5" />
+                  </Button>
+                </Link>
+            <Link href="mailto:blanchot@et.esiea.fr">
+              <Button variant="outline" size="icon" aria-label="Email" onClick={() => window.location.href = 'mailto:blanchot@et.esiea.fr'}>
+                <Mail className="h-5 w-5"/>
+              </Button>
+            </Link>
+            <Link href="https://x.com/talleyrand1000" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" size="icon" aria-label="Twitter">
+                <FaXTwitter className="h-5 w-5" />
+              </Button>
+            </Link>
+            <Link href="https://www.tiktok.com/@romain.blanchot" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" size="icon" aria-label="TikTok">
+                <RiTiktokLine className="h-5 w-5" />
+              </Button>
+            </Link>
+            <Link href="https://web.facebook.com/people/Romain-Blanchot/pfbid034Hz3fp8rLVBXKJkS31RF8pCSVCVbN7zGtNZZR53GZmwHgyxizSupZj9J1Qact2Nzl/" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" size="icon" aria-label="Facebook">
+                <FiFacebook className="h-5 w-5" />
+              </Button>
+            </Link>
+            <Link href="https://www.youtube.com/@romainblanchot" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" size="icon" aria-label="Youtube">
+                <LuYoutube className="h-5 w-5" />
+              </Button>
+          </Link>
             </div>
           </motion.div>
 
@@ -117,55 +151,7 @@ export default function Contact() {
               <ProjectForm />
             </CardContent>
           </Card>
-        {/* </div>
-        </div> */}
-            {/* <Card>
-              <CardHeader>
-                <CardTitle>{t("contact.form.title")}</CardTitle>
-                <CardDescription>
-                  {t("contact.form.description")}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <form className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label htmlFor="first-name" className="text-sm font-medium">
-                        {t("contact.form.firstname")}
-                      </label>
-                      <Input id="first-name" placeholder="John" />
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="last-name" className="text-sm font-medium">
-                        {t("contact.form.lastname")}
-                      </label>
-                      <Input id="last-name" placeholder="Doe" />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium">
-                      {t("contact.form.email")}
-                    </label>
-                    <Input id="email" type="email" placeholder="blanchot@et.esiea.fr" />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="subject" className="text-sm font-medium">
-                      {t("contact.form.subject")}
-                    </label>
-                    <Input id="subject" placeholder="Comment puis-je vous aider ?" />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium">
-                      {t("contact.form.message")}
-                    </label>
-                    <Textarea id="message" placeholder="Votre message ici..." rows={4} />
-                  </div>
-                </form>
-              </CardContent>
-              <CardFooter>
-                <Button className="w-full">{t("contact.form.send")}</Button>
-              </CardFooter>
-            </Card> */}
+
           </motion.div>
         </div>
       </div>

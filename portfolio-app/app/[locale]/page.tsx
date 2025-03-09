@@ -4,7 +4,7 @@ import Skills from "@/components/landingPage/skills"
 import Projects from "@/components/landingPage/projects"
 import About from "@/components/landingPage/about"
 import Contact from "@/components/landingPage/contact"
-
+import NewsletterSection from "@/components/landingPage/newsletter-section"
 export default function Home() {
   return (
     <>
@@ -12,6 +12,7 @@ export default function Home() {
       <Services />
       <Skills />
       <Projects />
+      <NewsletterSection />
       <About />
       <Contact />
     </>
