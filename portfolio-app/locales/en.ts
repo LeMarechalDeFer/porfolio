@@ -488,6 +488,9 @@ export default {
   "politique-cookies.section.5.3.p1": "When you first visit our site, a cookie banner informs you about the use of cookies and asks for your consent. You can choose to accept or refuse non-essential cookies.",
   "politique-cookies.section.5.3.p2": "You can change your preferences at any time by clicking on the \"Manage cookies\" link at the bottom of our site.",
   
+  "politique-cookies.section.6.title.li1": "Consent",
+  "politique-cookies.section.6.title.li2": "Legitimate interest",
+  "politique-cookies.section.6.title.li3": "Performance of a contract",
   "politique-cookies.section.6.title": "6. Legal basis for using cookies",
   "politique-cookies.section.6.p1": "We use cookies on our site on the following legal bases:",
   "politique-cookies.section.6.li1": "Consent: We use analytics, preference, and marketing cookies only with your prior consent, which you can withdraw at any time.",

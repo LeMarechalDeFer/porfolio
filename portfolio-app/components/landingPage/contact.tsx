@@ -88,7 +88,7 @@ export default function Contact() {
               ))}
             </div>
 
-            <div className="flex gap-4 pt-4">
+            <div className="flex flex-wrap gap-4 pt-4 justify-center">
               <Link href="https://github.com/LeMarechalDeFer" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="icon" aria-label="GitHub">
                   <LuGithub className="h-5 w-5" />

@@ -12,6 +12,7 @@ import { X, Send, Sparkles } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useI18n } from "@/locales/client"
+import RomainBlanchot from "@/public/photoProfilRomain.jpg"
 
 export default function NewsletterPopup() {
   const [isOpen, setIsOpen] = useState(false)
@@ -101,7 +102,7 @@ export default function NewsletterPopup() {
                     <div className="w-24 h-24 rounded-full bg-background p-1 shadow-lg">
                       <div className="w-full h-full rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center">
                         <Image
-                          src="/placeholder.svg?height=80&width=80"
+                          src={RomainBlanchot}
                           alt={t("newsletter-popup.image.alt")}
                           width={80}
                           height={80}
