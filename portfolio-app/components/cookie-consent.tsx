@@ -39,6 +39,7 @@ export function CookieConsent() {
         setPreferences(savedPreferences)
       } catch (e) {
         // En cas d'erreur, réinitialiser
+        console.error("Erreur lors du chargement des préférences de cookies:", e)
         setShowBanner(true)
       }
     }
