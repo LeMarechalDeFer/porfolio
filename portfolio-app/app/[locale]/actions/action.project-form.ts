@@ -82,7 +82,7 @@ export async function projectFormRequest(data: ProjectFormSchema) {
         technicalPreferences: technicalPreferences,
         otherDetails: otherDetails
       }),
-      replyTo: "romainblanchot@gmail.com"
+      replyTo: "romainblanchot0@gmail.com"
     });
 
     return { success: true, message: t("project-form.email.subject") };

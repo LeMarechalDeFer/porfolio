@@ -44,7 +44,7 @@ export async function subscribeToNewsletter(data: NewsletterSchemaType) {
         email: parsed.data.email, 
         language: parsed.data.language
       }),
-      replyTo: "romainblanchot@gmail.com"
+      replyTo: "romainblanchot0@gmail.com"
     });
 
     return { success: true, message: t("newsletter.success.description") };
