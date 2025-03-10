@@ -550,7 +550,7 @@ export default {
     
     "newsletter-section.toast.success.title": "Inscription réussie !",
     "newsletter-section.toast.success.description": "Bienvenue dans la communauté des explorateurs d'algorithmes. Votre premier numéro arrivera bientôt.",
-
+    "newsletter.label": "Votre adresse email",
     // Newsletter popup translations
     "newsletter-popup.close": "Fermer",
     "newsletter-popup.title": "Restez à la pointe de l'innovation",

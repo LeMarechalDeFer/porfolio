@@ -12,6 +12,7 @@ import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "
 import { projectFormSchema, ProjectFormSchema } from "@/lib/schema/schema.project-form"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { Loader2 } from "lucide-react"
 
 export default function ProjectForm() {
   const t = useI18n()
@@ -288,8 +289,12 @@ export default function ProjectForm() {
           </FormItem>
         )}
       />
-      <Button type="submit" className="w-full">
-        {t("project-form.submit")}
+      <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
+        {form.formState.isSubmitting ? (
+          <Loader2 className="h-4 w-4 animate-spin" />
+        ) : (
+          t("project-form.submit")
+        )}
       </Button>
     </form>
     </Form>

@@ -1,40 +1,46 @@
 "use client"
 
 import type React from "react"
-
-import { useState } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { toast } from "sonner"
-import { Brain, Code, Zap, Lock, ArrowRight, CheckCircle } from "lucide-react"
+import { Brain, Code, Zap, Lock, CheckCircle, Loader2 } from "lucide-react"
 import Link from "next/link"
 import { useI18n } from "@/locales/client"
 
+import { newsletterSchema, NewsletterSchemaType } from "@/lib/schema/schema.newsletter"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form"
+
+
 export default function NewsletterSection() {
-  const [email, setEmail] = useState("")
-  const [isSubmitting, setIsSubmitting] = useState(false)
   const t = useI18n()
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+  const form = useForm<NewsletterSchemaType>({
+    resolver: zodResolver(newsletterSchema(t)),
+    defaultValues: {
+      email: "",
+    },
+  })
 
-    // Simuler un délai d'envoi
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+  async function onSubmit(data: NewsletterSchemaType) {
+   
 
-    // Ici, vous ajouteriez la logique pour envoyer l'email à votre service de newsletter
-    console.log("Email soumis:", email)
-
-    toast.success(t("newsletter-section.toast.success.title"), {
-      description: t("newsletter-section.toast.success.description"),
-    })
-
-    setEmail("")
-    setIsSubmitting(false)
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      console.log("Formulaire soumis ✅", data);
+      toast.success(t("newsletter-section.toast.success.title"), {
+        description: t("newsletter-section.toast.success.description"),
+      });
+    } catch (error) {
+      console.error("Erreur lors de l'envoi du formulaire:", error);
+    } 
   }
+
 
   const benefits = [
     {
@@ -119,44 +125,45 @@ export default function NewsletterSection() {
                   </p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-3">
-                  <div className="space-y-1.5">
-                    <label htmlFor="email" className="text-xs font-medium">
-                      {t("newsletter-section.form.label")}
-                    </label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder={t("newsletter-section.form.placeholder")}
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                      className="h-10"
-                    />
-                  </div>
-
-                  <Button type="submit" className="w-full h-9 text-sm group" disabled={isSubmitting}>
-                    {isSubmitting ? (
-                      t("newsletter-section.form.button.loading")
-                    ) : (
-                      <>
-                        {t("newsletter-section.form.button")}
-                        <ArrowRight className="ml-1.5 h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                      </>
-                    )}
-                  </Button>
-
-                  <div className="flex items-center justify-center gap-1.5 pt-1">
-                    <Lock className="h-3 w-3 text-muted-foreground" />
-                    <p className="text-xs text-muted-foreground">
-                      {t("newsletter-section.form.privacy")}{" "}
-                      <Link href="/politique-de-confidentialite" className="underline hover:text-primary">
-                        {t("newsletter-section.form.privacy.link")}
-                      </Link>
-                    </p>
-                  </div>
-                </form>
-
+                <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
+                        <div className="space-y-1.5">
+                            <FormField
+                                control={form.control}
+                                name="email"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>{t("newsletter-section.form.label")}</FormLabel>
+                                        <FormControl>
+                                            <Input
+                                                {...field}
+                                                placeholder={t("newsletter-section.form.placeholder")}
+                                                className="h-10"
+                                            />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />  
+                        </div>
+                        <Button type="submit" className="w-full h-9 text-sm group" disabled={form.formState.isSubmitting}>
+                            {form.formState.isSubmitting ? (
+                                <Loader2 className="h-4 w-4 animate-spin" />
+                            ) : (
+                                t("newsletter-section.form.button")
+                            )}
+                        </Button>
+                        <div className="flex items-center justify-center gap-1.5 pt-1">
+                            <Lock className="h-3 w-3 text-muted-foreground" />
+                            <p className="text-xs text-muted-foreground">
+                            {t("newsletter-section.form.privacy")}{" "}
+                            <Link href="/politique-de-confidentialite" className="underline hover:text-primary">
+                                {t("newsletter-section.form.privacy.link")}
+                            </Link>
+                            </p>
+                        </div>
+                    </form>
+                </Form>
                 <div className="mt-6 pt-4 border-t">
                   <div className="space-y-3">
                     <div className="flex items-start gap-2">

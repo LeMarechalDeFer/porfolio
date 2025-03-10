@@ -563,7 +563,7 @@ export default {
   "newsletter-popup.image.alt": "Newsletter",
   "newsletter.email.invalid": "Please enter a valid email address",
   "newsletter-popup.email.label": "Your email address",
-
+  "newsletter.label": "Your email address",
   // Cookie consent translations
   "cookie-consent.manage": "Manage cookies",
   "cookie-consent.preferences-dialog.title": "Cookie Preferences",

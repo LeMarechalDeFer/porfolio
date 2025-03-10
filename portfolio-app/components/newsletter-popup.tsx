@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
 import { toast } from "sonner"
-import { X, Send, Sparkles } from "lucide-react"
+import { X, Send, Sparkles, Loader2 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useI18n } from "@/locales/client"
@@ -21,7 +21,6 @@ import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "
 
 export default function NewsletterPopup() {
   const [isOpen, setIsOpen] = useState(false)
-  const [isSubmitting, setIsSubmitting] = useState(false)
   const [hasCheckedStorage, setHasCheckedStorage] = useState(false)
   const t = useI18n()
 
@@ -33,7 +32,6 @@ export default function NewsletterPopup() {
   })
 
   async function onSubmit(data: NewsletterSchemaType) {
-    setIsSubmitting(true);
     
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
@@ -47,7 +45,6 @@ export default function NewsletterPopup() {
     
     // Fermer la popup
     setIsOpen(false);
-    setIsSubmitting(false);
   };
 
 
@@ -196,9 +193,9 @@ export default function NewsletterPopup() {
                                     </FormItem>
                                 )}
                             />
-                            <Button type="submit" className="w-full group" disabled={isSubmitting}>
-                                {isSubmitting ? (
-                                    t("newsletter-popup.button.loading")
+                            <Button type="submit" className="w-full group" disabled={form.formState.isSubmitting}>
+                                {form.formState.isSubmitting ? (
+                                    <Loader2 className="h-4 w-4 animate-spin" />
                                 ) : (
                                     <>
                                         {t("newsletter-popup.button")}
