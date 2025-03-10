@@ -215,7 +215,8 @@ export default {
     "mes-services.call-to-action.meeting": "Prendre rendez-vous",
 
     // Traductions pour le formulaire de projet
-    "project-form.name": "Votre nom",
+    "project-form.surname": "Votre nom",
+    "project-form.name": "Votre prénom",
     "project-form.email": "Votre email",
     "project-form.company": "Nom de l'entreprise ou du projet",
     "project-form.sector": "Secteur d'activité",
@@ -249,7 +250,18 @@ export default {
     "project-form.submit": "Envoyer ma demande",
     "project-form.success.title": "Formulaire envoyé !",
     "project-form.success.description": "Je vous contacterai dans les plus brefs délais pour discuter de votre projet.",
-
+    "project-form.required.name": "Le prénom est requis",
+    "project-form.required.surname": "Le nom est requis",
+    "project-form.required.email": "L'email est requis",
+    "project-form.required.company": "Le nom de l'entreprise ou du projet est requis",
+    "project-form.required.sector": "Le secteur d'activité est requis",
+    "project-form.required.budget": "Le budget est requis",
+    "project-form.required.timeline": "Le délai est requis",
+    "project-form.required.mainObjective": "L'objectif principal est requis",
+    "project-form.required.projectIdea": "La description du projet est requise",
+    "project-form.required.targetAudience": "L'audience cible est requise",
+    "project-form.required.expectedResults": "Les résultats attendus sont requis",
+  
     // Traductions pour la page "Démarrer votre projet"
     "start-project.title": "Transformez votre vision en réalité digitale",
     "start-project.subtitle": "Vous êtes prêt à propulser votre entreprise vers de nouveaux sommets. Remplissez le formulaire ci-dessous pour démarrer votre projet web sur mesure.",
@@ -551,7 +563,8 @@ export default {
     "newsletter-popup.toast.success.title": "Merci pour votre inscription !",
     "newsletter-popup.toast.success.description": "Vous recevrez bientôt notre prochain numéro.",
     "newsletter-popup.image.alt": "Newsletter",
-
+    "newsletter.email.invalid": "Veuillez entrer une adresse email valide",
+    "newsletter-popup.email.label": "Votre adresse email",
     // Cookie consent translations
     "cookie-consent.manage": "Gérer les cookies",
     "cookie-consent.preferences-dialog.title": "Préférences de cookies",

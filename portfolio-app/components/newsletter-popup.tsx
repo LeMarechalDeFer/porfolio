@@ -14,53 +14,117 @@ import Link from "next/link"
 import { useI18n } from "@/locales/client"
 import RomainBlanchot from "@/public/photoProfilRomain.jpg"
 
+import { newsletterSchema, NewsletterSchemaType } from "@/lib/schema/schema.newsletter"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form"
+
 export default function NewsletterPopup() {
   const [isOpen, setIsOpen] = useState(false)
-  const [email, setEmail] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [hasCheckedStorage, setHasCheckedStorage] = useState(false)
   const t = useI18n()
-  useEffect(() => {
-    // Vérifier si l'utilisateur a déjà fermé la popup ou s'est inscrit
-    const hasClosedPopup = localStorage.getItem("newsletterPopupClosed")
-    const hasSubscribed = localStorage.getItem("newsletterSubscribed")
 
-    if (!hasClosedPopup && !hasSubscribed) {
-      // Afficher la popup après 30 secondes
-      const timer = setTimeout(() => {
-        setIsOpen(true)
-      }, 30000) // 30 secondes
+  const form = useForm<NewsletterSchemaType>({
+    resolver: zodResolver(newsletterSchema(t)),
+    defaultValues: {
+      email: "",
+    },
+  })
 
-      return () => clearTimeout(timer)
-    }
-  }, [])
+  async function onSubmit(data: NewsletterSchemaType) {
+    setIsSubmitting(true);
+    
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
-  const handleClose = () => {
-    setIsOpen(false)
-    // Mémoriser que l'utilisateur a fermé la popup
-    localStorage.setItem("newsletterPopupClosed", "true")
-  }
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
-    // Simuler un délai d'envoi
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-
-    // Ici, vous ajouteriez la logique pour envoyer l'email à votre service de newsletter
-    console.log("Email soumis:", email)
-
+    console.log("Formulaire soumis ✅", data);
     toast.success(t("newsletter-popup.toast.success.title"), {
       description: t("newsletter-popup.toast.success.description"),
-    })
-
+    });
+    
     // Mémoriser que l'utilisateur s'est inscrit
-    localStorage.setItem("newsletterSubscribed", "true")
+    localStorage.setItem("newsletterSubscribed", "true");
+    
+    // Fermer la popup
+    setIsOpen(false);
+    setIsSubmitting(false);
+  };
 
-    setEmail("")
-    setIsSubmitting(false)
-    setIsOpen(false)
-  }
+
+    // 🕐 Délais en millisecondes
+    const TIME_ON_SITE = 20 * 1000; // 20 secondes
+    const POPUP_INTERVAL = 5 * 60 * 1000; // 5 minutes
+    const INACTIVITY_TIME = 15 * 1000; // 15 secondes
+    const PAGE_VIEW_THRESHOLD = 3; // 3 pages visitées
+
+    useEffect(() => {
+    const hasSubscribed = localStorage.getItem("newsletterSubscribed");
+    if (hasSubscribed) {
+        setHasCheckedStorage(true);
+        return; // ⛔ Ne rien exécuter si l'utilisateur est déjà abonné
+    }
+
+    const lastPopupShown = localStorage.getItem("lastNewsletterPopupShown");
+    let pageViews = parseInt(localStorage.getItem("pageViews") || "0", 10);
+    const now = Date.now();
+
+    // ⏳ Vérifier si 5 minutes se sont écoulées depuis la dernière popup
+    const canShowPopup = !lastPopupShown || now - parseInt(lastPopupShown) > POPUP_INTERVAL;
+
+    // ⏱️ Affichage après 20 secondes
+    const siteTimer = setTimeout(() => {
+        if (canShowPopup) triggerPopup();
+    }, TIME_ON_SITE);
+
+    // 📄 Incrémenter le nombre de pages vues
+    pageViews += 1;
+    localStorage.setItem("pageViews", pageViews.toString());
+
+    // 📌 Affichage après 3 pages vues
+    if (pageViews >= PAGE_VIEW_THRESHOLD && canShowPopup) {
+        triggerPopup();
+        localStorage.setItem("pageViews", "0"); // Réinitialisation après affichage
+    }
+
+    // 🔴 Gestion de l'inactivité (Seulement si pas encore abonné)
+    let inactivityTimer: NodeJS.Timeout;
+    const resetTimer = () => {
+        if (localStorage.getItem("newsletterSubscribed")) return; // ⛔ Ne pas exécuter si déjà abonné
+
+        clearTimeout(inactivityTimer);
+        inactivityTimer = setTimeout(() => {
+        if (canShowPopup) triggerPopup();
+        }, INACTIVITY_TIME);
+    };
+
+    document.addEventListener("mousemove", resetTimer);
+    document.addEventListener("keydown", resetTimer);
+    resetTimer();
+
+    setHasCheckedStorage(true);
+
+    return () => {
+        clearTimeout(siteTimer);
+        document.removeEventListener("mousemove", resetTimer);
+        document.removeEventListener("keydown", resetTimer);
+        clearTimeout(inactivityTimer);
+    };
+    }, [POPUP_INTERVAL, TIME_ON_SITE, INACTIVITY_TIME]);
+
+    // 📌 Fonction pour afficher la popup et mémoriser l'affichage
+    const triggerPopup = () => {
+    if (localStorage.getItem("newsletterSubscribed")) return; // ⛔ Sécurité supplémentaire
+    setIsOpen(true);
+    localStorage.setItem("lastNewsletterPopupShown", Date.now().toString());
+    };
+
+    // ❌ Fermeture manuelle de la popup
+    const handleClose = () => {
+    setIsOpen(false);
+    };
+
+  if (!hasCheckedStorage) return null;
+
 
   return (
     <AnimatePresence>
@@ -117,28 +181,33 @@ export default function NewsletterPopup() {
                     <p className="text-sm text-muted-foreground">
                       {t("newsletter-popup.description")}
                     </p>
-
-                    <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-                      <Input
-                        type="email"
-                        placeholder={t("newsletter-popup.email.placeholder")}
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                        className="h-10"
-                      />
-
-                      <Button type="submit" className="w-full group" disabled={isSubmitting}>
-                        {isSubmitting ? (
-                          t("newsletter-popup.button.loading")
-                        ) : (
-                          <>
-                            {t("newsletter-popup.button")}
-                            <Send className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                          </>
-                        )}
-                      </Button>
-                    </form>
+                    <Form {...form}>
+                        <form onSubmit={form.handleSubmit(onSubmit)} className="mt-6 space-y-4">
+                            <FormField
+                                control={form.control}
+                                name="email"
+                                render={({field}) => (
+                                    <FormItem>
+                                        <FormLabel>{t("newsletter-popup.email.label")}</FormLabel>
+                                        <FormControl>
+                                            <Input type="email" placeholder={t("newsletter-popup.email.placeholder")} {...field} className="h-10" />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            <Button type="submit" className="w-full group" disabled={isSubmitting}>
+                                {isSubmitting ? (
+                                    t("newsletter-popup.button.loading")
+                                ) : (
+                                    <>
+                                        {t("newsletter-popup.button")}
+                                        <Send className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                                    </>
+                                )}
+                            </Button>
+                        </form>
+                    </Form>
 
                     <p className="text-xs text-muted-foreground pt-2">
                       {t("newsletter-popup.disclaimer")}{" "}
@@ -152,7 +221,8 @@ export default function NewsletterPopup() {
             </Card>
           </motion.div>
         </motion.div>
-      )}
+      )
+    }
     </AnimatePresence>
   )
 }

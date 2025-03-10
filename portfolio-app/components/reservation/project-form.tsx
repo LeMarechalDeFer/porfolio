@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -9,33 +8,20 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { toast } from "sonner"
 import { useI18n } from "@/locales/client"
 
+import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form"
+import { projectFormSchema, ProjectFormSchema } from "@/lib/schema/schema.project-form"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+
 export default function ProjectForm() {
   const t = useI18n()
   
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    sector: "",
-    budget: "",
-    timeline: "",
-    mainObjective: "",
-    projectIdea: "",
-    targetAudience: "",
-    expectedResults: "",
-    technicalPreferences: "",
-    otherDetails: "",
-  })
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    // Ici, vous ajouteriez la logique pour envoyer le formulaire à votre backend
-    console.log("Formulaire soumis:", formData)
-    toast.success(t("project-form.success.title"), {
-      description: t("project-form.success.description"),
-    })
-    setFormData({
+  const form = useForm<ProjectFormSchema>({
+    resolver: zodResolver(projectFormSchema(t)),
+    // resolver: zodResolver(projectFormSchema),
+    defaultValues: {
       name: "",
+      surname: "",
       email: "",
       company: "",
       sector: "",
@@ -47,143 +33,266 @@ export default function ProjectForm() {
       expectedResults: "",
       technicalPreferences: "",
       otherDetails: "",
-    })
-  }
+    },
+  });
+  
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+  function onSubmit(data: ProjectFormSchema) {
+    console.log("Formulaire soumis ✅", data);
+    toast.success(t("project-form.success.title"), {
+      description: t("project-form.success.description"),
+    });
+  };
+
+ 
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <Form {...form}>
+    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
       {/* Champs prioritaires */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        <Input type="text" name="name" placeholder={t("project-form.name")} value={formData.name} onChange={handleChange} required />
-        <Input
-          type="email"
-          name="email"
-          placeholder={t("project-form.email")}
-          value={formData.email}
-          onChange={handleChange}
-          required
+        <FormField
+          control={form.control}
+          name="name"
+          render={({field}) => (
+            <FormItem>
+              <FormLabel>{t("project-form.name")}</FormLabel>
+              <FormControl>
+                <Input type="text" {...field}  />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="surname"
+          render={({field}) => (
+            <FormItem>
+              <FormLabel>{t("project-form.surname")}</FormLabel>
+              <FormControl>
+                <Input type="text" {...field}  />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
         />
       </div>
-      <Input
-        type="text"
-        name="company"
-        placeholder={t("project-form.company")}
-        value={formData.company}
-        onChange={handleChange}
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <FormField
+          control={form.control}
+          name="email"
+        render={({field}) => (
+          <FormItem>
+            <FormLabel>{t("project-form.email")}</FormLabel>
+            <FormControl>
+              <Input type="email" {...field}  />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
       />
-      
+      <FormField
+          control={form.control}
+          name="company"
+          render={({field}) => (
+            <FormItem>
+              <FormLabel>{t("project-form.company")}</FormLabel>
+              <FormControl>
+                <Input type="text" {...field}  />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+      </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div>
-          <label id="sector-label" className="sr-only">{t("project-form.sector")}</label>
-          <Select name="sector" onValueChange={(value) => setFormData((prev) => ({ ...prev, sector: value }))}>
-            <SelectTrigger className="w-full" aria-labelledby="sector-label">
-              <SelectValue placeholder={t("project-form.sector")} />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="tech">{t("project-form.sector.tech")}</SelectItem>
-              <SelectItem value="health">{t("project-form.sector.health")}</SelectItem>
-              <SelectItem value="finance">{t("project-form.sector.finance")}</SelectItem>
-              <SelectItem value="education">{t("project-form.sector.education")}</SelectItem>
-              <SelectItem value="ecommerce">{t("project-form.sector.ecommerce")}</SelectItem>
-              <SelectItem value="other">{t("project-form.sector.other")}</SelectItem>
-            </SelectContent>
-          </Select>
+          <FormField
+            control={form.control}
+            name="sector"
+            render={({field}) => (
+              <FormItem>
+                <FormLabel>{t("project-form.sector")}</FormLabel>
+                <FormControl>
+                  <Select name="sector" onValueChange={field.onChange} defaultValue={field.value}>
+                    <SelectTrigger className="w-full" aria-labelledby="sector-label">
+                      <SelectValue placeholder={t("project-form.sector")} />
+                    </SelectTrigger>
+                    <SelectContent> 
+                      <SelectItem value="tech">{t("project-form.sector.tech")}</SelectItem>
+                      <SelectItem value="health">{t("project-form.sector.health")}</SelectItem>
+                      <SelectItem value="finance">{t("project-form.sector.finance")}</SelectItem>
+                      <SelectItem value="education">{t("project-form.sector.education")}</SelectItem>
+                      <SelectItem value="ecommerce">{t("project-form.sector.ecommerce")}</SelectItem>
+                      <SelectItem value="other">{t("project-form.sector.other")}</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
         </div>
         
         <div>
-          <label id="budget-label" className="sr-only">{t("project-form.budget")}</label>
-          <Select name="budget" onValueChange={(value) => setFormData((prev) => ({ ...prev, budget: value }))}>
-            <SelectTrigger className="w-full" aria-labelledby="budget-label">
-              <SelectValue placeholder={t("project-form.budget")} />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="<1000">{t("project-form.budget.less1000")}</SelectItem>
-              <SelectItem value="1000-5000">{t("project-form.budget.1000-5000")}</SelectItem>
-              <SelectItem value="5000-10000">{t("project-form.budget.5000-10000")}</SelectItem>
-              <SelectItem value="10000+">{t("project-form.budget.more10000")}</SelectItem>
-            </SelectContent>
-          </Select>
+          <FormField
+            control={form.control}
+            name="budget"
+            render={({field}) => (
+              <FormItem>
+                <FormLabel>{t("project-form.budget")}</FormLabel> 
+                  <FormControl>
+                  <Select name="budget" onValueChange={field.onChange} defaultValue={field.value}>
+                    <SelectTrigger className="w-full" aria-labelledby="budget-label">
+                      <SelectValue placeholder={t("project-form.budget")} />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="<1000">{t("project-form.budget.less1000")}</SelectItem>
+                      <SelectItem value="1000-5000">{t("project-form.budget.1000-5000")}</SelectItem>
+                      <SelectItem value="5000-10000">{t("project-form.budget.5000-10000")}</SelectItem>
+                      <SelectItem value="10000+">{t("project-form.budget.more10000")}</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
         </div>
       </div>
       
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div>
-          <label id="timeline-label" className="sr-only">{t("project-form.timeline")}</label>
-          <Select name="timeline" onValueChange={(value) => setFormData((prev) => ({ ...prev, timeline: value }))}>
-            <SelectTrigger className="w-full" aria-labelledby="timeline-label">
-              <SelectValue placeholder={t("project-form.timeline")} />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="urgent">{t("project-form.timeline.urgent")}</SelectItem>
-              <SelectItem value="1-3months">{t("project-form.timeline.1-3months")}</SelectItem>
-              <SelectItem value="3+months">{t("project-form.timeline.3+months")}</SelectItem>
-              <SelectItem value="flexible">{t("project-form.timeline.flexible")}</SelectItem>
-            </SelectContent>
-          </Select>
+          <FormField
+            control={form.control}
+            name="timeline"
+            render={({field}) => (
+              <FormItem>
+                <FormLabel>{t("project-form.timeline")}</FormLabel>
+                <FormControl>
+                  <Select name="timeline" onValueChange={field.onChange} defaultValue={field.value}>
+                    <SelectTrigger className="w-full" aria-labelledby="timeline-label">
+                      <SelectValue placeholder={t("project-form.timeline")} />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="urgent">{t("project-form.timeline.urgent")}</SelectItem>
+                      <SelectItem value="1-3months">{t("project-form.timeline.1-3months")}</SelectItem>
+                      <SelectItem value="3+months">{t("project-form.timeline.3+months")}</SelectItem>
+                      <SelectItem value="flexible">{t("project-form.timeline.flexible")}</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
         </div>
         
+
+
+
+        
         <div>
-          <label id="objective-label" className="sr-only">{t("project-form.mainObjective")}</label>
-          <Select
+          <FormField
+            control={form.control}
             name="mainObjective"
-            onValueChange={(value) => setFormData((prev) => ({ ...prev, mainObjective: value }))}
-          >
-            <SelectTrigger className="w-full" aria-labelledby="objective-label">
-              <SelectValue placeholder={t("project-form.mainObjective")} />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="present">{t("project-form.mainObjective.present")}</SelectItem>
-              <SelectItem value="sell">{t("project-form.mainObjective.sell")}</SelectItem>
-              <SelectItem value="automate">{t("project-form.mainObjective.automate")}</SelectItem>
-              <SelectItem value="community">{t("project-form.mainObjective.community")}</SelectItem>
-              <SelectItem value="other">{t("project-form.mainObjective.other")}</SelectItem>
-            </SelectContent>
-          </Select>
+            render={({field}) => (
+              <FormItem>
+                <FormLabel>{t("project-form.mainObjective")}</FormLabel>
+                <FormControl>
+                  <Select name="mainObjective" onValueChange={field.onChange} defaultValue={field.value}>
+                    <SelectTrigger className="w-full" aria-labelledby="objective-label">
+                      <SelectValue placeholder={t("project-form.mainObjective")} />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="present">{t("project-form.mainObjective.present")}</SelectItem>
+                      <SelectItem value="sell">{t("project-form.mainObjective.sell")}</SelectItem>
+                      <SelectItem value="automate">{t("project-form.mainObjective.automate")}</SelectItem>
+                      <SelectItem value="community">{t("project-form.mainObjective.community")}</SelectItem>
+                      <SelectItem value="other">{t("project-form.mainObjective.other")}</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
         </div>
       </div>
-      
-      <Textarea
+
+
+      <FormField
+        control={form.control}
         name="projectIdea"
-        placeholder={t("project-form.projectIdea")}
-        value={formData.projectIdea}
-        onChange={handleChange}
-        required
+        render={({field}) => (
+          <FormItem>
+            <FormLabel>{t("project-form.projectIdea")}</FormLabel>
+            <FormControl>
+              <Textarea {...field}  />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
       />
-      <Input
-        type="text"
+      <FormField
+        control={form.control}
         name="targetAudience"
-        placeholder={t("project-form.targetAudience")}
-        value={formData.targetAudience}
-        onChange={handleChange}
+        render={({field}) => (
+          <FormItem>
+            <FormLabel>{t("project-form.targetAudience")}</FormLabel>
+            <FormControl>
+              <Textarea {...field}  />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
       />
-      <Textarea
+      <FormField
+        control={form.control}
         name="expectedResults"
-        placeholder={t("project-form.expectedResults")}
-        value={formData.expectedResults}
-        onChange={handleChange}
+        render={({field}) => (
+          <FormItem>
+            <FormLabel>{t("project-form.expectedResults")}</FormLabel>
+            <FormControl>
+              <Textarea {...field}  />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
       />
-      <Input
-        type="text"
+      <FormField
+        control={form.control}
         name="technicalPreferences"
-        placeholder={t("project-form.technicalPreferences")}
-        value={formData.technicalPreferences}
-        onChange={handleChange}
+        render={({field}) => (
+          <FormItem>
+            <FormLabel>{t("project-form.technicalPreferences")}</FormLabel>
+            <FormControl>
+              <Textarea {...field}  />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
       />
-      <Textarea
+      <FormField
+        control={form.control}
         name="otherDetails"
-        placeholder={t("project-form.otherDetails")}
-        value={formData.otherDetails}
-        onChange={handleChange}
+        render={({field}) => (
+          <FormItem>
+            <FormLabel>{t("project-form.otherDetails")}</FormLabel>
+            <FormControl>
+              <Textarea {...field}  />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
       />
       <Button type="submit" className="w-full">
         {t("project-form.submit")}
       </Button>
     </form>
+    </Form>
   )
 }
 

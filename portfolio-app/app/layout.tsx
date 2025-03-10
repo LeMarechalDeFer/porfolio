@@ -15,12 +15,12 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 
 export const metadata: Metadata = {
   title: {
-    default: "Romain Blanchot - Ingénieur Full Stack Freelance Next.js et Automation",
-    template: "%s | Romain Blanchot - Ingénieur Full Stack Freelance Next.js et Automation",
+    default: "Romain Blanchot - Ingénieur Full Stack & Automatisation",
+    template: "%s | Romain Blanchot - Ingénieur Full Stack & Automatisation",
   },
   description:
-    "Ingénieur Full Stack Freelance spécialisé en solutions end-to-end et intégration d'IA. Créez des applications web performantes et évolutives avec un expert Next.js.",
-  keywords: ["développeur web", "freelance", "Next.js", "React", "full-stack", "IA", "applications web"],
+    "Ingénieur Full Stack Freelance spécialisé en solutions end-to-end et intégration d'IA. Créez des applications web performantes et évolutives !",
+  keywords: ["développeur web", "freelance", "Next.js", "React", "full-stack", "IA", "applications web", "automatisation", "web app", "solution end-to-end", "cloud", "docker", "git", "postgtresql", "typescript"],
   authors: [{ name: "Romain Blanchot" }],
   creator: "Romain Blanchot",
   category: 'technology, portfolio, programming, automation, business',
@@ -37,25 +37,25 @@ export const metadata: Metadata = {
 
   },
   openGraph: {
-    title: "Romain - Développeur Web Freelance",
-    description: "Développeur web freelance spécialisé en solutions end-to-end et intégration d'IA. Créez des applications web performantes et évolutives avec un expert Next.js.",
+    title: "Romain Blanchot - Ingénieur en Développement Full Stack et Automatisation",
+    description: "Développeur web freelance spécialisé en solutions end-to-end et intégration d'IA. Créez des applications web performantes et évolutives !",
     type: "website",
     locale: "fr",
     url: "https://www.romainblanchot.com",
-    siteName: "Romain Blanchot - Développeur Web Freelance",
+    siteName: "Romain Blanchot - Ingénieur en Développement Full Stack et Automatisation",
     images: [
       {
         url: "https://www.romainblanchot.com/photoProfilRomain.jpg",
         width: 1200,
         height: 630,
-        alt: "Romain - Développeur Web Freelance Expert Next.js",
+        alt: "Romain Blanchot - Ingénieur en Développement Full Stack et Automatisation",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Romain - Développeur Web Freelance",
-    description: "Développeur web freelance spécialisé en solutions end-to-end et intégration d'IA. Créez des applications web performantes et évolutives avec un expert Next.js.",
+    title: "Romain Blanchot - Ingénieur en Développement Full Stack et Automatisation",
+    description: "Développeur web freelance spécialisé en solutions end-to-end et intégration d'IA. Créez des applications web performantes et évolutives !",
     
     creator: "@talleyrand1000",
     siteId: "@talleyrand1000",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
 
     images: {
       url: "https://www.romainblanchot.com/photoProfilRomain.jpg",
-      alt: "Romain - Développeur Web Freelance Expert Next.js",
+      alt: "Romain Blanchot - Ingénieur en Développement Full Stack et Automatisation",
     },
   },
   

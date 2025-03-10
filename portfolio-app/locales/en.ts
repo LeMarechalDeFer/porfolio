@@ -212,7 +212,8 @@ export default {
   "mes-services.call-to-action.meeting": "Schedule a meeting",
 
   // Project form translations
-  "project-form.name": "Your name",
+  "project-form.surname": "Your last name",
+  "project-form.name": "Your first name",
   "project-form.email": "Your email",
   "project-form.company": "Company or project name",
   "project-form.sector": "Industry sector",
@@ -246,6 +247,18 @@ export default {
   "project-form.submit": "Submit my request",
   "project-form.success.title": "Form submitted!",
   "project-form.success.description": "I will contact you as soon as possible to discuss your project.",
+  "project-form.required.name": "The name is required",
+  "project-form.required.surname": "The last name is required",
+  "project-form.required.email": "The email is required",
+  "project-form.required.company": "The company or project name is required",
+  "project-form.required.sector": "The industry sector is required",
+  "project-form.required.budget": "The budget is required",
+  "project-form.required.timeline": "The timeline is required",
+  "project-form.required.mainObjective": "The main objective is required",
+  "project-form.required.projectIdea": "The project idea is required",
+  "project-form.required.targetAudience": "The target audience is required",
+  "project-form.required.expectedResults": "The expected results are required",
+
 
   // Start your project page translations
   "start-project.title": "Transform your vision into digital reality",
@@ -548,6 +561,8 @@ export default {
   "newsletter-popup.toast.success.title": "Thank you for subscribing!",
   "newsletter-popup.toast.success.description": "You will soon receive our next issue.",
   "newsletter-popup.image.alt": "Newsletter",
+  "newsletter.email.invalid": "Please enter a valid email address",
+  "newsletter-popup.email.label": "Your email address",
 
   // Cookie consent translations
   "cookie-consent.manage": "Manage cookies",
