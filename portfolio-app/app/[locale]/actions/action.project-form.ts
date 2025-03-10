@@ -64,7 +64,7 @@ export async function projectFormRequest(data: ProjectFormSchema) {
 
     // 🔹 Envoyer un email de confirmation
     await resend.emails.send({
-      from: "devis@romainblanchot.com",
+      from: "Devis Romain Blanchot <devis@romainblanchot.com>",
       to: parsed.data.email,
       subject: t("project-form.email.subject"),
       react: ProjectFormEmail({

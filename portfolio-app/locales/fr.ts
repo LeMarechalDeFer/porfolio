@@ -290,6 +290,9 @@ export default {
     "project-form.required.expectedResults": "Les résultats attendus sont requis",
 
     "project-form.email.subject": "Votre demande de devis a bien été reçue !",
+    "project-form.error.title": "Une erreur est survenue lors de l'envoi du formulaire",
+    "project-form.error.description": "Veuillez réessayer plus tard ou contacter moi directement via mon mail : blanchot@et.esiea.fr",
+
 
     // Nouvelles traductions pour l'email du formulaire de projet
     "project-form.email.header": "🎉 Confirmation de votre demande",

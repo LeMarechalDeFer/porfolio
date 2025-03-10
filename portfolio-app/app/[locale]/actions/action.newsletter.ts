@@ -37,7 +37,7 @@ export async function subscribeToNewsletter(data: NewsletterSchemaType) {
 
     // 🔹 Envoyer un email de confirmation
     await resend.emails.send({
-      from: "newsletter@romainblanchot.com",
+      from: "Newsletter Romain <newsletter@romainblanchot.com>",
       to: parsed.data.email,
       subject: t("newsletter.email.subject"),
       react: WelcomeNewsletter({ 

@@ -286,7 +286,8 @@ export default {
   "project-form.required.targetAudience": "The target audience is required",
   "project-form.required.expectedResults": "The expected results are required",
   "project-form.email.subject": "Your request for a quote has been received!",
-
+  "project-form.error.title": "An error occurred while sending the form",
+  "project-form.error.description": "Please try again later or contact me directly via my email: blanchot@et.esiea.fr",
   // New translations for project form email
   "project-form.email.header": "🎉 Request Confirmation",
   "project-form.email.greeting": "Hello",

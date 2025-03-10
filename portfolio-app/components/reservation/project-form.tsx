@@ -13,6 +13,7 @@ import { projectFormSchema, ProjectFormSchema } from "@/lib/schema/schema.projec
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Loader2 } from "lucide-react"
+import { projectFormRequest } from "@/app/[locale]/actions/action.project-form"
 
 export default function ProjectForm() {
   const t = useI18n()
@@ -38,11 +39,26 @@ export default function ProjectForm() {
   });
   
 
-  function onSubmit(data: ProjectFormSchema) {
-    console.log("Formulaire soumis ✅", data);
-    toast.success(t("project-form.success.title"), {
-      description: t("project-form.success.description"),
-    });
+  async function onSubmit(data: ProjectFormSchema) {
+    try {
+      const result = await projectFormRequest(data);
+      
+      if (result.success) {
+        form.reset();
+        toast.success(t("project-form.success.title"), {
+          description: t("project-form.success.description"),
+        });
+      } else {
+        toast.error(t("project-form.error.title"), {
+          description: result.message || t("project-form.error.description"),
+        });
+      }
+    } catch (error) {
+      console.error("Erreur lors de la soumission:", error);
+      toast.error(t("project-form.error.title"), {
+        description: t("project-form.error.description"),
+      });
+    }
   };
 
  
