@@ -6,6 +6,7 @@ import ProjectForm from "@/components/reservation/project-form"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { getI18n } from "@/locales/server"
 
+
 export default async function DemarrerVotreProjet() {
   const t = await getI18n()
   

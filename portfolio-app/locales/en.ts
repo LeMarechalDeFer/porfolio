@@ -147,6 +147,33 @@ export default {
   "newsletter.privacy": "privacy policy",
   "newsletter.success.title": "Subscription successful!",
   "newsletter.success.description": "Thank you for subscribing to our newsletter.",
+  
+  // Newsletter email translations
+  "newsletter.email.subject": "Welcome to Romain Blanchot's Newsletter! 🚀",
+  "newsletter.email.previewText": "Welcome to the algorithm explorers community!",
+  "newsletter.email.header": "Romain Blanchot's Newsletter",
+  "newsletter.email.tagline": "Algorithms & Data Structures in Action",
+  "newsletter.email.greeting": "Hello",
+  "newsletter.email.welcomeMessage": "You've just joined the newsletter and I'm thrilled to have you on board!",
+  "newsletter.email.description": "Each week, I'll send you analyses and explanations of algorithms and data structures, with a focus on their practical application in business.",
+  "newsletter.email.whatToExpect": "✅ What will you receive?",
+  "newsletter.email.content.1.title": "Case studies on key algorithms",
+  "newsletter.email.content.1.description": "Analyze essential algorithms and discover their concrete business impact.",
+  "newsletter.email.content.2.title": "Concrete optimization examples",
+  "newsletter.email.content.2.description": "How to improve the performance of your applications and information systems.",
+  "newsletter.email.content.3.title": "Practical advice",
+  "newsletter.email.content.3.description": "Tips to better understand and apply these concepts in your projects.",
+  "newsletter.email.content.4.title": "Behind the scenes of my projects",
+  "newsletter.email.content.4.description": "A look at my daily work as a full stack developer & consultant.",
+  "newsletter.email.services.title": "🎯 Have a project in mind?",
+  "newsletter.email.services.description": "Need a website, SaaS, or automation solution? Discover my services.",
+  "newsletter.email.services.cta": "View my services",
+  "newsletter.email.signoff": "Thank you for your trust, and see you soon in your inbox!",
+  "newsletter.email.jobTitle": "Full Stack Developer & Automation",
+  "newsletter.email.tip": "Consider adding this address to your contacts so you don't miss anything!",
+  "newsletter.email.unsubscribe": "Unsubscribe",
+  "newsletter.email.contactUs": "Contact us",
+  "newsletter.email.copyright": "© 2023 Romain Blanchot. All rights reserved.",
 
   // Adding translations for challenges and solutions
   "projects.hotel.challenges.1.challenge": "Complex integration with existing reservation system",
@@ -258,7 +285,29 @@ export default {
   "project-form.required.projectIdea": "The project idea is required",
   "project-form.required.targetAudience": "The target audience is required",
   "project-form.required.expectedResults": "The expected results are required",
+  "project-form.email.subject": "Your request for a quote has been received!",
 
+  // New translations for project form email
+  "project-form.email.header": "🎉 Request Confirmation",
+  "project-form.email.greeting": "Hello",
+  "project-form.email.intro": "Your quote request has been successfully received, and I will carefully review it to provide you with the best solution tailored to your needs.",
+  
+  "project-form.email.next.title": "✅ What happens next?",
+  "project-form.email.next.step1.title": "Project Analysis",
+  "project-form.email.next.step1.desc": "I will examine your requirements and contact you promptly if I need any clarification.",
+  "project-form.email.next.step2.title": "Personalized Proposal",
+  "project-form.email.next.step2.desc": "You will receive a detailed quote with cost and time estimates.",
+  "project-form.email.next.step3.title": "Discussion and Adjustments",
+  "project-form.email.next.step3.desc": "We can discuss and refine the proposal to meet your expectations.",
+  
+  "project-form.email.summary.title": "📋 Summary of your request",
+  
+  "project-form.email.website.intro": "💡 In the meantime, feel free to visit my website to learn more about my work and portfolio:",
+  "project-form.email.website.button": "Visit Website",
+  
+  "project-form.email.footer.replyText": "If you have any questions or would like to provide additional information about your request, you can reply directly to this email or contact me through the website.",
+  "project-form.email.footer.salutation": "Talk to you soon! 🚀",
+  "project-form.email.footer.title": "Full Stack Developer & Automation",
 
   // Start your project page translations
   "start-project.title": "Transform your vision into digital reality",
@@ -550,6 +599,7 @@ export default {
   "newsletter-section.toast.success.description": "Welcome to the algorithm explorers community. Your first issue will arrive soon.",
 
   // Newsletter popup translations
+
   "newsletter-popup.close": "Close",
   "newsletter-popup.title": "Stay at the cutting edge of innovation",
   "newsletter-popup.description": "Join our newsletter to discover the secrets of the algorithms that shape our digital world.",

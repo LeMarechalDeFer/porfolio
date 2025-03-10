@@ -150,6 +150,33 @@ export default {
     "newsletter.privacy": "politique de confidentialité",
     "newsletter.success.title": "Inscription réussie !",
     "newsletter.success.description": "Merci de vous être abonné à notre newsletter.",
+    
+    // Newsletter email translations
+    "newsletter.email.subject": "Bienvenue dans la Newsletter de Romain Blanchot ! 🚀",
+    "newsletter.email.previewText": "Bienvenue dans la communauté des explorateurs d'algorithmes !",
+    "newsletter.email.header": "Newsletter de Romain Blanchot",
+    "newsletter.email.tagline": "Algorithmes & Structures de Données en Action",
+    "newsletter.email.greeting": "Bonjour",
+    "newsletter.email.welcomeMessage": "Vous venez de rejoindre la newsletter et je suis ravi de vous compter parmi nous !",
+    "newsletter.email.description": "Chaque semaine, je vous enverrai des analyses et explications d'algorithmes et de structures de données, avec un focus sur leur application concrète en entreprise.",
+    "newsletter.email.whatToExpect": "✅ Qu'allez-vous recevoir ?",
+    "newsletter.email.content.1.title": "Des études de cas sur des algorithmes clés",
+    "newsletter.email.content.1.description": "Analysez des algorithmes essentiels et découvrez leur impact business concret.",
+    "newsletter.email.content.2.title": "Des exemples concrets d'optimisation",
+    "newsletter.email.content.2.description": "Comment améliorer les performances de vos applications et systèmes d'information.",
+    "newsletter.email.content.3.title": "Des conseils pratiques",
+    "newsletter.email.content.3.description": "Des astuces pour mieux comprendre et appliquer ces concepts dans vos projets.",
+    "newsletter.email.content.4.title": "Les coulisses de mes projets",
+    "newsletter.email.content.4.description": "Un regard sur mon travail quotidien en tant que développeur full stack & consultant.",
+    "newsletter.email.services.title": "🎯 Un projet en tête ?",
+    "newsletter.email.services.description": "Besoin d'un site web, d'un SaaS ou d'une solution d'automatisation ? Découvrez mes services.",
+    "newsletter.email.services.cta": "Voir mes services",
+    "newsletter.email.signoff": "Merci de votre confiance, et à très bientôt dans votre boîte mail !",
+    "newsletter.email.jobTitle": "Développeur Full Stack & Automatisation",
+    "newsletter.email.tip": "Pensez à ajouter cette adresse à vos contacts pour ne rien manquer !",
+    "newsletter.email.unsubscribe": "Se désabonner",
+    "newsletter.email.contactUs": "Nous contacter",
+    "newsletter.email.copyright": "© 2023 Romain Blanchot. Tous droits réservés.",
 
     // Ajout des traductions pour les défis et solutions
     "projects.hotel.challenges.1.challenge": "Intégration complexe avec le système de réservation existant",
@@ -261,7 +288,31 @@ export default {
     "project-form.required.projectIdea": "La description du projet est requise",
     "project-form.required.targetAudience": "L'audience cible est requise",
     "project-form.required.expectedResults": "Les résultats attendus sont requis",
-  
+
+    "project-form.email.subject": "Votre demande de devis a bien été reçue !",
+
+    // Nouvelles traductions pour l'email du formulaire de projet
+    "project-form.email.header": "🎉 Confirmation de votre demande",
+    "project-form.email.greeting": "Bonjour",
+    "project-form.email.intro": "Votre demande de devis a bien été enregistrée et je vais l'étudier avec attention afin de vous proposer la meilleure solution adaptée à vos besoins.",
+    
+    "project-form.email.next.title": "✅ Que se passe-t-il maintenant ?",
+    "project-form.email.next.step1.title": "Analyse de votre projet",
+    "project-form.email.next.step1.desc": "Je vais examiner vos besoins et vous recontacter rapidement si j'ai besoin de précisions.",
+    "project-form.email.next.step2.title": "Proposition personnalisée",
+    "project-form.email.next.step2.desc": "Vous recevrez un devis détaillé avec une estimation des coûts et des délais.",
+    "project-form.email.next.step3.title": "Échange et ajustements",
+    "project-form.email.next.step3.desc": "Nous pourrons discuter ensemble pour affiner la proposition et l'adapter à vos attentes.",
+    
+    "project-form.email.summary.title": "📋 Récapitulatif de votre demande",
+    
+    "project-form.email.website.intro": "💡 En attendant, n'hésitez pas à consulter mon site pour en savoir plus sur mon travail et mes réalisations :",
+    "project-form.email.website.button": "Visiter le site",
+    
+    "project-form.email.footer.replyText": "Si vous avez la moindre question ou souhaitez apporter des précisions à votre demande, vous pouvez répondre directement à cet e-mail ou me contacter via le site.",
+    "project-form.email.footer.salutation": "À très bientôt ! 🚀",
+    "project-form.email.footer.title": "Développeur Full Stack & Automatisation",
+
     // Traductions pour la page "Démarrer votre projet"
     "start-project.title": "Transformez votre vision en réalité digitale",
     "start-project.subtitle": "Vous êtes prêt à propulser votre entreprise vers de nouveaux sommets. Remplissez le formulaire ci-dessous pour démarrer votre projet web sur mesure.",
@@ -554,7 +605,7 @@ export default {
     "newsletter.error.title": "Erreur lors de l'inscription",
     "newsletter.error.description": "Veuillez vérifier votre adresse email et réessayer.",
 
-    
+    "newsletter.email.invalid": "Veuillez entrer une adresse email valide",
     // Newsletter popup translations
     "newsletter-popup.close": "Fermer",
     "newsletter-popup.title": "Restez à la pointe de l'innovation",
@@ -567,7 +618,6 @@ export default {
     "newsletter-popup.toast.success.title": "Merci pour votre inscription !",
     "newsletter-popup.toast.success.description": "Vous recevrez bientôt notre prochain numéro.",
     "newsletter-popup.image.alt": "Newsletter",
-    "newsletter.email.invalid": "Veuillez entrer une adresse email valide",
     "newsletter-popup.email.label": "Votre adresse email",
 
     

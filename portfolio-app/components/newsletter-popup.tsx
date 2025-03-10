@@ -18,7 +18,7 @@ import { newsletterSchema, NewsletterSchemaType } from "@/lib/schema/schema.news
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form"
-
+import { subscribeToNewsletter } from "@/app/[locale]/actions/action.newsletter"
 export default function NewsletterPopup() {
   const [isOpen, setIsOpen] = useState(false)
   const [hasCheckedStorage, setHasCheckedStorage] = useState(false)
@@ -40,20 +40,29 @@ export default function NewsletterPopup() {
   }, [currentLocale, form.setValue, form]);
 
 
-  async function onSubmit(data: NewsletterSchemaType) {
+  const onSubmit = async (data: NewsletterSchemaType) => {
     
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      console.log("data", data);
+      const response = await subscribeToNewsletter(data);
 
-    console.log("Formulaire soumis ✅", data);
-    toast.success(t("newsletter-popup.toast.success.title"), {
-      description: t("newsletter-popup.toast.success.description"),
-    });
+      if (response.success) {
+        toast.success(t("newsletter.success.title"), {
+          description: t("newsletter.success.description"),
+        });
+        form.reset();
+      } else {
+        toast.error(t("newsletter.error.title"), {
+          description: t("newsletter.error.description"),
+        });
+      }
+    } catch (error) {
+      console.error("Erreur lors de l'envoi du formulaire:", error);
+      toast.error(t("newsletter.error.title"), {
+        description: t("newsletter.error.description"),
+      });
+    } 
     
-    // Mémoriser que l'utilisateur s'est inscrit
-    localStorage.setItem("newsletterSubscribed", "true");
-    
-    // Fermer la popup
-    setIsOpen(false);
   };
 
 

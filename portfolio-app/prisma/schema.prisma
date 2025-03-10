@@ -4,6 +4,10 @@
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
+
+// npx prisma migrate deploy
+// npx prisma migrate dev --name add_devis_table
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -21,4 +25,22 @@ model NewsletterSubscription {
   createdAt DateTime @default(now())
   isSubscribed Boolean @default(true)
   
+}
+
+model ProjectForm {
+  id                    String   @id @default(uuid())
+  name                  String   @db.VarChar(255)
+  surname               String   @db.VarChar(255)  
+  email                 String   @db.VarChar(255)
+  company               String   @db.VarChar(255)
+  sector                String   @db.VarChar(255)
+  budget                String   @db.VarChar(255)
+  timeline              String   @db.VarChar(255)
+  mainObjective         String   @db.Text
+  projectIdea           String   @db.Text
+  targetAudience        String   @db.Text
+  expectedResults       String   @db.Text
+  technicalPreferences  String?  @db.Text
+  otherDetails          String?  @db.Text
+  createdAt             DateTime @default(now())
 }

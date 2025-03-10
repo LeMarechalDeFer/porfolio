@@ -4,6 +4,7 @@ import { newsletterSchema, NewsletterSchemaType } from "@/lib/schema/schema.news
 import { getI18n } from "@/locales/server"
 import { Resend } from "resend"
 import prisma from "@/lib/prisma"
+import { WelcomeNewsletter } from "@/components/email/welcomeNewsletter-Email"
 
 
 const resend = new Resend(process.env.RESEND_API_KEY as string);
@@ -36,15 +37,19 @@ export async function subscribeToNewsletter(data: NewsletterSchemaType) {
 
     // 🔹 Envoyer un email de confirmation
     await resend.emails.send({
-      from: "no-reply@romainblanchot.com",
+      from: "newsletter@romainblanchot.com",
       to: parsed.data.email,
-      subject: "Confirmation d'inscription",
-      html: `<p>Merci de vous être inscrit à notre newsletter !</p>`,
+      subject: t("newsletter.email.subject"),
+      react: WelcomeNewsletter({ 
+        email: parsed.data.email, 
+        language: parsed.data.language
+      }),
+      replyTo: "romainblanchot@gmail.com"
     });
 
-    return { success: true, message: "Email de confirmation envoyé." };
+    return { success: true, message: t("newsletter.success.description") };
   } catch (error) {
-    console.error("Erreur Server Action Newsletter:", error);
-    return { success: false, message: "Erreur serveur, réessayez plus tard." };
+    console.error("Newsletter subscription error:", error);
+    return { success: false, message: "Une erreur est survenue. Veuillez réessayer." };
   }
 }

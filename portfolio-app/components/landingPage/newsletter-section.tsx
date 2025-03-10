@@ -16,6 +16,7 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form"
 import { useEffect } from "react"
+import { subscribeToNewsletter } from "@/app/[locale]/actions/action.newsletter"
 
 export default function NewsletterSection() {
   const t = useI18n()
@@ -37,19 +38,31 @@ export default function NewsletterSection() {
   }, [currentLocale, form.setValue, form]);
 
 
-  async function onSubmit(data: NewsletterSchemaType) {
-   
-
+  const onSubmit = async (data: NewsletterSchemaType) => {
+    
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log("Formulaire soumis ✅", data);
-      toast.success(t("newsletter-section.toast.success.title"), {
-        description: t("newsletter-section.toast.success.description"),
-      });
+      console.log("data", data);
+      const response = await subscribeToNewsletter(data);
+
+      if (response.success) {
+        toast.success(t("newsletter.success.title"), {
+          description: t("newsletter.success.description"),
+        });
+        form.reset();
+      } else {
+        toast.error(t("newsletter.error.title"), {
+          description: t("newsletter.error.description"),
+        });
+      }
     } catch (error) {
       console.error("Erreur lors de l'envoi du formulaire:", error);
+      toast.error(t("newsletter.error.title"), {
+        description: t("newsletter.error.description"),
+      });
     } 
-  }
+    
+  };
+
 
 
   const benefits = [
