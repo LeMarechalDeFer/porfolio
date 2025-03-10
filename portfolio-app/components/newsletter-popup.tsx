@@ -11,7 +11,7 @@ import { toast } from "sonner"
 import { X, Send, Sparkles, Loader2 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { useI18n } from "@/locales/client"
+import { useI18n, useCurrentLocale } from "@/locales/client"
 import RomainBlanchot from "@/public/photoProfilRomain.jpg"
 
 import { newsletterSchema, NewsletterSchemaType } from "@/lib/schema/schema.newsletter"
@@ -23,13 +23,22 @@ export default function NewsletterPopup() {
   const [isOpen, setIsOpen] = useState(false)
   const [hasCheckedStorage, setHasCheckedStorage] = useState(false)
   const t = useI18n()
+  const currentLocale = useCurrentLocale(); 
 
   const form = useForm<NewsletterSchemaType>({
     resolver: zodResolver(newsletterSchema(t)),
     defaultValues: {
       email: "",
+      // name: "",
+      language: currentLocale,
     },
   })
+
+  
+  useEffect(() => {
+    form.setValue("language", currentLocale);
+  }, [currentLocale, form.setValue, form]);
+
 
   async function onSubmit(data: NewsletterSchemaType) {
     

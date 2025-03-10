@@ -4,37 +4,62 @@ import type React from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { toast } from "sonner"
-import { useI18n } from "@/locales/client"
+import { useCurrentLocale, useI18n } from "@/locales/client"
 import Link from "next/link"
 import { Loader2 } from "lucide-react"
 import { newsletterSchema, NewsletterSchemaType } from "@/lib/schema/schema.newsletter"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form"
+import { subscribeToNewsletter } from "@/app/[locale]/actions/action.newsletter"
+import { useEffect } from "react"
+
 
 export function Newsletter() {
   const t = useI18n()
+  const currentLocale = useCurrentLocale(); 
+
   
   const form = useForm<NewsletterSchemaType>({
     resolver: zodResolver(newsletterSchema(t)),
     defaultValues: {
       email: "",
+      // name: "",
+      language: currentLocale,
     },
   })
 
-  async function onSubmit(data: NewsletterSchemaType) {
+  
+  useEffect(() => {
+    form.setValue("language", currentLocale);
+  }, [currentLocale, form.setValue, form]);
 
 
+
+  const onSubmit = async (data: NewsletterSchemaType) => {
+    
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log("Formulaire soumis ✅", data);
-      toast.success(t("newsletter.success.title"), {
-        description: t("newsletter.success.description"),
-      });
+      console.log("data", data);
+      const response = await subscribeToNewsletter(data);
+
+      if (response.success) {
+        toast.success(t("newsletter.success.title"), {
+          description: t("newsletter.success.description"),
+        });
+        form.reset();
+      } else {
+        toast.error(t("newsletter.error.title"), {
+          description: t("newsletter.error.description"),
+        });
+      }
     } catch (error) {
       console.error("Erreur lors de l'envoi du formulaire:", error);
+      toast.error(t("newsletter.error.title"), {
+        description: t("newsletter.error.description"),
+      });
     } 
-  }
+    
+  };
 
   
 

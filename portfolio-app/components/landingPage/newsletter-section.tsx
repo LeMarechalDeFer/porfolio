@@ -9,23 +9,33 @@ import { Badge } from "@/components/ui/badge"
 import { toast } from "sonner"
 import { Brain, Code, Zap, Lock, CheckCircle, Loader2 } from "lucide-react"
 import Link from "next/link"
-import { useI18n } from "@/locales/client"
+import { useI18n, useCurrentLocale } from "@/locales/client"
 
 import { newsletterSchema, NewsletterSchemaType } from "@/lib/schema/schema.newsletter"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form"
-
+import { useEffect } from "react"
 
 export default function NewsletterSection() {
   const t = useI18n()
+  const currentLocale = useCurrentLocale(); 
 
+  
   const form = useForm<NewsletterSchemaType>({
     resolver: zodResolver(newsletterSchema(t)),
     defaultValues: {
       email: "",
+      // name: "",
+      language: currentLocale,
     },
   })
+
+  
+  useEffect(() => {
+    form.setValue("language", currentLocale);
+  }, [currentLocale, form.setValue, form]);
+
 
   async function onSubmit(data: NewsletterSchemaType) {
    

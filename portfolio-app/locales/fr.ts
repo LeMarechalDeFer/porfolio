@@ -551,6 +551,10 @@ export default {
     "newsletter-section.toast.success.title": "Inscription réussie !",
     "newsletter-section.toast.success.description": "Bienvenue dans la communauté des explorateurs d'algorithmes. Votre premier numéro arrivera bientôt.",
     "newsletter.label": "Votre adresse email",
+    "newsletter.error.title": "Erreur lors de l'inscription",
+    "newsletter.error.description": "Veuillez vérifier votre adresse email et réessayer.",
+
+    
     // Newsletter popup translations
     "newsletter-popup.close": "Fermer",
     "newsletter-popup.title": "Restez à la pointe de l'innovation",
@@ -565,6 +569,9 @@ export default {
     "newsletter-popup.image.alt": "Newsletter",
     "newsletter.email.invalid": "Veuillez entrer une adresse email valide",
     "newsletter-popup.email.label": "Votre adresse email",
+
+    
+
     // Cookie consent translations
     "cookie-consent.manage": "Gérer les cookies",
     "cookie-consent.preferences-dialog.title": "Préférences de cookies",

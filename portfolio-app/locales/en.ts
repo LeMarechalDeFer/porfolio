@@ -564,6 +564,9 @@ export default {
   "newsletter.email.invalid": "Please enter a valid email address",
   "newsletter-popup.email.label": "Your email address",
   "newsletter.label": "Your email address",
+  "newsletter.error.title": "Subscription error",
+  "newsletter.error.description": "Please check your email address and try again.",
+  
   // Cookie consent translations
   "cookie-consent.manage": "Manage cookies",
   "cookie-consent.preferences-dialog.title": "Cookie Preferences",
