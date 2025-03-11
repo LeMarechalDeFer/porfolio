@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/components/landingPage/theme-provider";
 import { organizationSchema, personSchema, webSiteSchema } from "@/components/schema-dts";
 import Script from "next/script";
 import { WithContext, BreadcrumbList } from "schema-dts";
+import MyStatsig from "@/components/my-statsig";
 
 // Chargement des polices Google Fonts
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
@@ -116,7 +117,9 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <PostHogProvider>
-            {children}
+            <MyStatsig>
+              {children}
+            </MyStatsig>
           </PostHogProvider>
         </ThemeProvider>
       

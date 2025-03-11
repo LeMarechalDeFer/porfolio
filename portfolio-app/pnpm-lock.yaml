@@ -44,6 +44,15 @@ importers:
       '@react-email/components':
         specifier: ^0.0.33
         version: 0.0.33(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@statsig/react-bindings':
+        specifier: ^3.14.1
+        version: 3.14.1(react@19.0.0)
+      '@statsig/session-replay':
+        specifier: ^3.14.1
+        version: 3.14.1
+      '@statsig/web-analytics':
+        specifier: ^3.14.1
+        version: 3.14.1
       '@supabase/supabase-js':
         specifier: ^2.49.1
         version: 2.49.1
@@ -1421,6 +1430,23 @@ packages:
   '@standard-schema/utils@0.3.0':
     resolution: {integrity: sha512-e7Mew686owMaPJVNNLs55PUvgz371nKgwsc4vxE49zsODpJEnxgxRo2y/OKrqueavXgZNMDVj3DdHFlaSAeU8g==}
 
+  '@statsig/client-core@3.14.1':
+    resolution: {integrity: sha512-ARb3Ig0pZopPQuRehx3tcdhZo6+KEY32r67Qhzzx0YGdtEAuqSvTEYFGtujJRMZS1NLgYg8UP3ktfw1CYiJOHw==}
+
+  '@statsig/js-client@3.14.1':
+    resolution: {integrity: sha512-kFmo66KR8pMkQmgnSI2T5K4MM1l2PZMobUy7h8Ldg5iyUlMqQElZB6Z5eqLZyDJf5+3SNcVZGbAmIKC7bBU+7Q==}
+
+  '@statsig/react-bindings@3.14.1':
+    resolution: {integrity: sha512-XDGpqg+iCsEzx9Ysp6NllWphLrPNYSiXprbgSgFIhhan/e4vWM/FsJVaSsc1bghJcHDydu0kaq8QgYQWZADhkQ==}
+    peerDependencies:
+      react: ^16.6.3 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
+  '@statsig/session-replay@3.14.1':
+    resolution: {integrity: sha512-1EXuNsPjy6oKRqGk4U4JA+ouuCU5oYeDdSMvYkZnMzqZHEqtCNV7kjDNDd1tiV1b0WCcgiNIhvN7eX4gd8MT2A==}
+
+  '@statsig/web-analytics@3.14.1':
+    resolution: {integrity: sha512-1hxm7O/EHIY915lqC4R2o18SfGY6eS4shlNAvGaG6Bqq3IFDBqczaq2h6gcN6u6+NXDfkbc1Svs6b7R2XwfZtQ==}
+
   '@supabase/auth-js@2.68.0':
     resolution: {integrity: sha512-odG7nb7aOmZPUXk6SwL2JchSsn36Ppx11i2yWMIc/meUO2B2HK9YwZHPK06utD9Ql9ke7JKDbwGin/8prHKxxQ==}
 
@@ -1463,6 +1489,9 @@ packages:
 
   '@types/cors@2.8.17':
     resolution: {integrity: sha512-8CGDvrBj1zgo2qE+oS3pOCyYNqCPryMWY2bGfwA0dcfopWGgxs+78df0Rs3rc9THP4JkOhLsAa+15VdpAqkcUA==}
+
+  '@types/css-font-loading-module@0.0.7':
+    resolution: {integrity: sha512-nl09VhutdjINdWyXxHWN/w9zlNCfr60JUqJbd24YXUuCwgeL0TpFSdElCwb6cxfB6ybE19Gjj4g0jsgkXxKv1Q==}
 
   '@types/estree@1.0.6':
     resolution: {integrity: sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==}
@@ -1586,6 +1615,9 @@ packages:
       vue-router:
         optional: true
 
+  '@xstate/fsm@1.6.5':
+    resolution: {integrity: sha512-b5o1I6aLNeYlU/3CPlj/Z91ybk1gUsKT+5NAJI+2W4UjvS5KLG28K9v5UvNoFVjHV8PajVZ00RH3vnjyQO7ZAw==}
+
   abbrev@2.0.0:
     resolution: {integrity: sha512-6/mh1E2u2YgEsCHdY0Yx5oW+61gZU+1vXaoiHHrpKeuRNNgFvS+/jrwHiQhB5apAf5oB7UB7E19ol2R2LKH8hQ==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
@@ -1704,6 +1736,10 @@ packages:
 
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
+
+  base64-arraybuffer@1.0.2:
+    resolution: {integrity: sha512-I3yl4r9QB5ZRY3XuJVEPfc2XhZO6YweFPI+UovAzn+8/hb3oJ6lnysaFcjVpkCPfVWFUDvoZ8kmVDP7WyRtYtQ==}
+    engines: {node: '>= 0.6.0'}
 
   base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
@@ -2678,6 +2714,9 @@ packages:
     resolution: {integrity: sha512-qOOzS1cBTWYF4BH8fVePDBOO9iptMnGUEZwNc/cMWnTV2nVLZ7VoNWEPHkYczZA0pdoA7dl6e7FL659nX9S2aw==}
     engines: {node: '>=16 || 14 >=14.17'}
 
+  mitt@3.0.1:
+    resolution: {integrity: sha512-vKivATfr97l2/QBCYAkXYDbrIWPM2IIKEl7YPhjCvKlG3kE2gm+uBo6nEXK3M5/Ffh/FLpKExzOQ3JJoJGFKBw==}
+
   motion-dom@12.4.5:
     resolution: {integrity: sha512-Q2xmhuyYug1CGTo0jdsL05EQ4RhIYXlggFS/yPhQQRNzbrhjKQ1tbjThx5Plv68aX31LsUQRq4uIkuDxdO5vRQ==}
 
@@ -3077,8 +3116,14 @@ packages:
     resolution: {integrity: sha512-g6QUff04oZpHs0eG5p83rFLhHeV00ug/Yf9nZM6fLeUrPguBTkTQOdpAWWspMh55TZfVQDPaN3NQJfbVRAxdIw==}
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
 
+  rrdom@2.0.0-alpha.18:
+    resolution: {integrity: sha512-fSFzFFxbqAViITyYVA4Z0o5G6p1nEqEr/N8vdgSKie9Rn0FJxDSNJgjV0yiCIzcDs0QR+hpvgFhpbdZ6JIr5Nw==}
+
   rrweb-snapshot@2.0.0-alpha.18:
     resolution: {integrity: sha512-hBHZL/NfgQX6wO1D9mpwqFu1NJPpim+moIcKhFEjVTZVRUfCln+LOugRc4teVTCISYHN8Cw5e2iNTWCSm+SkoA==}
+
+  rrweb@2.0.0-alpha.14:
+    resolution: {integrity: sha512-Eoeok9B9+6IUFPqMozOlJwddXi+ePFHXWkoAPZ72/EdvgMKaQ/CIfDBuZXXxcfJMF/s7ZxkwROsME3i5Gyxt3Q==}
 
   run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
@@ -4566,6 +4611,28 @@ snapshots:
 
   '@standard-schema/utils@0.3.0': {}
 
+  '@statsig/client-core@3.14.1': {}
+
+  '@statsig/js-client@3.14.1':
+    dependencies:
+      '@statsig/client-core': 3.14.1
+
+  '@statsig/react-bindings@3.14.1(react@19.0.0)':
+    dependencies:
+      '@statsig/client-core': 3.14.1
+      '@statsig/js-client': 3.14.1
+      react: 19.0.0
+
+  '@statsig/session-replay@3.14.1':
+    dependencies:
+      '@statsig/client-core': 3.14.1
+      rrweb: 2.0.0-alpha.14
+
+  '@statsig/web-analytics@3.14.1':
+    dependencies:
+      '@statsig/client-core': 3.14.1
+      '@statsig/js-client': 3.14.1
+
   '@supabase/auth-js@2.68.0':
     dependencies:
       '@supabase/node-fetch': 2.6.15
@@ -4625,6 +4692,8 @@ snapshots:
   '@types/cors@2.8.17':
     dependencies:
       '@types/node': 20.17.23
+
+  '@types/css-font-loading-module@0.0.7': {}
 
   '@types/estree@1.0.6': {}
 
@@ -4736,6 +4805,8 @@ snapshots:
     optionalDependencies:
       next: 15.1.7(@babel/core@7.24.5)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react: 19.0.0
+
+  '@xstate/fsm@1.6.5': {}
 
   abbrev@2.0.0: {}
 
@@ -4867,6 +4938,8 @@ snapshots:
   axobject-query@4.1.0: {}
 
   balanced-match@1.0.2: {}
+
+  base64-arraybuffer@1.0.2: {}
 
   base64-js@1.5.1: {}
 
@@ -6022,6 +6095,8 @@ snapshots:
 
   minipass@7.1.2: {}
 
+  mitt@3.0.1: {}
+
   motion-dom@12.4.5:
     dependencies:
       motion-utils: 12.0.0
@@ -6454,9 +6529,24 @@ snapshots:
 
   reusify@1.1.0: {}
 
+  rrdom@2.0.0-alpha.18:
+    dependencies:
+      rrweb-snapshot: 2.0.0-alpha.18
+
   rrweb-snapshot@2.0.0-alpha.18:
     dependencies:
       postcss: 8.5.3
+
+  rrweb@2.0.0-alpha.14:
+    dependencies:
+      '@rrweb/types': 2.0.0-alpha.17
+      '@types/css-font-loading-module': 0.0.7
+      '@xstate/fsm': 1.6.5
+      base64-arraybuffer: 1.0.2
+      fflate: 0.4.8
+      mitt: 3.0.1
+      rrdom: 2.0.0-alpha.18
+      rrweb-snapshot: 2.0.0-alpha.18
 
   run-parallel@1.2.0:
     dependencies:

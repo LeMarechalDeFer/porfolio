@@ -8,6 +8,10 @@
 // npx prisma migrate deploy
 // npx prisma migrate dev --name add_devis_table
 
+
+// pnpm install
+// pnpm run postinstall
+
 generator client {
   provider = "prisma-client-js"
 }
