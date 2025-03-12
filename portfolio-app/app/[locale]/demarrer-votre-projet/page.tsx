@@ -5,9 +5,13 @@ import Image from "next/image"
 import ProjectForm from "@/components/reservation/project-form"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { getI18n } from "@/locales/server"
+import { setStaticParamsLocale } from "next-international/server";
 
 
-export default async function DemarrerVotreProjet() {
+export default async function DemarrerVotreProjet({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setStaticParamsLocale(locale);
+
   const t = await getI18n()
   
   return (

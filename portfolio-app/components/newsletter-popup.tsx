@@ -19,6 +19,13 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form"
 import { subscribeToNewsletter } from "@/app/[locale]/actions/action.newsletter"
+
+// 🕐 Délais en millisecondes - déplacés à l'extérieur du composant
+const TIME_ON_SITE = 60 * 1000; // 60 secondes
+const POPUP_INTERVAL = 24 * 60 * 60 * 1000; // 24 heures
+const INACTIVITY_TIME = 60 * 1000; // 60 secondes
+const PAGE_VIEW_THRESHOLD = 5; // 5 pages visitées
+
 export default function NewsletterPopup() {
   const [isOpen, setIsOpen] = useState(false)
   const [hasCheckedStorage, setHasCheckedStorage] = useState(false)
@@ -65,13 +72,6 @@ export default function NewsletterPopup() {
     
   };
 
-
-    // 🕐 Délais en millisecondes
-    const TIME_ON_SITE = 20 * 1000; // 20 secondes
-    const POPUP_INTERVAL = 5 * 60 * 1000; // 5 minutes
-    const INACTIVITY_TIME = 15 * 1000; // 15 secondes
-    const PAGE_VIEW_THRESHOLD = 3; // 3 pages visitées
-
     useEffect(() => {
     const hasSubscribed = localStorage.getItem("newsletterSubscribed");
     if (hasSubscribed) {
@@ -83,32 +83,48 @@ export default function NewsletterPopup() {
     let pageViews = parseInt(localStorage.getItem("pageViews") || "0", 10);
     const now = Date.now();
 
-    // ⏳ Vérifier si 5 minutes se sont écoulées depuis la dernière popup
+    // ⏳ Vérifier si l'intervalle s'est écoulé depuis la dernière popup
     const canShowPopup = !lastPopupShown || now - parseInt(lastPopupShown) > POPUP_INTERVAL;
+    
+    if (!canShowPopup) {
+        setHasCheckedStorage(true);
+        return; // Ne pas continuer si on ne peut pas encore afficher la popup
+    }
 
-    // ⏱️ Affichage après 20 secondes
+    // Variable pour éviter les déclenchements multiples
+    let popupTriggered = false;
+    
+    // Fonction de déclenchement avec protection contre les multiples appels
+    const triggerPopupOnce = () => {
+        if (popupTriggered || localStorage.getItem("newsletterSubscribed")) return;
+        popupTriggered = true;
+        setIsOpen(true);
+        localStorage.setItem("lastNewsletterPopupShown", Date.now().toString());
+    };
+
+    // ⏱️ Affichage après TIME_ON_SITE
     const siteTimer = setTimeout(() => {
-        if (canShowPopup) triggerPopup();
+        if (canShowPopup) triggerPopupOnce();
     }, TIME_ON_SITE);
 
     // 📄 Incrémenter le nombre de pages vues
     pageViews += 1;
     localStorage.setItem("pageViews", pageViews.toString());
 
-    // 📌 Affichage après 3 pages vues
+    // 📌 Affichage après PAGE_VIEW_THRESHOLD pages vues
     if (pageViews >= PAGE_VIEW_THRESHOLD && canShowPopup) {
-        triggerPopup();
+        triggerPopupOnce();
         localStorage.setItem("pageViews", "0"); // Réinitialisation après affichage
     }
 
     // 🔴 Gestion de l'inactivité (Seulement si pas encore abonné)
     let inactivityTimer: NodeJS.Timeout;
     const resetTimer = () => {
-        if (localStorage.getItem("newsletterSubscribed")) return; // ⛔ Ne pas exécuter si déjà abonné
+        if (localStorage.getItem("newsletterSubscribed") || popupTriggered) return;
 
         clearTimeout(inactivityTimer);
         inactivityTimer = setTimeout(() => {
-        if (canShowPopup) triggerPopup();
+            if (canShowPopup) triggerPopupOnce();
         }, INACTIVITY_TIME);
     };
 
@@ -124,14 +140,7 @@ export default function NewsletterPopup() {
         document.removeEventListener("keydown", resetTimer);
         clearTimeout(inactivityTimer);
     };
-    }, [POPUP_INTERVAL, TIME_ON_SITE, INACTIVITY_TIME]);
-
-    // 📌 Fonction pour afficher la popup et mémoriser l'affichage
-    const triggerPopup = () => {
-    if (localStorage.getItem("newsletterSubscribed")) return; // ⛔ Sécurité supplémentaire
-    setIsOpen(true);
-    localStorage.setItem("lastNewsletterPopupShown", Date.now().toString());
-    };
+    }, []); // Suppression des dépendances car les constantes sont maintenant à l'extérieur
 
     // ❌ Fermeture manuelle de la popup
     const handleClose = () => {

@@ -1,8 +1,11 @@
+// /app/[locale]/politique-cookies/page.tsx
+
 import type { Metadata } from "next"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import { getI18n } from "@/locales/server"
+import { setStaticParamsLocale } from "next-international/server";
 
 
 export const metadata: Metadata = {
@@ -11,8 +14,17 @@ export const metadata: Metadata = {
     "Politique de cookies détaillant l'utilisation des cookies et technologies similaires sur notre site web.",
 }
 
-export default async function PolitiqueCookies() {
-  const t = await getI18n()
+
+
+// export default async function PolitiqueCookies() {
+//   const t = await getI18n()
+
+export default async function PolitiqueCookies({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setStaticParamsLocale(locale);
+
+  const t = await getI18n();
+
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="max-w-3xl mx-auto">
