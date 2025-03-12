@@ -10,7 +10,7 @@ import NewsletterPopup from '@/components/newsletter-popup'
 import { Toaster } from "@/components/ui/sonner"
 import { Geist, Geist_Mono } from "next/font/google";
 import { getStaticParams } from '@/locales/server'
-import { setStaticParamsLocale } from 'next-international/server'
+// import { setStaticParamsLocale } from 'next-international/server'
 import type { Metadata } from "next";
 import "../globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -90,14 +90,14 @@ export function generateStaticParams() {
   return getStaticParams();
 }
 
-export default async function SubLayout({
+export default async function RootLayout({
    params, 
    children }: {
      params: Promise<{ locale: string }>, 
      children: ReactElement }) {
 
   const { locale } = await params
-  setStaticParamsLocale(locale);
+  // setStaticParamsLocale(locale);
  
   return (
     <html lang={locale} suppressHydrationWarning>

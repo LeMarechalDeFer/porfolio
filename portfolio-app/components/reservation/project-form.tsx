@@ -130,7 +130,7 @@ export default function ProjectForm() {
             name="sector"
             render={({field}) => (
               <FormItem>
-                <FormLabel>{t("project-form.sector")}</FormLabel>
+                <FormLabel id="sector-label">{t("project-form.sector")}</FormLabel>
                 <FormControl>
                   <Select name="sector" onValueChange={field.onChange} defaultValue={field.value}>
                     <SelectTrigger className="w-full" aria-labelledby="sector-label">
@@ -158,7 +158,7 @@ export default function ProjectForm() {
             name="budget"
             render={({field}) => (
               <FormItem>
-                <FormLabel>{t("project-form.budget")}</FormLabel> 
+                <FormLabel id="budget-label">{t("project-form.budget")}</FormLabel> 
                   <FormControl>
                   <Select name="budget" onValueChange={field.onChange} defaultValue={field.value}>
                     <SelectTrigger className="w-full" aria-labelledby="budget-label">
@@ -187,7 +187,7 @@ export default function ProjectForm() {
             name="timeline"
             render={({field}) => (
               <FormItem>
-                <FormLabel>{t("project-form.timeline")}</FormLabel>
+                <FormLabel id="timeline-label">{t("project-form.timeline")}</FormLabel>
                 <FormControl>
                   <Select name="timeline" onValueChange={field.onChange} defaultValue={field.value}>
                     <SelectTrigger className="w-full" aria-labelledby="timeline-label">
@@ -217,7 +217,7 @@ export default function ProjectForm() {
             name="mainObjective"
             render={({field}) => (
               <FormItem>
-                <FormLabel>{t("project-form.mainObjective")}</FormLabel>
+                <FormLabel id="objective-label">{t("project-form.mainObjective")}</FormLabel>
                 <FormControl>
                   <Select name="mainObjective" onValueChange={field.onChange} defaultValue={field.value}>
                     <SelectTrigger className="w-full" aria-labelledby="objective-label">

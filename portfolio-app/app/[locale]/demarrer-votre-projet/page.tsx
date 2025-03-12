@@ -43,42 +43,42 @@ export default async function DemarrerVotreProjet({ params }: { params: Promise<
                 <div className="flex items-start gap-2">
                   <CheckCircle className="h-5 w-5 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-sm">{t("start-project.why.expertise")}</h3>
+                    <h4 className="font-semibold text-sm">{t("start-project.why.expertise")}</h4>
                     <p className="text-xs opacity-90">{t("start-project.why.expertise.desc")}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
                   <CheckCircle className="h-5 w-5 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-sm">{t("start-project.why.custom")}</h3>
+                    <h4 className="font-semibold text-sm">{t("start-project.why.custom")}</h4>
                     <p className="text-xs opacity-90">{t("start-project.why.custom.desc")}</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-2">
+                <div className="flex items-start gap-2">  
                   <CheckCircle className="h-5 w-5 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-sm">{t("start-project.why.ai")}</h3>
+                    <h4 className="font-semibold text-sm">{t("start-project.why.ai")}</h4>
                     <p className="text-xs opacity-90">{t("start-project.why.ai.desc")}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
                   <CheckCircle className="h-5 w-5 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-sm">{t("start-project.why.end2end")}</h3>
+                    <h4 className="font-semibold text-sm">{t("start-project.why.end2end")}</h4>
                     <p className="text-xs opacity-90">{t("start-project.why.end2end.desc")}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
                   <CheckCircle className="h-5 w-5 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-sm">{t("start-project.why.communication")}</h3>
+                    <h4 className="font-semibold text-sm">{t("start-project.why.communication")}</h4>
                     <p className="text-xs opacity-90">{t("start-project.why.communication.desc")}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
                   <CheckCircle className="h-5 w-5 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-sm">{t("start-project.why.results")}</h3>
+                    <h4 className="font-semibold text-sm">{t("start-project.why.results")}</h4>
                     <p className="text-xs opacity-90">{t("start-project.why.results.desc")}</p>
                   </div>
                 </div>
