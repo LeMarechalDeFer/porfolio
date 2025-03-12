@@ -1,6 +1,6 @@
 
 
-// app/[locale]/client/layout.tsx
+// app/[locale]/layout.tsx
 import { ReactElement } from 'react'
 import { I18nProviderClient } from '../../locales/client'
 import Header from '@/components/landingPage/header'

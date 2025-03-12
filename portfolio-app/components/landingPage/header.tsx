@@ -26,11 +26,11 @@ export default function Header() {
   }, [])
 
   const navItems = [
-    { name: t("nav.home"), href: "/#home" },
-    { name: t("nav.skills"), href: "/#skills" },
-    { name: t("nav.projects"), href: "/#projects" },
-    { name: t("nav.about"), href: "/#about" },
-    { name: t("nav.contact"), href: "/#contact" },
+    { name: t("nav.home"), href: "/" },
+    { name: t("nav.skills"), href: "/mes-competences" },
+    { name: t("nav.projects"), href: "/mes-projets" },
+    { name: t("nav.about"), href: "/a-propos" },
+    { name: t("nav.contact"), href: "/me-contacter" },
     { name: t("nav.services"), href: "/mes-services" },
     { name: t("nav.demarer-votre-projet"), href: "/demarrer-votre-projet" },
   ]
@@ -93,7 +93,12 @@ export default function Header() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <DropdownMenu>
+          <Button variant="ghost" size="icon" onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
+                {theme === "light" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+                <span className="sr-only">{t("header.theme")}</span>
+          </Button>
+
+          {/* <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon">
                 {theme === "light" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
@@ -105,7 +110,7 @@ export default function Header() {
               <DropdownMenuItem onClick={() => setTheme("dark")}>{t("header.dark")}</DropdownMenuItem>
               <DropdownMenuItem onClick={() => setTheme("system")}>{t("header.system")}</DropdownMenuItem>
             </DropdownMenuContent>
-          </DropdownMenu>
+          </DropdownMenu> */}
         </div>
 
         {/* Mobile navigation */}

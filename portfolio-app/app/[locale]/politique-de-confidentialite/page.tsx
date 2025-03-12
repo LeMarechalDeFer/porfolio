@@ -3,6 +3,8 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import { getI18n } from "@/locales/server"
+import { getStaticParams } from "@/locales/server"; 
+import { setStaticParamsLocale } from 'next-international/server'
 
 export const metadata: Metadata = {
   title: "Politique de Confidentialité | Romain - Développeur Web Freelance",
@@ -10,8 +12,22 @@ export const metadata: Metadata = {
     "Politique de confidentialité concernant la collecte et le traitement des données personnelles dans le cadre de notre newsletter et de nos services.",
 }
 
-export default async function PolitiqueDeConfidentialite() {
-  const t = await getI18n()
+
+export function generateStaticParams() {
+  return getStaticParams()
+}
+
+// export default async function PolitiqueDeConfidentialite() {
+//   const t = await getI18n()
+//   return (
+
+// Page en mode SSG
+export default async function PolitiqueDeConfidentialite({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setStaticParamsLocale(locale); // Définit la langue statiquement pour éviter le SSR
+
+  const t = await getI18n();
+
   return (
     <div className="container mx-auto px-4 py-12 pt-20">
       <div className="max-w-3xl mx-auto">
