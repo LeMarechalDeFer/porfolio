@@ -7,7 +7,6 @@ import Projects from "@/components/landingPage/projects"
 import About from "@/components/landingPage/about"
 import Contact from "@/components/landingPage/contact"
 import NewsletterSection from "@/components/landingPage/newsletter-section"
-import { getStaticParams } from "@/locales/server"
 import { setStaticParamsLocale } from "next-international/server"
 
 

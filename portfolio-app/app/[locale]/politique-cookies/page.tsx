@@ -15,10 +15,6 @@ export const metadata: Metadata = {
 }
 
 
-
-// export default async function PolitiqueCookies() {
-//   const t = await getI18n()
-
 export default async function PolitiqueCookies({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setStaticParamsLocale(locale);

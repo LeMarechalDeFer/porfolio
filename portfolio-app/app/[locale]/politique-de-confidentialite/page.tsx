@@ -5,7 +5,9 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import { getI18n } from "@/locales/server"
-import { setStaticParamsLocale } from "next-international/server";
+import { setStaticParamsLocale } from 'next-international/server'
+
+
 export const metadata: Metadata = {
   title: "Politique de Confidentialité | Romain - Développeur Web Freelance",
   description:
@@ -13,10 +15,10 @@ export const metadata: Metadata = {
 }
 
 export default async function PolitiqueDeConfidentialite({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
-  setStaticParamsLocale(locale);
+  const { locale } = await params
+  setStaticParamsLocale(locale)
+  const t = await getI18n() 
 
-  const t = await getI18n()
   return (
     <div className="container mx-auto px-4 py-12 pt-20">
       <div className="max-w-3xl mx-auto">
