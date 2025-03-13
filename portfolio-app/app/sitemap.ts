@@ -12,6 +12,8 @@ const STATIC_PAGES = [
   "mes-competences",
   "a-propos",
   "me-contacter",
+  "politique-de-confidentialite",
+  "politique-de-cookies",
 ];
 
 // Génération des entrées pour la sitemap
@@ -48,110 +50,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
 }
 
 
-// import type { MetadataRoute } from 'next'
- 
-// export default function sitemap(): MetadataRoute.Sitemap {
-//   return [
-//     {
-//         url: 'https://www.romainblanchot.com',
-//         lastModified: new Date(),
-//         changeFrequency: 'daily',
-//         priority: 1,
-//         alternates: {
-//             languages: {
-//                 fr: 'https://www.romainblanchot.com',
-//                 en: 'https://www.romainblanchot.com/en',
-//             },
-//         },
-//         images: ['https://www.romainblanchot.com/photoProfilRomain.jpg'],
-//     },
-//     {
-//         url: 'https://www.romainblanchot.com/mes-services',
-//         lastModified: new Date(),
-//         changeFrequency: 'daily',
-//         priority: 0.8,
-//         alternates: {
-//             languages: {
-//                 fr: 'https://www.romainblanchot.com/mes-services',
-//                 en: 'https://www.romainblanchot.com/en/mes-services',
-//             },
-//         },
-//     },
-//     {
-//         url: 'https://www.romainblanchot.com/demarrer-votre-projet',
-//         lastModified: new Date(),
-//         changeFrequency: 'daily',
-//         priority: 0.8,
-//         alternates: {
-//             languages: {
-//                 fr: 'https://www.romainblanchot.com/demarrer-votre-projet',
-//                 en: 'https://www.romainblanchot.com/en/demarrer-votre-projet',
-//             },
-//         },
-//     },
-//     {
-//         url: 'https://www.romainblanchot.com/mes-projets',
-//         lastModified: new Date(),
-//         changeFrequency: 'daily',
-//         priority: 0.8,
-//         alternates: {
-//             languages: {
-//                 fr: 'https://www.romainblanchot.com/mes-projets',
-//                 en: 'https://www.romainblanchot.com/en/mes-projets',
-//             },
-//         },  
-//     },
-//     {
-//         url: 'https://www.romainblanchot.com/mes-competences',
-//         lastModified: new Date(),
-//         changeFrequency: 'daily',
-//         priority: 0.8,
-//         alternates: {
-//             languages: {
-//                 fr: 'https://www.romainblanchot.com/mes-competences',
-//                 en: 'https://www.romainblanchot.com/en/mes-competences',
-//             },
-//         },
-//     },
-//     {
-//         url: 'https://www.romainblanchot.com/a-propos',
-//         lastModified: new Date(),
-//         changeFrequency: 'daily',
-//         priority: 0.8,
-//         alternates: {
-//             languages: {
-//                 fr: 'https://www.romainblanchot.com/a-propos',
-//                 en: 'https://www.romainblanchot.com/en/a-propos',
-//             },
-//         },
-//     },
+// curl -X POST "https://api.indexnow.org/indexnow" \
+//      -H "Content-Type: application/json" \
+//      -d '{
+//            "host": "www.romainblanchot.com",
+//            "key": "8aa5a83821e746829b4f56bd8cfebc0d",
+//            "keyLocation": "https://www.romainblanchot.com/8aa5a83821e746829b4f56bd8cfebc0d.txt",
+//            "urlList": [
+//              "https://www.romainblanchot.com/",
+//              "https://www.romainblanchot.com/mes-services",
+//              "https://www.romainblanchot.com/demarrer-votre-projet",
+//              "https://www.romainblanchot.com/mes-projets",
+//              "https://www.romainblanchot.com/mes-competences",
+//              "https://www.romainblanchot.com/a-propos",
+//              "https://www.romainblanchot.com/me-contacter",
+//              "https://www.romainblanchot.com/politique-de-confidentialite",
+//              "https://www.romainblanchot.com/politique-de-cookies",
+//              "https://www.romainblanchot.com/en",
+//              "https://www.romainblanchot.com/en/mes-services",
+//              "https://www.romainblanchot.com/en/demarrer-votre-projet",
+//              "https://www.romainblanchot.com/en/mes-projets",
+//              "https://www.romainblanchot.com/en/mes-competences",
+//              "https://www.romainblanchot.com/en/a-propos",
+//              "https://www.romainblanchot.com/en/me-contacter",
+//              "https://www.romainblanchot.com/en/politique-de-confidentialite",
+//              "https://www.romainblanchot.com/en/politique-de-cookies"
+//            ]
+//          }'
 
-
-//     {
-//         url: 'https://www.romainblanchot.com/me-contacter',
-//         lastModified: new Date(),
-//         changeFrequency: 'daily',
-//         priority: 0.8,
-//         alternates: {
-//             languages: {
-//                 fr: 'https://www.romainblanchot.com/me-contacter',
-//                 en: 'https://www.romainblanchot.com/en/me-contacter',
-//             },
-//         },
-//     },
-//     {
-//         url: 'https://www.romainblanchot.com/mes-services',
-//         lastModified: new Date(),
-//         changeFrequency: 'daily',
-//         priority: 0.8,
-//         alternates: {
-//             languages: {
-//                 fr: 'https://www.romainblanchot.com/mes-services',
-//                 en: 'https://www.romainblanchot.com/en/mes-services',
-//             },
-//         },
-//     },
-
-    
-//   ]
-// }
