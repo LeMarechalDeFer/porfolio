@@ -6,7 +6,7 @@ import React from "react";
 import { StatsigProvider, useClientAsyncInit } from '@statsig/react-bindings';
 import { StatsigAutoCapturePlugin } from '@statsig/web-analytics';
 import { StatsigSessionReplayPlugin } from '@statsig/session-replay';
-
+import { useEffect, useState } from "react";
 
 export default function MyStatsig({ children }: { children: React.ReactNode }) {
   const { client } = useClientAsyncInit(
@@ -15,8 +15,21 @@ export default function MyStatsig({ children }: { children: React.ReactNode }) {
     { plugins: [ new StatsigAutoCapturePlugin(), new StatsigSessionReplayPlugin() ] },
   );
 
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    if (client) {
+      setIsReady(true);
+    }
+  }, [client]);
+
+  if (!isReady) {
+    return null;
+  }
+
+
   return (
-    <StatsigProvider client={client} loadingComponent={<div>Loading...</div>}>
+    <StatsigProvider client={client} loadingComponent={null}>
       {children}
     </StatsigProvider>
   );
