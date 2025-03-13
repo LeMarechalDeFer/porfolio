@@ -8,6 +8,11 @@ import { getI18n } from "@/locales/server"
 import { setStaticParamsLocale } from "next-international/server";
 
 
+// export function generateStaticParams() {
+//   return getStaticParams();
+// }
+
+
 export const metadata: Metadata = {
   title: "Politique de Cookies | Romain - Développeur Web Freelance",
   description:

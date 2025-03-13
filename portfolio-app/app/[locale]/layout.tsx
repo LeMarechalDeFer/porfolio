@@ -13,10 +13,11 @@ import { setStaticParamsLocale } from 'next-international/server'
 import { ReactElement } from 'react'
 
 
-
 export function generateStaticParams() {
   return getStaticParams();
 }
+
+
 
 export async function generateMetadata(
   { params }: { params: Promise<{ locale: string }> },
@@ -113,6 +114,7 @@ export default async function SubLayout({
   setStaticParamsLocale(locale);
  
   return (
+  
     <I18nProviderClient locale={locale}>
       <Header />
         <main  className="min-h-screen bg-background overflow-x-hidden mb-10">
@@ -123,5 +125,6 @@ export default async function SubLayout({
         </main>
       <Footer params={params} />
     </I18nProviderClient>
+  
   )
 } 

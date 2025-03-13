@@ -8,24 +8,32 @@ import { ThemeProvider } from "@/components/landingPage/theme-provider";
 import { organizationSchema, personSchema, webSiteSchema } from "@/components/schema-dts";
 import Script from "next/script";
 import MyStatsig from "@/components/my-statsig";
-import { getCurrentLocale } from "@/locales/server";
-
+import { setStaticParamsLocale } from "next-international/server";
+import { getStaticParams } from "@/locales/server";
 
 // Chargement des polices Google Fonts
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });  
 
 
+export function generateStaticParams() {
+    return getStaticParams();
+  }
+  
 
 export default async function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode
+  params: Promise<{ locale: string }>
 }) {
   // Obtenir la locale actuelle à partir de next-international
-  const locale = await getCurrentLocale();
+//   const locale = await getCurrentLocale() ;
+  const { locale } = await params;
+  setStaticParamsLocale(locale);
   
-  return <html lang={locale} suppressHydrationWarning>
+  return <html lang={locale || "fr"} suppressHydrationWarning>
    
     <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
 

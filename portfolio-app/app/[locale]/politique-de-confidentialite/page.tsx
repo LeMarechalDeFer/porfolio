@@ -8,6 +8,11 @@ import { getI18n } from "@/locales/server"
 import { setStaticParamsLocale } from 'next-international/server'
 
 
+// export function generateStaticParams() {
+//   return getStaticParams();
+// }
+
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
   setStaticParamsLocale(locale)
