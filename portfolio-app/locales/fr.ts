@@ -687,7 +687,7 @@ export default {
 
     "metadata.mes-projets.title": "Mes projets",
     "metadata.mes-projets.description": "Mes projets réalisés en tant que développeur freelance",
-    
+
     "metadata.mes-projets.keywords": ["développement web", "portfolio", "projets", "nextjs", "react", "javascript", "typescript", "frontend", "backend", "fullstack", "responsive", "mobile", "design", "UX/UI", "applications"],
     "metadata.mes-projets.twitter.title": "Mes projets",
     "metadata.mes-projets.twitter.description": "Mes projets réalisés en tant que développeur freelance",
@@ -697,6 +697,10 @@ export default {
     "metadata.mes-projets.openGraph.description": "Mes projets réalisés en tant que développeur freelance",
     "metadata.mes-projets.openGraph.siteName": "Mes projets",
     "metadata.mes-projets.openGraph.alt": "Portrait de Romain Blanchot - Ingénieur Full Stack & Automatisation",
+
+
+    "metadata.politique-de-confidentialite.title": "Politique de Confidentialité",
+    "metadata.politique-de-confidentialite.description": "Politique de confidentialité concernant la collecte et le traitement des données personnelles dans le cadre de notre newsletter et de nos services.",
 
 
 } as const

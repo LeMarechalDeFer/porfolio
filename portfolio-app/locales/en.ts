@@ -685,6 +685,8 @@ export default {
   "metadata.mes-projets.openGraph.description": "Projects I've worked on as a freelance developer",
   "metadata.mes-projets.openGraph.siteName": "My projects",
   "metadata.mes-projets.openGraph.alt": "Portrait of Romain Blanchot - Full Stack Engineer & Automation",
-  
+
+  "metadata.politique-de-confidentialite.title": "Privacy Policy",
+  "metadata.politique-de-confidentialite.description": "Privacy policy concerning the collection and processing of personal data in the context of our newsletter and our services.",
 
 } as const

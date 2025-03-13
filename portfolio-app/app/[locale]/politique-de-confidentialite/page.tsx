@@ -8,10 +8,16 @@ import { getI18n } from "@/locales/server"
 import { setStaticParamsLocale } from 'next-international/server'
 
 
-export const metadata: Metadata = {
-  title: "Politique de Confidentialité | Romain - Développeur Web Freelance",
-  description:
-    "Politique de confidentialité concernant la collecte et le traitement des données personnelles dans le cadre de notre newsletter et de nos services.",
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  setStaticParamsLocale(locale)
+  const t = await getI18n()
+
+  return {
+    title: t("metadata.politique-de-confidentialite.title"),
+    description:
+      t("metadata.politique-de-confidentialite.description"),
+  }
 }
 
 export default async function PolitiqueDeConfidentialite({ params }: { params: Promise<{ locale: string }> }) {
