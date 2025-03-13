@@ -682,4 +682,21 @@ export default {
     "metadata.layout.twitter.title": "Romain Blanchot - Ingénieur Full Stack & Automatisation",
     "metadata.layout.twitter.description": "Ingénieur Full Stack Freelance spécialisé en solutions end-to-end et intégration d'IA. Créez des applications web performantes et évolutives !",
     "metadata.layout.twitter.alt": "Portrait de Romain Blanchot - Ingénieur Full Stack & Automatisation",
+
+
+
+    "metadata.mes-projets.title": "Mes projets",
+    "metadata.mes-projets.description": "Mes projets réalisés en tant que développeur freelance",
+    
+    "metadata.mes-projets.keywords": ["développement web", "portfolio", "projets", "nextjs", "react", "javascript", "typescript", "frontend", "backend", "fullstack", "responsive", "mobile", "design", "UX/UI", "applications"],
+    "metadata.mes-projets.twitter.title": "Mes projets",
+    "metadata.mes-projets.twitter.description": "Mes projets réalisés en tant que développeur freelance",
+    "metadata.mes-projets.twitter.alt": "Portrait de Romain Blanchot - Ingénieur Full Stack & Automatisation",
+
+    "metadata.mes-projets.openGraph.title": "Mes projets",
+    "metadata.mes-projets.openGraph.description": "Mes projets réalisés en tant que développeur freelance",
+    "metadata.mes-projets.openGraph.siteName": "Mes projets",
+    "metadata.mes-projets.openGraph.alt": "Portrait de Romain Blanchot - Ingénieur Full Stack & Automatisation",
+
+
 } as const

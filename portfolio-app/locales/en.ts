@@ -674,4 +674,17 @@ export default {
   "metadata.layout.twitter.title": "Romain Blanchot - Full Stack Engineer & Automation",
   "metadata.layout.twitter.description": "Full Stack Freelance Engineer specializing in end-to-end solutions and AI integration. Create performant and scalable web applications!",
   "metadata.layout.twitter.alt": "Portrait of Romain Blanchot - Full Stack Engineer & Automation",
+
+  "metadata.mes-projets.title": "My projects",
+  "metadata.mes-projets.description": "Projects I've worked on as a freelance developer",
+  "metadata.mes-projets.keywords": ["web development", "portfolio", "projects", "nextjs", "react", "javascript", "typescript", "frontend", "backend", "fullstack", "responsive", "mobile", "design", "UX/UI", "applications"],
+  "metadata.mes-projets.twitter.title": "My projects",
+  "metadata.mes-projets.twitter.description": "Projects I've worked on as a freelance developer",
+  "metadata.mes-projets.twitter.alt": "Portrait of Romain Blanchot - Full Stack Engineer & Automation",
+  "metadata.mes-projets.openGraph.title": "My projects",
+  "metadata.mes-projets.openGraph.description": "Projects I've worked on as a freelance developer",
+  "metadata.mes-projets.openGraph.siteName": "My projects",
+  "metadata.mes-projets.openGraph.alt": "Portrait of Romain Blanchot - Full Stack Engineer & Automation",
+  
+
 } as const
