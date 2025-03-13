@@ -16,7 +16,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
   return (
     <>
-      <Hero />
+      <Hero params={params} />
       <Services />
       <Skills />
       <Projects />

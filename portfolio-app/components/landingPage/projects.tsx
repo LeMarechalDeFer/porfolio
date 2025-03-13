@@ -10,10 +10,18 @@ import { Building2, Database, Server, Lightbulb, Code, Zap, Cog, Shield, Users, 
 import Link from "next/link"
 import { useState } from "react"
 
+// import { getI18n } from "@/locales/server"
+// import { setStaticParamsLocale } from "next-international/server"
+
+// export default async function Projects({ params }: { params: Promise<{ locale: string }> }) {
+//   const t = await getI18n()
+//   const { locale } = await params;
+//   setStaticParamsLocale(locale);
 
 
 export default function Projects() {
-  const t = useI18n()
+    const t = useI18n()
+  
 
   const projects = [
     {

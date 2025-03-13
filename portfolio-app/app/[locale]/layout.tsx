@@ -121,7 +121,7 @@ export default async function SubLayout({
           <NewsletterPopup />
           <Toaster />
         </main>
-      <Footer />
+      <Footer params={params} />
     </I18nProviderClient>
   )
 } 

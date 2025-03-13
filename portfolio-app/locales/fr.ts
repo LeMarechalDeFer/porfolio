@@ -140,6 +140,7 @@ export default {
     "footer.legal.terms": "Mentions légales",
     "footer.legal.privacy": "Politique de confidentialité",
     "footer.legal.conditions": "Conditions d'utilisation",
+    "footer.legal.cookies": "Politique de cookies",
 
     // Newsletter translations
     "newsletter.title": "Restez informé",

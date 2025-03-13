@@ -1,21 +1,21 @@
-"use client"
 
-import { useI18n } from "@/locales/client"
 import { Button } from "@/components/ui/button"
-import { motion } from "framer-motion"
-import Image from "next/image"
 import Link from "next/link"
 import { Mail, ArrowRight, CheckCircle  } from "lucide-react"
 import { FaXTwitter } from "react-icons/fa6";
 import { LuGithub } from "react-icons/lu";
 import { FiFacebook, FiLinkedin } from "react-icons/fi";
 import { RiTiktokLine } from "react-icons/ri";
-import photoProfilRomain from "@/public/photoProfilRomain.jpg";
 import { LuYoutube } from "react-icons/lu";
+import { getI18n } from "@/locales/server";
+import { setStaticParamsLocale } from "next-international/server";
+import HeroAnimated from "./heroAnimated"
 
 
-export default function Hero() {
-  const t = useI18n()
+export default async function Hero({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setStaticParamsLocale(locale);
+  const t = await getI18n()
 
   return (
     <section
@@ -58,38 +58,7 @@ export default function Hero() {
               ))}
             </div>
           </div>
-          <motion.div
-            initial={{ opacity: 1 }}
-            animate={{ opacity: 1 }}
-            className="relative mt-6 sm:mt-8 lg:mt-0"
-          >
-            
-            <div className="relative z-10 mx-auto lg:mx-auto lg:mr-8 w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-primary/40 blur-2xl opacity-20 animate-pulse" />
-              <div className="relative h-full w-full rounded-full border-2 border-primary/20 overflow-hidden">
-                <Image
-                  src={photoProfilRomain}
-                  alt="Romain"
-                  sizes="(max-width: 640px) 224px, (max-width: 768px) 256px, (max-width: 1024px) 320px, (max-width: 1200px) 384px, 384px"
-                  // sizes="(max-width: 640px) 224px, (max-width: 768px) 256px, (max-width: 1024px) 320px, 384px"
-                  className="w-full h-full object-cover"
-                  priority
-                  fetchPriority="high"
-                  quality={75}
-                  loading="eager"
-                  width={384} 
-                  height={384}
-                  placeholder="blur"
-                />
-              </div>
-              <div className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 bg-background rounded-lg shadow-lg p-2 sm:p-4 border">
-                <div className="flex items-center gap-2">
-                  <div className="h-2 w-2 sm:h-3 sm:w-3 rounded-full bg-green-500" />
-                  <span className="text-xs sm:text-sm font-medium">{t("hero.availability")}</span>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+          <HeroAnimated />  
         </div>
         <div className="mt-8 sm:mt-10 lg:mt-12 flex flex-wrap justify-center lg:justify-start gap-4 max-w-[280px] sm:max-w-none mx-auto">
           <Link href="https://github.com/LeMarechalDeFer" target="_blank" rel="noopener noreferrer">

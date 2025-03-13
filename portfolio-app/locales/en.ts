@@ -137,6 +137,7 @@ export default {
   "footer.legal.terms": "Legal Notice",
   "footer.legal.privacy": "Privacy Policy",
   "footer.legal.conditions": "Terms of Use",
+  "footer.legal.cookies": "Cookie Policy",
 
   // Newsletter translations
   "newsletter.title": "Stay Informed",

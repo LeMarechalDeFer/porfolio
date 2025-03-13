@@ -55,15 +55,15 @@ export function CookieConsent() {
     savePreferences(allAccepted)
   }
 
-  const handleRejectAll = () => {
-    const allRejected = {
-      necessary: true, // Toujours activé
-      preferences: false,
-      analytics: false,
-      marketing: false,
-    }
-    savePreferences(allRejected)
-  }
+  // const handleRejectAll = () => {
+  //   const allRejected = {
+  //     necessary: true, // Toujours activé
+  //     preferences: false,
+  //     analytics: false,
+  //     marketing: false,
+  //   }
+  //   savePreferences(allRejected)
+  // }
 
   const handleSavePreferences = () => {
     savePreferences(preferences)
@@ -116,15 +116,15 @@ export function CookieConsent() {
       className={`fixed ${showPreferences ? "inset-0 bg-black/50 flex items-center justify-center z-50" : "bottom-0 left-0 right-0 z-50"}`}
     >
       {showPreferences ? (
-        <Card className="w-full max-w-2xl max-h-[90vh] overflow-auto">
+        <Card className="w-full max-w-2xl max-h-[90vh] overflow-auto mx-4">
           <CardHeader>
             <CardTitle>{t("cookie-consent.preferences-dialog.title")}</CardTitle>
             <CardDescription>{t("cookie-consent.preferences-dialog.description")}</CardDescription>
           </CardHeader>
           <CardContent>
             <Tabs defaultValue="all">
-              <TabsList className="grid w-full grid-cols-4">
-                <TabsTrigger value="all">{t("cookie-consent.tabs.all")}</TabsTrigger>
+              <TabsList className="grid w-full grid-cols-3">
+                {/* <TabsTrigger value="all">{t("cookie-consent.tabs.all")}</TabsTrigger> */}
                 <TabsTrigger value="necessary">{t("cookie-consent.tabs.necessary")}</TabsTrigger>
                 <TabsTrigger value="preferences">{t("cookie-consent.tabs.preferences")}</TabsTrigger>
                 <TabsTrigger value="analytics">{t("cookie-consent.tabs.analytics")}</TabsTrigger>
@@ -264,40 +264,37 @@ export function CookieConsent() {
               </p>
             </div>
           </CardContent>
-          <CardFooter className="flex justify-between">
-            <Button variant="outline" onClick={() => setShowPreferences(false)}>
+          <CardFooter className="flex flex-col gap-4 md:flex-row md:justify-center">
+            <Button variant="outline" onClick={() => setShowPreferences(false)} className="w-full md:w-auto">
               {t("cookie-consent.buttons.cancel")}
             </Button>
-            <div className="space-x-2">
-              <Button variant="outline" onClick={handleRejectAll}>
-                {t("cookie-consent.buttons.reject-all")}
-              </Button>
-              <Button variant="outline" onClick={handleAcceptAll}>
+    
+              <Button variant="outline" onClick={handleAcceptAll} className="w-full md:w-auto">
                 {t("cookie-consent.buttons.accept-all")}
               </Button>
-              <Button onClick={handleSavePreferences}>{t("cookie-consent.buttons.save")}</Button>
-            </div>
+              <Button onClick={handleSavePreferences} className="w-full md:w-auto">
+                {t("cookie-consent.buttons.save")}
+              </Button>
+            
           </CardFooter>
         </Card>
       ) : (
-        <div className="fixed bottom-4 right-4 p-4 bg-background border rounded-lg shadow-lg z-50 max-w-xs">
+        <div className="fixed bottom-0 left-0 right-0 p-4 bg-background border-t md:bottom-4 md:right-4 md:left-auto md:rounded-lg md:border md:shadow-lg z-50 md:max-w-xs">
           <div className="flex flex-col gap-3">
             <p className="text-sm">{t("cookie-consent.banner.text")}</p>
             <div className="flex flex-col gap-2">
-              <Button variant="outline" size="sm" onClick={togglePreferences} className="text-xs">
-                {t("cookie-consent.banner.more")}
-              </Button>
               <div className="flex gap-2">
-                <Button variant="ghost" size="sm" onClick={handleRejectAll} className="flex-1">
-                  {t("cookie-consent.banner.reject")}
+                <Button variant="outline" size="sm" onClick={togglePreferences} className="w-1/4 text-xs">
+                  {t("cookie-consent.banner.more")}
                 </Button>
-                <Button size="sm" onClick={handleAcceptAll} className="flex-1">
+                <Button size="sm" onClick={handleAcceptAll} className="w-3/4">
                   {t("cookie-consent.banner.accept")}
                 </Button>
               </div>
             </div>
+            </div>
           </div>
-        </div>
+        
       )}
     </div>
   )

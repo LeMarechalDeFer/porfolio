@@ -1,18 +1,21 @@
-"use client"
 
 import { Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Newsletter } from "@/components/landingPage/newsletter"
-import { useI18n } from "@/locales/client"
 import { RiTiktokLine } from "react-icons/ri"
 import { FiFacebook, FiLinkedin } from "react-icons/fi"
 import { FaXTwitter } from "react-icons/fa6"
 import { LuGithub } from "react-icons/lu"
+import { getI18n } from "@/locales/server"
+import { setStaticParamsLocale } from "next-international/server"
 
 
-export default function Footer() {
-  const t = useI18n()
+export default async function Footer({ params }: { params: Promise<{ locale: string }> }) {
+  const t = await getI18n()
+  const { locale } = await params;
+  setStaticParamsLocale(locale);
+
   return (
     <footer className="bg-muted/50 border-t">
       <div className="container py-12 md:py-16 px-4 sm:px-8 lg:px-12">
@@ -130,6 +133,12 @@ export default function Footer() {
             <Link href="/conditions-utilisation" className="hover:text-foreground">
               {t("footer.legal.conditions")}
             </Link> */}
+            <Link href="/politique-de-confidentialite" className="hover:text-foreground">
+              {t("footer.legal.privacy")}
+            </Link>
+            <Link href="/politique-cookies" className="hover:text-foreground">
+              {t("footer.legal.cookies")}
+            </Link>
           </div>
         </div>
       </div>
