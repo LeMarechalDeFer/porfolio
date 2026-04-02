@@ -2,21 +2,36 @@
 
 "use client"
 
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { StatsigProvider, useClientAsyncInit } from "@statsig/react-bindings"
-import { StatsigAutoCapturePlugin } from "@statsig/web-analytics"
-import { StatsigSessionReplayPlugin } from "@statsig/session-replay"
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type StatsigPlugin = any
+
 export default function MyStatsig({ children }: { children: React.ReactNode }) {
+  const [plugins, setPlugins] = useState<StatsigPlugin[]>()
+
+  useEffect(() => {
+    async function loadPlugins() {
+      const [{ StatsigAutoCapturePlugin }, { StatsigSessionReplayPlugin }] = await Promise.all([
+        import("@statsig/web-analytics"),
+        import("@statsig/session-replay"),
+      ])
+      setPlugins([new StatsigAutoCapturePlugin(), new StatsigSessionReplayPlugin()])
+    }
+    loadPlugins()
+  }, [])
+
   const { client } = useClientAsyncInit(
     "client-TAPXuEfuJy4Yue7QsvIHv74mmDjjGMxRVL9bqITHiNd",
     { userID: "a-user" },
-    { plugins: [new StatsigAutoCapturePlugin(), new StatsigSessionReplayPlugin()] },
+    { plugins },
   )
 
-  if (!client) return null
+  if (!client) return <>{children}</>
 
   return (
-    <StatsigProvider client={client} loadingComponent={null}>
+    <StatsigProvider client={client} loadingComponent={<>{children}</>}>
       {children}
     </StatsigProvider>
   )

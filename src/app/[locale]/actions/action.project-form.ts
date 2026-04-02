@@ -1,12 +1,13 @@
 "use server"
 
 import { projectFormSchema, ProjectFormSchema } from "@/lib/schema/schema.project-form"
-import { getI18n } from "@/locales/server"
+import { getI18n, getCurrentLocale } from "@/locales/server"
 import { Resend } from "resend"
 import { ProjectFormEmail } from "@/components/email/projectForm-Email"
 
 const resend = new Resend(process.env.RESEND_API_KEY as string)
 export async function projectFormRequest(data: ProjectFormSchema) {
+  const locale = await getCurrentLocale()
   const t = await getI18n()
 
   const parsed = projectFormSchema(t).safeParse(data)
@@ -69,6 +70,7 @@ export async function projectFormRequest(data: ProjectFormSchema) {
         expectedResults,
         technicalPreferences,
         otherDetails,
+        language: locale,
       }),
       replyTo: "romainblanchot0@gmail.com",
     })
