@@ -243,7 +243,7 @@ describe("ProjectForm", () => {
   })
 
   it("shows success toast on successful submission", async () => {
-    mockProjectFormRequest.mockResolvedValue({ success: true })
+    mockProjectFormRequest.mockResolvedValue({ success: true, message: "OK" })
 
     const { container } = render(<ProjectForm />)
     const form = container.querySelector("form")!

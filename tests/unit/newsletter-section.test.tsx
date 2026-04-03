@@ -28,7 +28,7 @@ vi.mock("react-hook-form", () => ({
     control: {},
     handleSubmit:
       (fn: (data: Record<string, string>) => unknown) => (e?: { preventDefault?: () => void }) => {
-        e?.preventDefault()
+        e?.preventDefault?.()
         fn({ email: "test@test.com" })
       },
     formState: { isSubmitting: false },
@@ -146,7 +146,7 @@ describe("NewsletterSection", () => {
   })
 
   it("shows success toast on successful submission", async () => {
-    mockSubscribe.mockResolvedValue({ success: true })
+    mockSubscribe.mockResolvedValue({ success: true, message: "OK" })
 
     const { container } = render(<NewsletterSection />)
     const forms = container.querySelectorAll("form")
@@ -160,7 +160,7 @@ describe("NewsletterSection", () => {
   })
 
   it("shows error toast on failed submission", async () => {
-    mockSubscribe.mockResolvedValue({ success: false })
+    mockSubscribe.mockResolvedValue({ success: false, message: "Error" })
 
     const { container } = render(<NewsletterSection />)
     const forms = container.querySelectorAll("form")

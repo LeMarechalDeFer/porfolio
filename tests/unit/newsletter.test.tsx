@@ -72,7 +72,7 @@ describe("Newsletter (footer)", () => {
   })
 
   it("shows success toast on successful submission", async () => {
-    mockSubscribe.mockResolvedValue({ success: true })
+    mockSubscribe.mockResolvedValue({ success: true, message: "OK" })
 
     const { container } = render(<Newsletter />)
     const form = container.querySelector("form")!
@@ -85,7 +85,7 @@ describe("Newsletter (footer)", () => {
   })
 
   it("shows error toast on failed submission", async () => {
-    mockSubscribe.mockResolvedValue({ success: false })
+    mockSubscribe.mockResolvedValue({ success: false, message: "Error" })
 
     const { container } = render(<Newsletter />)
     const form = container.querySelector("form")!

@@ -95,7 +95,7 @@ describe("generateMetadata()", () => {
     })
 
     it("has correct type", () => {
-      expect(og.type).toBe("website")
+      expect((og as Record<string, unknown>).type).toBe("website")
     })
 
     it("has correct locale for fr", () => {
@@ -137,7 +137,7 @@ describe("generateMetadata()", () => {
     const twitter = meta.twitter!
 
     it("has summary_large_image card type", () => {
-      expect(twitter.card).toBe("summary_large_image")
+      expect((twitter as Record<string, unknown>).card).toBe("summary_large_image")
     })
 
     it("has correct creator", () => {
