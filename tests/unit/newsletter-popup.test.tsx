@@ -31,8 +31,7 @@ vi.mock("react-hook-form", () => ({
   useForm: () => ({
     control: {},
     handleSubmit:
-      (fn: (data: Record<string, string>) => unknown) =>
-      (e?: { preventDefault?: () => void }) => {
+      (fn: (data: Record<string, string>) => unknown) => (e?: { preventDefault?: () => void }) => {
         e?.preventDefault?.()
         return fn({ email: "test@test.com", language: "fr" })
       },
@@ -46,7 +45,9 @@ vi.mock("react-hook-form", () => ({
 vi.mock("lucide-react", () => ({
   X: (props: React.SVGProps<SVGSVGElement>) => <svg data-testid="x-icon" {...props} />,
   Send: (props: React.SVGProps<SVGSVGElement>) => <svg data-testid="send-icon" {...props} />,
-  Sparkles: (props: React.SVGProps<SVGSVGElement>) => <svg data-testid="sparkles-icon" {...props} />,
+  Sparkles: (props: React.SVGProps<SVGSVGElement>) => (
+    <svg data-testid="sparkles-icon" {...props} />
+  ),
   Loader2: (props: React.SVGProps<SVGSVGElement>) => <svg data-testid="loader-icon" {...props} />,
 }))
 
@@ -67,22 +68,15 @@ describe("NewsletterPopup", () => {
 
     render(<NewsletterPopup />)
 
-    expect(
-      screen.queryByText("newsletter-popup.title"),
-    ).not.toBeInTheDocument()
+    expect(screen.queryByText("newsletter-popup.title")).not.toBeInTheDocument()
   })
 
   it("does not show popup when lastNewsletterPopupShown is recent (within POPUP_INTERVAL)", () => {
-    localStorage.setItem(
-      "lastNewsletterPopupShown",
-      String(Date.now() - 1000),
-    )
+    localStorage.setItem("lastNewsletterPopupShown", String(Date.now() - 1000))
 
     render(<NewsletterPopup />)
 
-    expect(
-      screen.queryByText("newsletter-popup.title"),
-    ).not.toBeInTheDocument()
+    expect(screen.queryByText("newsletter-popup.title")).not.toBeInTheDocument()
   })
 
   it("renders null before storage check, then renders after useEffect", () => {
@@ -101,9 +95,7 @@ describe("NewsletterPopup", () => {
     })
 
     expect(screen.getByText("newsletter-popup.title")).toBeInTheDocument()
-    expect(
-      screen.getByText("newsletter-popup.description"),
-    ).toBeInTheDocument()
+    expect(screen.getByText("newsletter-popup.description")).toBeInTheDocument()
   })
 
   it("shows email input field and submit button when popup is open", () => {
@@ -113,9 +105,7 @@ describe("NewsletterPopup", () => {
       vi.advanceTimersByTime(61_000)
     })
 
-    expect(
-      screen.getByText("newsletter-popup.email.label"),
-    ).toBeInTheDocument()
+    expect(screen.getByText("newsletter-popup.email.label")).toBeInTheDocument()
     expect(screen.getByText("newsletter-popup.button")).toBeInTheDocument()
   })
 
@@ -141,14 +131,10 @@ describe("NewsletterPopup", () => {
     expect(screen.getByText("newsletter-popup.title")).toBeInTheDocument()
 
     // The close button has the X icon and sr-only text
-    const closeButton = screen
-      .getByText("newsletter-popup.close")
-      .closest("button")!
+    const closeButton = screen.getByText("newsletter-popup.close").closest("button")!
     await user.click(closeButton)
 
-    expect(
-      screen.queryByText("newsletter-popup.title"),
-    ).not.toBeInTheDocument()
+    expect(screen.queryByText("newsletter-popup.title")).not.toBeInTheDocument()
   })
 
   it("renders privacy link", () => {
@@ -160,10 +146,7 @@ describe("NewsletterPopup", () => {
 
     const link = screen.getByText("newsletter-popup.disclaimer.link")
     expect(link).toBeInTheDocument()
-    expect(link.closest("a")).toHaveAttribute(
-      "href",
-      "/politique-de-confidentialite",
-    )
+    expect(link.closest("a")).toHaveAttribute("href", "/politique-de-confidentialite")
   })
 
   it("renders disclaimer text", () => {
@@ -173,10 +156,7 @@ describe("NewsletterPopup", () => {
       vi.advanceTimersByTime(61_000)
     })
 
-    const disclaimerElements = screen.getAllByText(
-      "newsletter-popup.disclaimer",
-      { exact: false },
-    )
+    const disclaimerElements = screen.getAllByText("newsletter-popup.disclaimer", { exact: false })
     expect(disclaimerElements.length).toBeGreaterThan(0)
   })
 

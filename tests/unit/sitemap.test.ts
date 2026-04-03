@@ -50,8 +50,7 @@ describe("sitemap()", () => {
   it("gives priority 0.8 to non-home pages", () => {
     const nonHomeEntries = result.filter(
       (e) =>
-        e.url !== "https://www.romainblanchot.com" &&
-        e.url !== "https://www.romainblanchot.com/en"
+        e.url !== "https://www.romainblanchot.com" && e.url !== "https://www.romainblanchot.com/en",
     )
     for (const entry of nonHomeEntries) {
       expect(entry.priority).toBe(0.8)
@@ -60,7 +59,7 @@ describe("sitemap()", () => {
 
   it("generates entries for both FR and EN for each page", () => {
     const frUrls = result.filter(
-      (e) => e.url.startsWith("https://www.romainblanchot.com") && !e.url.includes("/en")
+      (e) => e.url.startsWith("https://www.romainblanchot.com") && !e.url.includes("/en"),
     )
     const enUrls = result.filter((e) => e.url.includes("/en"))
     expect(frUrls).toHaveLength(9)

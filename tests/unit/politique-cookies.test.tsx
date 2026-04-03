@@ -16,9 +16,7 @@ vi.mock("lucide-react", () => ({
 
 describe("PolitiqueCookies", () => {
   it("renders page title", async () => {
-    const { default: PolitiqueCookies } = await import(
-      "@/app/[locale]/politique-cookies/page"
-    )
+    const { default: PolitiqueCookies } = await import("@/app/[locale]/politique-cookies/page")
     const params = Promise.resolve({ locale: "fr" })
     const element = await PolitiqueCookies({ params })
     render(element as React.ReactElement)
@@ -27,9 +25,7 @@ describe("PolitiqueCookies", () => {
   })
 
   it("renders back home link", async () => {
-    const { default: PolitiqueCookies } = await import(
-      "@/app/[locale]/politique-cookies/page"
-    )
+    const { default: PolitiqueCookies } = await import("@/app/[locale]/politique-cookies/page")
     const params = Promise.resolve({ locale: "fr" })
     const element = await PolitiqueCookies({ params })
     render(element as React.ReactElement)
@@ -38,9 +34,7 @@ describe("PolitiqueCookies", () => {
   })
 
   it("renders all 8 main sections", async () => {
-    const { default: PolitiqueCookies } = await import(
-      "@/app/[locale]/politique-cookies/page"
-    )
+    const { default: PolitiqueCookies } = await import("@/app/[locale]/politique-cookies/page")
     const params = Promise.resolve({ locale: "fr" })
     const element = await PolitiqueCookies({ params })
     render(element as React.ReactElement)
@@ -51,9 +45,7 @@ describe("PolitiqueCookies", () => {
   })
 
   it("renders cookie tables", async () => {
-    const { default: PolitiqueCookies } = await import(
-      "@/app/[locale]/politique-cookies/page"
-    )
+    const { default: PolitiqueCookies } = await import("@/app/[locale]/politique-cookies/page")
     const params = Promise.resolve({ locale: "fr" })
     const element = await PolitiqueCookies({ params })
     render(element as React.ReactElement)
@@ -65,9 +57,7 @@ describe("PolitiqueCookies", () => {
   })
 
   it("renders external policy links", async () => {
-    const { default: PolitiqueCookies } = await import(
-      "@/app/[locale]/politique-cookies/page"
-    )
+    const { default: PolitiqueCookies } = await import("@/app/[locale]/politique-cookies/page")
     const params = Promise.resolve({ locale: "fr" })
     const element = await PolitiqueCookies({ params })
     render(element as React.ReactElement)

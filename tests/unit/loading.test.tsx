@@ -9,24 +9,43 @@ vi.mock("@/components/ui/skeleton", () => ({
 }))
 
 vi.mock("@/components/skeletons", () => ({
-  SkeletonSection: ({ children, ...props }: React.PropsWithChildren<React.HTMLAttributes<HTMLElement>>) => (
+  SkeletonSection: ({
+    children,
+    ...props
+  }: React.PropsWithChildren<React.HTMLAttributes<HTMLElement>>) => (
     <section {...props}>{children}</section>
   ),
-  SkeletonGrid: ({ count, prefix, ...props }: { count: number; prefix: string } & React.HTMLAttributes<HTMLDivElement>) => (
+  SkeletonGrid: ({
+    count,
+    prefix,
+    ...props
+  }: { count: number; prefix: string } & React.HTMLAttributes<HTMLDivElement>) => (
     <div data-testid={`grid-${prefix}`} {...props}>
       {Array.from({ length: count }, (_, i) => (
         <div key={`${prefix}-${i}`} />
       ))}
     </div>
   ),
-  SkeletonRepeat: ({ count, prefix, children }: { count: number; prefix: string; children: (i: number) => React.ReactNode }) => (
+  SkeletonRepeat: ({
+    count,
+    prefix,
+    children,
+  }: {
+    count: number
+    prefix: string
+    children: (i: number) => React.ReactNode
+  }) => (
     <>
       {Array.from({ length: count }, (_, i) => (
         <div key={`${prefix}-${i}`}>{children(i)}</div>
       ))}
     </>
   ),
-  SkeletonCardGrid: ({ count, prefix, ...props }: { count: number; prefix: string } & React.HTMLAttributes<HTMLDivElement>) => (
+  SkeletonCardGrid: ({
+    count,
+    prefix,
+    ...props
+  }: { count: number; prefix: string } & React.HTMLAttributes<HTMLDivElement>) => (
     <div data-testid={`card-grid-${prefix}`} {...props}>
       {Array.from({ length: count }, (_, i) => (
         <div key={`${prefix}-${i}`} />

@@ -16,9 +16,7 @@ vi.mock("lucide-react", () => ({
 
 describe("PolitiqueDeConfidentialite", () => {
   it("renders page title", async () => {
-    const { default: Page } = await import(
-      "@/app/[locale]/politique-de-confidentialite/page"
-    )
+    const { default: Page } = await import("@/app/[locale]/politique-de-confidentialite/page")
     const params = Promise.resolve({ locale: "fr" })
     const element = await Page({ params })
     render(element as React.ReactElement)
@@ -27,9 +25,7 @@ describe("PolitiqueDeConfidentialite", () => {
   })
 
   it("renders back home link", async () => {
-    const { default: Page } = await import(
-      "@/app/[locale]/politique-de-confidentialite/page"
-    )
+    const { default: Page } = await import("@/app/[locale]/politique-de-confidentialite/page")
     const params = Promise.resolve({ locale: "fr" })
     const element = await Page({ params })
     render(element as React.ReactElement)
@@ -38,9 +34,7 @@ describe("PolitiqueDeConfidentialite", () => {
   })
 
   it("renders all 13 sections", async () => {
-    const { default: Page } = await import(
-      "@/app/[locale]/politique-de-confidentialite/page"
-    )
+    const { default: Page } = await import("@/app/[locale]/politique-de-confidentialite/page")
     const params = Promise.resolve({ locale: "fr" })
     const element = await Page({ params })
     render(element as React.ReactElement)
@@ -53,16 +47,12 @@ describe("PolitiqueDeConfidentialite", () => {
   })
 
   it("renders cookie policy link in section 11", async () => {
-    const { default: Page } = await import(
-      "@/app/[locale]/politique-de-confidentialite/page"
-    )
+    const { default: Page } = await import("@/app/[locale]/politique-de-confidentialite/page")
     const params = Promise.resolve({ locale: "fr" })
     const element = await Page({ params })
     render(element as React.ReactElement)
 
-    const cookieLink = screen.getByText(
-      "politique-de-confidentialite.section.11.cookie-policy",
-    )
+    const cookieLink = screen.getByText("politique-de-confidentialite.section.11.cookie-policy")
     expect(cookieLink.closest("a")).toHaveAttribute("href", "/politique-cookies")
   })
 })

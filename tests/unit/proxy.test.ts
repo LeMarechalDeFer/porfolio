@@ -28,7 +28,9 @@ describe("proxy", () => {
   })
 
   it("calls the i18n middleware with the provided request and returns its result", () => {
-    const fakeRequest = { url: "http://localhost:3000/fr" } as unknown as Parameters<typeof proxy>[0]
+    const fakeRequest = { url: "http://localhost:3000/fr" } as unknown as Parameters<
+      typeof proxy
+    >[0]
     const result = proxy(fakeRequest)
 
     expect(mockMiddleware).toHaveBeenCalledWith(fakeRequest)

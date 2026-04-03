@@ -23,7 +23,7 @@ describe("ThemeProvider", () => {
     render(
       <ThemeProvider>
         <span data-testid="child">Hello</span>
-      </ThemeProvider>
+      </ThemeProvider>,
     )
     expect(screen.getByTestId("child")).toHaveTextContent("Hello")
   })
@@ -32,7 +32,7 @@ describe("ThemeProvider", () => {
     render(
       <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
         <span>Content</span>
-      </ThemeProvider>
+      </ThemeProvider>,
     )
     expect(receivedProps.current).toMatchObject({
       attribute: "class",
@@ -46,7 +46,7 @@ describe("ThemeProvider", () => {
     render(
       <ThemeProvider>
         <span data-testid="inner">Inside</span>
-      </ThemeProvider>
+      </ThemeProvider>,
     )
     const provider = screen.getByTestId("next-themes-provider")
     const inner = screen.getByTestId("inner")

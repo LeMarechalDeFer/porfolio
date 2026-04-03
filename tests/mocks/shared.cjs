@@ -201,10 +201,7 @@ function createMocks(vi) {
   // @/components/ui/button (forwardRef variant with asChild stripped)
   // -------------------------------------------------------------------------
   const buttonMock = {
-    Button: React.forwardRef(function MockButton(
-      { children, asChild, ...props },
-      ref,
-    ) {
+    Button: React.forwardRef(function MockButton({ children, asChild, ...props }, ref) {
       return React.createElement("button", { ref, ...props }, children)
     }),
   }
@@ -328,11 +325,7 @@ function createMocks(vi) {
       return React.createElement("div", { role: "tablist" }, children)
     },
     TabsTrigger: function MockTabsTrigger({ children, value, ...props }) {
-      return React.createElement(
-        "button",
-        { role: "tab", "data-value": value, ...props },
-        children,
-      )
+      return React.createElement("button", { role: "tab", "data-value": value, ...props }, children)
     },
   }
 

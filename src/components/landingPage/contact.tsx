@@ -77,7 +77,16 @@ export default function Contact() {
             <SocialLinks
               variant="outline"
               className="flex flex-wrap justify-center gap-4 pt-4"
-              include={["github", "linkedin", "instagram", "email", "twitter", "tiktok", "facebook", "youtube"]}
+              include={[
+                "github",
+                "linkedin",
+                "instagram",
+                "email",
+                "twitter",
+                "tiktok",
+                "facebook",
+                "youtube",
+              ]}
             />
           </motion.div>
 

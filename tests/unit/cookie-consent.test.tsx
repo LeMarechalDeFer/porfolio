@@ -25,9 +25,7 @@ describe("CookieConsent", () => {
     render(<CookieConsent />)
 
     expect(screen.getByText("cookie-consent.banner.text")).toBeInTheDocument()
-    expect(
-      screen.getByText("cookie-consent.banner.accept"),
-    ).toBeInTheDocument()
+    expect(screen.getByText("cookie-consent.banner.accept")).toBeInTheDocument()
     expect(screen.getByText("cookie-consent.banner.more")).toBeInTheDocument()
   })
 
@@ -43,9 +41,7 @@ describe("CookieConsent", () => {
     render(<CookieConsent />)
 
     expect(screen.getByText("cookie-consent.manage")).toBeInTheDocument()
-    expect(
-      screen.queryByText("cookie-consent.banner.text"),
-    ).not.toBeInTheDocument()
+    expect(screen.queryByText("cookie-consent.banner.text")).not.toBeInTheDocument()
   })
 
   it("shows banner when localStorage contains invalid JSON", () => {
@@ -55,9 +51,7 @@ describe("CookieConsent", () => {
     render(<CookieConsent />)
 
     expect(screen.getByText("cookie-consent.banner.text")).toBeInTheDocument()
-    expect(
-      screen.getByText("cookie-consent.banner.accept"),
-    ).toBeInTheDocument()
+    expect(screen.getByText("cookie-consent.banner.accept")).toBeInTheDocument()
 
     consoleSpy.mockRestore()
   })
@@ -78,9 +72,7 @@ describe("CookieConsent", () => {
     })
 
     // After accepting, banner should be gone and manage button shown
-    expect(
-      screen.queryByText("cookie-consent.banner.text"),
-    ).not.toBeInTheDocument()
+    expect(screen.queryByText("cookie-consent.banner.text")).not.toBeInTheDocument()
     expect(screen.getByText("cookie-consent.manage")).toBeInTheDocument()
   })
 
@@ -91,12 +83,8 @@ describe("CookieConsent", () => {
     const moreButton = screen.getByText("cookie-consent.banner.more")
     await user.click(moreButton)
 
-    expect(
-      screen.getByText("cookie-consent.preferences-dialog.title"),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText("cookie-consent.preferences-dialog.description"),
-    ).toBeInTheDocument()
+    expect(screen.getByText("cookie-consent.preferences-dialog.title")).toBeInTheDocument()
+    expect(screen.getByText("cookie-consent.preferences-dialog.description")).toBeInTheDocument()
   })
 
   it("preferences dialog shows tabs for necessary, preferences, analytics", async () => {
@@ -105,15 +93,9 @@ describe("CookieConsent", () => {
 
     await user.click(screen.getByText("cookie-consent.banner.more"))
 
-    expect(
-      screen.getByText("cookie-consent.tabs.necessary"),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText("cookie-consent.tabs.preferences"),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText("cookie-consent.tabs.analytics"),
-    ).toBeInTheDocument()
+    expect(screen.getByText("cookie-consent.tabs.necessary")).toBeInTheDocument()
+    expect(screen.getByText("cookie-consent.tabs.preferences")).toBeInTheDocument()
+    expect(screen.getByText("cookie-consent.tabs.analytics")).toBeInTheDocument()
   })
 
   it("preferences dialog shows cancel, accept-all, and save buttons", async () => {
@@ -122,15 +104,9 @@ describe("CookieConsent", () => {
 
     await user.click(screen.getByText("cookie-consent.banner.more"))
 
-    expect(
-      screen.getByText("cookie-consent.buttons.cancel"),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText("cookie-consent.buttons.accept-all"),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText("cookie-consent.buttons.save"),
-    ).toBeInTheDocument()
+    expect(screen.getByText("cookie-consent.buttons.cancel")).toBeInTheDocument()
+    expect(screen.getByText("cookie-consent.buttons.accept-all")).toBeInTheDocument()
+    expect(screen.getByText("cookie-consent.buttons.save")).toBeInTheDocument()
   })
 
   it("save button saves current preferences to localStorage", async () => {
@@ -161,9 +137,7 @@ describe("CookieConsent", () => {
     await user.click(screen.getByText("cookie-consent.banner.more"))
 
     // Verify dialog is open
-    expect(
-      screen.getByText("cookie-consent.preferences-dialog.title"),
-    ).toBeInTheDocument()
+    expect(screen.getByText("cookie-consent.preferences-dialog.title")).toBeInTheDocument()
 
     const cancelButton = screen.getByText("cookie-consent.buttons.cancel")
     await user.click(cancelButton)
@@ -190,9 +164,7 @@ describe("CookieConsent", () => {
     const manageButton = screen.getByText("cookie-consent.manage")
     await user.click(manageButton)
 
-    expect(
-      screen.getByText("cookie-consent.preferences-dialog.title"),
-    ).toBeInTheDocument()
+    expect(screen.getByText("cookie-consent.preferences-dialog.title")).toBeInTheDocument()
   })
 
   it("preferences dialog shows cookie policy link", async () => {
@@ -201,9 +173,7 @@ describe("CookieConsent", () => {
 
     await user.click(screen.getByText("cookie-consent.banner.more"))
 
-    expect(
-      screen.getByText("cookie-consent.cookie-policy"),
-    ).toBeInTheDocument()
+    expect(screen.getByText("cookie-consent.cookie-policy")).toBeInTheDocument()
     const link = screen.getByText("cookie-consent.cookie-policy")
     expect(link.closest("a")).toHaveAttribute("href", "/politique-cookies")
   })
@@ -236,9 +206,7 @@ describe("CookieConsent", () => {
     expect(switches.length).toBeGreaterThan(0)
 
     // At least one switch should be disabled (the necessary one in the "all" tab)
-    const disabledSwitches = switches.filter(
-      (s) => (s as HTMLButtonElement).disabled,
-    )
+    const disabledSwitches = switches.filter((s) => (s as HTMLButtonElement).disabled)
     expect(disabledSwitches.length).toBeGreaterThan(0)
   })
 
@@ -273,15 +241,21 @@ describe("CookieConsent", () => {
 
     // Check necessary tab content (appears in "all" tab and "necessary" tab)
     expect(screen.getAllByText("cookie-consent.necessary.title").length).toBeGreaterThanOrEqual(1)
-    expect(screen.getAllByText("cookie-consent.necessary.description").length).toBeGreaterThanOrEqual(1)
+    expect(
+      screen.getAllByText("cookie-consent.necessary.description").length,
+    ).toBeGreaterThanOrEqual(1)
 
     // Check preferences tab content (appears in "all" tab and "preferences" tab)
     expect(screen.getAllByText("cookie-consent.preferences.title").length).toBeGreaterThanOrEqual(1)
-    expect(screen.getAllByText("cookie-consent.preferences.description").length).toBeGreaterThanOrEqual(1)
+    expect(
+      screen.getAllByText("cookie-consent.preferences.description").length,
+    ).toBeGreaterThanOrEqual(1)
 
     // Check analytics tab content (appears in "all" tab and "analytics" tab)
     expect(screen.getAllByText("cookie-consent.analytics.title").length).toBeGreaterThanOrEqual(1)
-    expect(screen.getAllByText("cookie-consent.analytics.description").length).toBeGreaterThanOrEqual(1)
+    expect(
+      screen.getAllByText("cookie-consent.analytics.description").length,
+    ).toBeGreaterThanOrEqual(1)
   })
 
   it("renders cookie detail items in tabs", async () => {

@@ -75,7 +75,19 @@ describe("MesServicesClient", () => {
 
   it("renders skills badges for dev category services", () => {
     render(<MesServicesClient />)
-    const devSkills = ["React", "Next.js", "Node.js", "TypeScript", "REST", "GraphQL", "Express", "Apollo", "Microservices", "ESB", "Middleware"]
+    const devSkills = [
+      "React",
+      "Next.js",
+      "Node.js",
+      "TypeScript",
+      "REST",
+      "GraphQL",
+      "Express",
+      "Apollo",
+      "Microservices",
+      "ESB",
+      "Middleware",
+    ]
     for (const skill of devSkills) {
       expect(screen.getByText(skill)).toBeInTheDocument()
     }
@@ -83,7 +95,19 @@ describe("MesServicesClient", () => {
 
   it("renders skills badges for sys category services", () => {
     render(<MesServicesClient />)
-    const sysSkills = ["AWS", "Azure", "GCP", "Kubernetes", "Docker", "Jenkins", "GitLab CI", "Ansible", "OWASP", "GDPR", "ISO 27001"]
+    const sysSkills = [
+      "AWS",
+      "Azure",
+      "GCP",
+      "Kubernetes",
+      "Docker",
+      "Jenkins",
+      "GitLab CI",
+      "Ansible",
+      "OWASP",
+      "GDPR",
+      "ISO 27001",
+    ]
     for (const skill of sysSkills) {
       expect(screen.getByText(skill)).toBeInTheDocument()
     }
@@ -91,7 +115,18 @@ describe("MesServicesClient", () => {
 
   it("renders skills badges for AI category services", () => {
     render(<MesServicesClient />)
-    const aiSkills = ["TensorFlow", "PyTorch", "Scikit-learn", "MLflow", "Kubeflow", "Apache Airflow", "Pandas", "Spark", "Tableau", "Power BI"]
+    const aiSkills = [
+      "TensorFlow",
+      "PyTorch",
+      "Scikit-learn",
+      "MLflow",
+      "Kubeflow",
+      "Apache Airflow",
+      "Pandas",
+      "Spark",
+      "Tableau",
+      "Power BI",
+    ]
     for (const skill of aiSkills) {
       expect(screen.getByText(skill)).toBeInTheDocument()
     }

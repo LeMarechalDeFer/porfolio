@@ -1,6 +1,6 @@
 import React from "react"
 import { describe, it, expect, vi, beforeEach } from "vitest"
-import { screen, fireEvent, waitFor } from "@testing-library/react"
+import { render, screen, fireEvent, waitFor } from "@testing-library/react"
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const mocks = vi.hoisted(() => require("../mocks/shared.cjs").createMocks(vi))
@@ -21,8 +21,7 @@ vi.mock("react-hook-form", () => ({
   useForm: () => ({
     control: {},
     handleSubmit:
-      (fn: (data: Record<string, string>) => unknown) =>
-      (e?: { preventDefault?: () => void }) => {
+      (fn: (data: Record<string, string>) => unknown) => (e?: { preventDefault?: () => void }) => {
         e?.preventDefault?.()
         return fn({})
       },
@@ -44,8 +43,16 @@ vi.mock("lucide-react", () => ({
 
 // UI component mocks (project-form-specific)
 vi.mock("@/components/ui/form", () => ({
-  Form: ({ children, ...props }: React.PropsWithChildren<React.HTMLAttributes<HTMLDivElement>>) => <div {...props}>{children}</div>,
-  FormField: ({ render, name }: { render: (args: { field: Record<string, unknown> }) => React.ReactNode; name: string }) => {
+  Form: ({ children, ...props }: React.PropsWithChildren<React.HTMLAttributes<HTMLDivElement>>) => (
+    <div {...props}>{children}</div>
+  ),
+  FormField: ({
+    render,
+    name,
+  }: {
+    render: (args: { field: Record<string, unknown> }) => React.ReactNode
+    name: string
+  }) => {
     const field = {
       value: "",
       onChange: vi.fn(),
@@ -53,12 +60,13 @@ vi.mock("@/components/ui/form", () => ({
       name,
       ref: vi.fn(),
     }
-    return (
-      <div data-testid={`field-${name}`}>{render({ field })}</div>
-    )
+    return <div data-testid={`field-${name}`}>{render({ field })}</div>
   },
   FormItem: ({ children }: { children?: React.ReactNode }) => <div>{children}</div>,
-  FormLabel: ({ children, ...props }: React.PropsWithChildren<React.LabelHTMLAttributes<HTMLLabelElement>>) => (
+  FormLabel: ({
+    children,
+    ...props
+  }: React.PropsWithChildren<React.LabelHTMLAttributes<HTMLLabelElement>>) => (
     <label {...props}>{children}</label>
   ),
   FormControl: ({ children }: { children?: React.ReactNode }) => <div>{children}</div>,
@@ -71,16 +79,20 @@ vi.mock("@/components/ui/select", () => ({
   SelectItem: ({ children, value }: { children?: React.ReactNode; value: string }) => (
     <option value={value}>{children}</option>
   ),
-  SelectTrigger: ({ children, ...props }: React.PropsWithChildren<React.HTMLAttributes<HTMLDivElement>>) => (
+  SelectTrigger: ({
+    children,
+    ...props
+  }: React.PropsWithChildren<React.HTMLAttributes<HTMLDivElement>>) => (
     <div {...props}>{children}</div>
   ),
   SelectValue: ({ placeholder }: { placeholder?: string }) => <span>{placeholder}</span>,
 }))
 
 vi.mock("@/components/ui/textarea", () => {
-  const Textarea = React.forwardRef<HTMLTextAreaElement, React.TextareaHTMLAttributes<HTMLTextAreaElement>>((props, ref) => (
-    <textarea ref={ref} {...props} />
-  ))
+  const Textarea = React.forwardRef<
+    HTMLTextAreaElement,
+    React.TextareaHTMLAttributes<HTMLTextAreaElement>
+  >((props, ref) => <textarea ref={ref} {...props} />)
   Textarea.displayName = "Textarea"
   return { Textarea }
 })
@@ -183,70 +195,38 @@ describe("ProjectForm", () => {
 
     expect(screen.getByText("project-form.sector.tech")).toBeInTheDocument()
     expect(screen.getByText("project-form.sector.health")).toBeInTheDocument()
-    expect(
-      screen.getByText("project-form.sector.finance"),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText("project-form.sector.education"),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText("project-form.sector.ecommerce"),
-    ).toBeInTheDocument()
+    expect(screen.getByText("project-form.sector.finance")).toBeInTheDocument()
+    expect(screen.getByText("project-form.sector.education")).toBeInTheDocument()
+    expect(screen.getByText("project-form.sector.ecommerce")).toBeInTheDocument()
     expect(screen.getByText("project-form.sector.other")).toBeInTheDocument()
   })
 
   it("renders budget select options", () => {
     render(<ProjectForm />)
 
-    expect(
-      screen.getByText("project-form.budget.less1000"),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText("project-form.budget.1000-5000"),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText("project-form.budget.5000-10000"),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText("project-form.budget.more10000"),
-    ).toBeInTheDocument()
+    expect(screen.getByText("project-form.budget.less1000")).toBeInTheDocument()
+    expect(screen.getByText("project-form.budget.1000-5000")).toBeInTheDocument()
+    expect(screen.getByText("project-form.budget.5000-10000")).toBeInTheDocument()
+    expect(screen.getByText("project-form.budget.more10000")).toBeInTheDocument()
   })
 
   it("renders timeline select options", () => {
     render(<ProjectForm />)
 
-    expect(
-      screen.getByText("project-form.timeline.urgent"),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText("project-form.timeline.1-3months"),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText("project-form.timeline.3+months"),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText("project-form.timeline.flexible"),
-    ).toBeInTheDocument()
+    expect(screen.getByText("project-form.timeline.urgent")).toBeInTheDocument()
+    expect(screen.getByText("project-form.timeline.1-3months")).toBeInTheDocument()
+    expect(screen.getByText("project-form.timeline.3+months")).toBeInTheDocument()
+    expect(screen.getByText("project-form.timeline.flexible")).toBeInTheDocument()
   })
 
   it("renders mainObjective select options", () => {
     render(<ProjectForm />)
 
-    expect(
-      screen.getByText("project-form.mainObjective.present"),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText("project-form.mainObjective.sell"),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText("project-form.mainObjective.automate"),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText("project-form.mainObjective.community"),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText("project-form.mainObjective.other"),
-    ).toBeInTheDocument()
+    expect(screen.getByText("project-form.mainObjective.present")).toBeInTheDocument()
+    expect(screen.getByText("project-form.mainObjective.sell")).toBeInTheDocument()
+    expect(screen.getByText("project-form.mainObjective.automate")).toBeInTheDocument()
+    expect(screen.getByText("project-form.mainObjective.community")).toBeInTheDocument()
+    expect(screen.getByText("project-form.mainObjective.other")).toBeInTheDocument()
   })
 
   it("submit button is not disabled when form is not submitting", () => {

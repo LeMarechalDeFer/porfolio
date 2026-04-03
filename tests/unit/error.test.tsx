@@ -8,10 +8,19 @@ const mocks = vi.hoisted(() => require("../mocks/shared.cjs").createMocks(vi))
 vi.mock("next/link", () => mocks.nextLinkMock)
 
 vi.mock("@/components/ui/button", () => ({
-  Button: ({ children, onClick, asChild, ...props }: React.PropsWithChildren<React.HTMLAttributes<HTMLElement> & { asChild?: boolean }>) => {
+  Button: ({
+    children,
+    onClick,
+    asChild,
+    ...props
+  }: React.PropsWithChildren<React.HTMLAttributes<HTMLElement> & { asChild?: boolean }>) => {
     if (asChild) {
       // When asChild is used, render the child directly but keep button semantics
-      return <div data-testid="as-child-button" {...props}>{children}</div>
+      return (
+        <div data-testid="as-child-button" {...props}>
+          {children}
+        </div>
+      )
     }
     return (
       <button onClick={onClick} {...props}>

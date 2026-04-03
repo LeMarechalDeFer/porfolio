@@ -13,7 +13,9 @@ vi.mock("@/locales/server", () => ({
 }))
 
 vi.mock("@/locales/client", () => ({
-  I18nProviderClient: ({ children }: { children?: React.ReactNode }) => <div data-testid="i18n-provider">{children}</div>,
+  I18nProviderClient: ({ children }: { children?: React.ReactNode }) => (
+    <div data-testid="i18n-provider">{children}</div>
+  ),
 }))
 
 vi.mock("next/font/google", () => ({
@@ -50,7 +52,9 @@ vi.mock("@vercel/analytics/react", () => ({
 }))
 
 vi.mock("@/components/landingPage/theme-provider", () => ({
-  ThemeProvider: ({ children }: { children?: React.ReactNode }) => <div data-testid="theme-provider">{children}</div>,
+  ThemeProvider: ({ children }: { children?: React.ReactNode }) => (
+    <div data-testid="theme-provider">{children}</div>
+  ),
 }))
 
 vi.mock("@/components/schema-dts", () => ({
@@ -60,11 +64,18 @@ vi.mock("@/components/schema-dts", () => ({
 }))
 
 vi.mock("next/script", () => ({
-  default: ({ children, ...props }: { children?: React.ReactNode } & React.ScriptHTMLAttributes<HTMLScriptElement>) => <script {...props}>{children}</script>,
+  default: ({
+    children,
+    ...props
+  }: { children?: React.ReactNode } & React.ScriptHTMLAttributes<HTMLScriptElement>) => (
+    <script {...props}>{children}</script>
+  ),
 }))
 
 vi.mock("@/components/my-statsig", () => ({
-  default: ({ children }: { children?: React.ReactNode }) => <div data-testid="statsig">{children}</div>,
+  default: ({ children }: { children?: React.ReactNode }) => (
+    <div data-testid="statsig">{children}</div>
+  ),
 }))
 
 describe("RootLayout", () => {

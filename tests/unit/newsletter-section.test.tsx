@@ -26,10 +26,11 @@ vi.mock("@/app/[locale]/actions/action.newsletter", () => ({
 vi.mock("react-hook-form", () => ({
   useForm: () => ({
     control: {},
-    handleSubmit: (fn: (data: Record<string, string>) => unknown) => (e?: { preventDefault?: () => void }) => {
-      e?.preventDefault()
-      fn({ email: "test@test.com" })
-    },
+    handleSubmit:
+      (fn: (data: Record<string, string>) => unknown) => (e?: { preventDefault?: () => void }) => {
+        e?.preventDefault()
+        fn({ email: "test@test.com" })
+      },
     formState: { isSubmitting: false },
     reset: vi.fn(),
     setValue: vi.fn(),

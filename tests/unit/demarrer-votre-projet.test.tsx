@@ -10,8 +10,15 @@ vi.mock("@/locales/server", () => mocks.localesServerMock)
 vi.mock("next/image", () => mocks.nextImageNoPlaceholderMock)
 vi.mock("@/components/ui/button", () => mocks.buttonSimpleMock)
 vi.mock("@/components/ui/card", () => ({
-  Card: ({ children, ...props }: React.PropsWithChildren<React.HTMLAttributes<HTMLDivElement>>) => <div {...props}>{children}</div>,
-  CardContent: ({ children, ...props }: React.PropsWithChildren<React.HTMLAttributes<HTMLDivElement>>) => <div {...props}>{children}</div>,
+  Card: ({ children, ...props }: React.PropsWithChildren<React.HTMLAttributes<HTMLDivElement>>) => (
+    <div {...props}>{children}</div>
+  ),
+  CardContent: ({
+    children,
+    ...props
+  }: React.PropsWithChildren<React.HTMLAttributes<HTMLDivElement>>) => (
+    <div {...props}>{children}</div>
+  ),
   CardHeader: ({ children }: { children?: React.ReactNode }) => <div>{children}</div>,
   CardTitle: ({ children }: { children?: React.ReactNode }) => <h3>{children}</h3>,
 }))
@@ -21,7 +28,12 @@ vi.mock("@/components/reservation/project-form", () => ({
 }))
 
 vi.mock("@/components/ui/carousel", () => ({
-  Carousel: ({ children, ...props }: React.PropsWithChildren<React.HTMLAttributes<HTMLDivElement>>) => <div {...props}>{children}</div>,
+  Carousel: ({
+    children,
+    ...props
+  }: React.PropsWithChildren<React.HTMLAttributes<HTMLDivElement>>) => (
+    <div {...props}>{children}</div>
+  ),
   CarouselContent: ({ children }: { children?: React.ReactNode }) => <div>{children}</div>,
   CarouselItem: ({ children }: { children?: React.ReactNode }) => <div>{children}</div>,
   CarouselNext: () => <button>Next</button>,
@@ -30,9 +42,8 @@ vi.mock("@/components/ui/carousel", () => ({
 
 describe("DemarrerVotreProjet page", () => {
   it("renders page title and subtitle", async () => {
-    const { default: DemarrerVotreProjet } = await import(
-      "@/app/[locale]/demarrer-votre-projet/page"
-    )
+    const { default: DemarrerVotreProjet } =
+      await import("@/app/[locale]/demarrer-votre-projet/page")
     const params = Promise.resolve({ locale: "fr" })
     const element = await DemarrerVotreProjet({ params })
     render(element as React.ReactElement)
@@ -42,9 +53,8 @@ describe("DemarrerVotreProjet page", () => {
   })
 
   it("renders project form", async () => {
-    const { default: DemarrerVotreProjet } = await import(
-      "@/app/[locale]/demarrer-votre-projet/page"
-    )
+    const { default: DemarrerVotreProjet } =
+      await import("@/app/[locale]/demarrer-votre-projet/page")
     const params = Promise.resolve({ locale: "fr" })
     const element = await DemarrerVotreProjet({ params })
     render(element as React.ReactElement)
@@ -53,9 +63,8 @@ describe("DemarrerVotreProjet page", () => {
   })
 
   it("renders process steps", async () => {
-    const { default: DemarrerVotreProjet } = await import(
-      "@/app/[locale]/demarrer-votre-projet/page"
-    )
+    const { default: DemarrerVotreProjet } =
+      await import("@/app/[locale]/demarrer-votre-projet/page")
     const params = Promise.resolve({ locale: "fr" })
     const element = await DemarrerVotreProjet({ params })
     render(element as React.ReactElement)
@@ -66,9 +75,8 @@ describe("DemarrerVotreProjet page", () => {
   })
 
   it("renders why section", async () => {
-    const { default: DemarrerVotreProjet } = await import(
-      "@/app/[locale]/demarrer-votre-projet/page"
-    )
+    const { default: DemarrerVotreProjet } =
+      await import("@/app/[locale]/demarrer-votre-projet/page")
     const params = Promise.resolve({ locale: "fr" })
     const element = await DemarrerVotreProjet({ params })
     render(element as React.ReactElement)
@@ -78,9 +86,8 @@ describe("DemarrerVotreProjet page", () => {
   })
 
   it("renders testimonials", async () => {
-    const { default: DemarrerVotreProjet } = await import(
-      "@/app/[locale]/demarrer-votre-projet/page"
-    )
+    const { default: DemarrerVotreProjet } =
+      await import("@/app/[locale]/demarrer-votre-projet/page")
     const params = Promise.resolve({ locale: "fr" })
     const element = await DemarrerVotreProjet({ params })
     render(element as React.ReactElement)
@@ -90,9 +97,8 @@ describe("DemarrerVotreProjet page", () => {
   })
 
   it("renders CTA section with image", async () => {
-    const { default: DemarrerVotreProjet } = await import(
-      "@/app/[locale]/demarrer-votre-projet/page"
-    )
+    const { default: DemarrerVotreProjet } =
+      await import("@/app/[locale]/demarrer-votre-projet/page")
     const params = Promise.resolve({ locale: "fr" })
     const element = await DemarrerVotreProjet({ params })
     render(element as React.ReactElement)
