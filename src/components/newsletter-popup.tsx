@@ -7,16 +7,12 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
-import { toast } from "sonner"
 import { X, Send, Sparkles, Loader2 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useI18n, useCurrentLocale } from "@/locales/client"
 import RomainBlanchot from "@/public/photoProfilRomain.jpg"
 
-import { newsletterSchema, NewsletterSchemaType } from "@/lib/schema/schema.newsletter"
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
 import {
   Form,
   FormField,
@@ -25,7 +21,7 @@ import {
   FormControl,
   FormMessage,
 } from "@/components/ui/form"
-import { subscribeToNewsletter } from "@/app/[locale]/actions/action.newsletter"
+import { useNewsletterForm } from "@/hooks/use-newsletter-form"
 
 // 🕐 Délais en millisecondes - déplacés à l'extérieur du composant
 const TIME_ON_SITE = 60 * 1000 // 60 secondes
@@ -39,41 +35,7 @@ export default function NewsletterPopup() {
   const t = useI18n()
   const currentLocale = useCurrentLocale()
 
-  const form = useForm<NewsletterSchemaType>({
-    resolver: zodResolver(newsletterSchema(t)),
-    defaultValues: {
-      email: "",
-      // name: "",
-      language: currentLocale,
-    },
-  })
-
-  useEffect(() => {
-    form.setValue("language", currentLocale)
-  }, [currentLocale, form.setValue, form])
-
-  const onSubmit = async (data: NewsletterSchemaType) => {
-    try {
-      console.log("data", data)
-      const response = await subscribeToNewsletter(data)
-
-      if (response.success) {
-        toast.success(t("newsletter.success.title"), {
-          description: t("newsletter.success.description"),
-        })
-        form.reset()
-      } else {
-        toast.error(t("newsletter.error.title"), {
-          description: t("newsletter.error.description"),
-        })
-      }
-    } catch (error) {
-      console.error("Erreur lors de l'envoi du formulaire:", error)
-      toast.error(t("newsletter.error.title"), {
-        description: t("newsletter.error.description"),
-      })
-    }
-  }
+  const { form, onSubmit } = useNewsletterForm({ t, currentLocale })
 
   /* eslint-disable react-hooks/set-state-in-effect -- localStorage reads on mount require setState for hydration safety */
   useEffect(() => {

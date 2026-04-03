@@ -2,10 +2,8 @@
 
 import { newsletterSchema, NewsletterSchemaType } from "@/lib/schema/schema.newsletter"
 import { getI18n } from "@/locales/server"
-import { Resend } from "resend"
 import { WelcomeNewsletter } from "@/components/email/welcomeNewsletter-Email"
-
-const resend = new Resend(process.env.RESEND_API_KEY as string)
+import { resend, REPLY_TO } from "@/lib/resend"
 
 export async function subscribeToNewsletter(data: NewsletterSchemaType) {
   const t = await getI18n()
@@ -38,7 +36,7 @@ export async function subscribeToNewsletter(data: NewsletterSchemaType) {
         email: parsed.data.email,
         language: parsed.data.language ?? "fr",
       }),
-      replyTo: "romainblanchot0@gmail.com",
+      replyTo: REPLY_TO,
     })
 
     return { success: true, message: t("newsletter.success.description") }

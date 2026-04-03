@@ -2,10 +2,8 @@
 
 import { projectFormSchema, ProjectFormSchema } from "@/lib/schema/schema.project-form"
 import { getI18n, getCurrentLocale } from "@/locales/server"
-import { Resend } from "resend"
 import { ProjectFormEmail } from "@/components/email/projectForm-Email"
-
-const resend = new Resend(process.env.RESEND_API_KEY as string)
+import { resend, REPLY_TO } from "@/lib/resend"
 export async function projectFormRequest(data: ProjectFormSchema) {
   const locale = await getCurrentLocale()
   const t = await getI18n()
@@ -72,7 +70,7 @@ export async function projectFormRequest(data: ProjectFormSchema) {
         otherDetails,
         language: locale,
       }),
-      replyTo: "romainblanchot0@gmail.com",
+      replyTo: REPLY_TO,
     })
 
     return { success: true, message: t("project-form.email.subject") }

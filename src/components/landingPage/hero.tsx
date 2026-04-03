@@ -1,10 +1,7 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { Mail, ArrowRight, CheckCircle } from "lucide-react"
-import { FaXTwitter } from "react-icons/fa6"
-import { LuGithub, LuYoutube } from "react-icons/lu"
-import { FiFacebook, FiLinkedin } from "react-icons/fi"
-import { RiTiktokLine } from "react-icons/ri"
+import { ArrowRight, CheckCircle } from "lucide-react"
+import { SocialLinks } from "@/components/social-links"
 import { getI18n } from "@/locales/server"
 import { setStaticParamsLocale } from "next-international/server"
 import HeroAnimated from "./heroAnimated"
@@ -73,59 +70,11 @@ export default async function Hero({ params }: Readonly<{ params: Promise<{ loca
           </div>
           <HeroAnimated />
         </div>
-        <div className="mx-auto mt-8 flex max-w-[280px] flex-wrap justify-center gap-4 sm:mt-10 sm:max-w-none lg:mt-12 lg:justify-start">
-          <Link href="https://github.com/LeMarechalDeFer" target="_blank" rel="noopener noreferrer">
-            <Button variant="ghost" size="icon" aria-label="GitHub" className="rounded-full">
-              <LuGithub className="h-5 w-5" />
-            </Button>
-          </Link>
-          <Link
-            href="https://www.linkedin.com/in/romain-blanchot-449941284/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button variant="ghost" size="icon" aria-label="LinkedIn" className="rounded-full">
-              <FiLinkedin className="h-5 w-5" />
-            </Button>
-          </Link>
-          <Link href="mailto:blanchot@et.esiea.fr">
-            <Button variant="ghost" size="icon" aria-label="Email" className="rounded-full">
-              <Mail className="h-5 w-5" />
-            </Button>
-          </Link>
-          <Link href="https://x.com/talleyrand1000" target="_blank" rel="noopener noreferrer">
-            <Button variant="ghost" size="icon" aria-label="Twitter" className="rounded-full">
-              <FaXTwitter className="h-5 w-5" />
-            </Button>
-          </Link>
-          <Link
-            href="https://www.tiktok.com/@romain.blanchot"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button variant="ghost" size="icon" aria-label="TikTok" className="rounded-full">
-              <RiTiktokLine className="h-5 w-5" />
-            </Button>
-          </Link>
-          <Link
-            href="https://web.facebook.com/people/Romain-Blanchot/pfbid034Hz3fp8rLVBXKJkS31RF8pCSVCVbN7zGtNZZR53GZmwHgyxizSupZj9J1Qact2Nzl/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button variant="ghost" size="icon" aria-label="Facebook" className="rounded-full">
-              <FiFacebook className="h-5 w-5" />
-            </Button>
-          </Link>
-          <Link
-            href="https://www.youtube.com/@romainblanchot"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button variant="ghost" size="icon" aria-label="Youtube" className="rounded-full">
-              <LuYoutube className="h-5 w-5" />
-            </Button>
-          </Link>
-        </div>
+        <SocialLinks
+          variant="ghost"
+          className="mx-auto mt-8 flex max-w-[280px] flex-wrap justify-center gap-4 sm:mt-10 sm:max-w-none lg:mt-12 lg:justify-start"
+          buttonClassName="rounded-full"
+        />
       </div>
     </section>
   )

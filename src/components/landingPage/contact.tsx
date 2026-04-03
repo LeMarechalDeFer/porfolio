@@ -2,16 +2,11 @@
 
 import { useI18n } from "@/locales/client"
 import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Mail, MapPin, Phone } from "lucide-react"
 import Link from "next/link"
 import ProjectForm from "../reservation/project-form"
-import { FiLinkedin, FiFacebook } from "react-icons/fi"
-import { LuGithub, LuYoutube } from "react-icons/lu"
-import { FaXTwitter } from "react-icons/fa6"
-import { RiTiktokLine } from "react-icons/ri"
-import { FaInstagram } from "react-icons/fa"
+import { SocialLinks } from "@/components/social-links"
 
 export default function Contact() {
   const t = useI18n()
@@ -79,77 +74,11 @@ export default function Contact() {
               ))}
             </div>
 
-            <div className="flex flex-wrap justify-center gap-4 pt-4">
-              <Link
-                href="https://github.com/LeMarechalDeFer"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button variant="outline" size="icon" aria-label="GitHub">
-                  <LuGithub className="h-5 w-5" />
-                </Button>
-              </Link>
-              <Link
-                href="https://www.linkedin.com/in/romain-blanchot-449941284/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button variant="outline" size="icon" aria-label="LinkedIn">
-                  <FiLinkedin className="h-5 w-5" />
-                </Button>
-              </Link>
-              <Link
-                href="https://www.instagram.com/_romain_blanchot_/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button variant="outline" size="icon" aria-label="Instagram">
-                  <FaInstagram className="h-5 w-5" />
-                </Button>
-              </Link>
-              <Link href="mailto:blanchot@et.esiea.fr">
-                <Button
-                  variant="outline"
-                  size="icon"
-                  aria-label="Email"
-                  onClick={() => (globalThis.location.href = "mailto:blanchot@et.esiea.fr")}
-                >
-                  <Mail className="h-5 w-5" />
-                </Button>
-              </Link>
-              <Link href="https://x.com/talleyrand1000" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="icon" aria-label="Twitter">
-                  <FaXTwitter className="h-5 w-5" />
-                </Button>
-              </Link>
-              <Link
-                href="https://www.tiktok.com/@romain.blanchot"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button variant="outline" size="icon" aria-label="TikTok">
-                  <RiTiktokLine className="h-5 w-5" />
-                </Button>
-              </Link>
-              <Link
-                href="https://web.facebook.com/people/Romain-Blanchot/pfbid034Hz3fp8rLVBXKJkS31RF8pCSVCVbN7zGtNZZR53GZmwHgyxizSupZj9J1Qact2Nzl/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button variant="outline" size="icon" aria-label="Facebook">
-                  <FiFacebook className="h-5 w-5" />
-                </Button>
-              </Link>
-              <Link
-                href="https://www.youtube.com/@romainblanchot"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button variant="outline" size="icon" aria-label="Youtube">
-                  <LuYoutube className="h-5 w-5" />
-                </Button>
-              </Link>
-            </div>
+            <SocialLinks
+              variant="outline"
+              className="flex flex-wrap justify-center gap-4 pt-4"
+              include={["github", "linkedin", "instagram", "email", "twitter", "tiktok", "facebook", "youtube"]}
+            />
           </motion.div>
 
           <motion.div
