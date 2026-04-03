@@ -16,6 +16,7 @@ vi.mock("resend", () => ({
 // Mock next-international server
 vi.mock("@/locales/server", () => ({
   getI18n: vi.fn().mockResolvedValue((key: string) => key),
+  getCurrentLocale: vi.fn().mockResolvedValue("fr"),
 }))
 
 // Mock react email component

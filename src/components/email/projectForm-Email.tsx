@@ -13,9 +13,12 @@ import {
 } from "@react-email/components"
 import * as React from "react"
 import { getI18n } from "@/locales/server"
+import { setStaticParamsLocale } from "next-international/server"
 import { ProjectFormSchema } from "@/lib/schema/schema.project-form"
 
-export async function ProjectFormEmail(props: ProjectFormSchema) {
+export async function ProjectFormEmail(props: ProjectFormSchema & { language: string }) {
+  const { language, ...formData } = props
+  setStaticParamsLocale(language)
   const t = await getI18n()
   const {
     name,
@@ -31,7 +34,7 @@ export async function ProjectFormEmail(props: ProjectFormSchema) {
     expectedResults,
     technicalPreferences,
     otherDetails,
-  } = props
+  } = formData
 
   return (
     <Html>
