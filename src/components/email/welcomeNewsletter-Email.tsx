@@ -14,13 +14,16 @@ import {
 } from "@react-email/components"
 import * as React from "react"
 import { getI18n } from "@/locales/server"
+import { setStaticParamsLocale } from "next-international/server"
 
 type WelcomeNewsletterProps = {
   email: string
+  language: string
 }
 
 export async function WelcomeNewsletter(props: WelcomeNewsletterProps) {
-  const { email } = props
+  const { email, language } = props
+  setStaticParamsLocale(language)
   const t = await getI18n()
 
   return (

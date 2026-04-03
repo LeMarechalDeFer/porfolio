@@ -1,11 +1,6 @@
-import { Mail } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Newsletter } from "@/components/landingPage/newsletter"
-import { RiTiktokLine } from "react-icons/ri"
-import { FiFacebook, FiLinkedin } from "react-icons/fi"
-import { FaXTwitter } from "react-icons/fa6"
-import { LuGithub } from "react-icons/lu"
+import { SocialLinks } from "@/components/social-links"
 import { getI18n } from "@/locales/server"
 import { setStaticParamsLocale } from "next-international/server"
 
@@ -23,54 +18,12 @@ export default async function Footer({
           <div className="space-y-4">
             <h2 className="text-2xl font-bold">{t("footer.name")}</h2>
             <p className="text-muted-foreground text-sm">{t("footer.description")}</p>
-            <div className="flex space-x-2">
-              <Link
-                href="https://github.com/LeMarechalDeFer"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button variant="ghost" size="icon" aria-label="GitHub" className="rounded-full">
-                  <LuGithub className="h-5 w-5" />
-                </Button>
-              </Link>
-              <Link
-                href="https://www.linkedin.com/in/romain-blanchot-449941284/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button variant="ghost" size="icon" aria-label="LinkedIn" className="rounded-full">
-                  <FiLinkedin className="h-5 w-5" />
-                </Button>
-              </Link>
-              <Link href="mailto:blanchot@et.esiea.fr">
-                <Button variant="ghost" size="icon" aria-label="Email" className="rounded-full">
-                  <Mail className="h-5 w-5" />
-                </Button>
-              </Link>
-              <Link href="https://x.com/talleyrand1000" target="_blank" rel="noopener noreferrer">
-                <Button variant="ghost" size="icon" aria-label="Twitter" className="rounded-full">
-                  <FaXTwitter className="h-5 w-5" />
-                </Button>
-              </Link>
-              <Link
-                href="https://www.tiktok.com/@romain.blanchot"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button variant="ghost" size="icon" aria-label="TikTok" className="rounded-full">
-                  <RiTiktokLine className="h-5 w-5" />
-                </Button>
-              </Link>
-              <Link
-                href="https://web.facebook.com/people/Romain-Blanchot/pfbid034Hz3fp8rLVBXKJkS31RF8pCSVCVbN7zGtNZZR53GZmwHgyxizSupZj9J1Qact2Nzl/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button variant="ghost" size="icon" aria-label="Facebook" className="rounded-full">
-                  <FiFacebook className="h-5 w-5" />
-                </Button>
-              </Link>
-            </div>
+            <SocialLinks
+              variant="ghost"
+              className="flex space-x-2"
+              buttonClassName="rounded-full"
+              include={["github", "linkedin", "email", "twitter", "tiktok", "facebook"]}
+            />
           </div>
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">{t("footer.services.title")}</h3>
