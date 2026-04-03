@@ -107,7 +107,7 @@ export function SocialLinks({
   className,
   buttonClassName,
   include = defaultPlatforms,
-}: SocialLinksProps) {
+}: Readonly<SocialLinksProps>) {
   const links = allSocialLinks.filter((link) => include.includes(link.platform))
 
   return (

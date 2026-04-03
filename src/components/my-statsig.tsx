@@ -5,11 +5,10 @@
 import React, { useEffect, useState } from "react"
 import { StatsigProvider, useClientAsyncInit } from "@statsig/react-bindings"
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type StatsigPlugin = any
+type StatsigPlugins = NonNullable<NonNullable<Parameters<typeof useClientAsyncInit>[2]>["plugins"]>
 
-export default function MyStatsig({ children }: { children: React.ReactNode }) {
-  const [plugins, setPlugins] = useState<StatsigPlugin[]>()
+export default function MyStatsig({ children }: Readonly<{ children: React.ReactNode }>) {
+  const [plugins, setPlugins] = useState<StatsigPlugins>()
 
   useEffect(() => {
     async function loadPlugins() {
